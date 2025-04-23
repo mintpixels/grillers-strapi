@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_home_shop_collections",
+  "info": {
+    "displayName": "ShopCollections",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Collections": {
+      "displayName": "CollectionCard",
+      "type": "component",
+      "repeatable": true,
+      "component": "common.collection-card"
+    }
+  }
+}

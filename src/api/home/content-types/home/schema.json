@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "homes",
+  "info": {
+    "singularName": "home",
+    "pluralName": "homes",
+    "displayName": "Home",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Sections": {
+      "type": "dynamiczone",
+      "components": [
+        "home.hero",
+        "home.bestsellers",
+        "home.kosher-promise",
+        "home.shop-collections",
+        "home.testimonial",
+        "home.follow-us",
+        "home.blog-explore"
+      ]
+    }
+  }
+}

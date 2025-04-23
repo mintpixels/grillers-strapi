@@ -1,0 +1,57 @@
+{
+  "collectionName": "components_home_kosher_promises",
+  "info": {
+    "displayName": "KosherPromise",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "TopLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Content": {
+      "type": "blocks"
+    },
+    "BadgeImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "FeatureText": {
+      "type": "string"
+    },
+    "FeatureImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Link": {
+      "displayName": "Link",
+      "type": "component",
+      "repeatable": false,
+      "component": "common.link"
+    }
+  }
+}

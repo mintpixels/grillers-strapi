@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_home_bestsellers",
+  "info": {
+    "displayName": "Bestsellers",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Products": {
+      "displayName": "ProductCard",
+      "type": "component",
+      "repeatable": true,
+      "component": "common.product-card"
+    }
+  }
+}
