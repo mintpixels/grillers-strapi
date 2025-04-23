@@ -133,7 +133,7 @@ export interface HomeTestimonial extends Struct.ComponentSchema {
   };
   attributes: {
     Author: Schema.Attribute.String;
-    backgroundImage: Schema.Attribute.Media<
+    BackgroundImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
     Quote: Schema.Attribute.Blocks;

@@ -6,7 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "backgroundImage": {
+    "BackgroundImage": {
       "type": "media",
       "multiple": false,
       "required": false,
