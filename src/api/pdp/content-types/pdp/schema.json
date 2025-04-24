@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "pdps",
+  "info": {
+    "singularName": "pdp",
+    "pluralName": "pdps",
+    "displayName": "Pdp",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "HowItWorks": {
+      "type": "component",
+      "repeatable": false,
+      "component": "pdp.how-it-works"
+    },
+    "WhyUs": {
+      "type": "component",
+      "repeatable": false,
+      "component": "pdp.why-us"
+    }
+  }
+}

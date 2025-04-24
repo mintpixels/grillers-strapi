@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_common_why_us_lists",
+  "info": {
+    "displayName": "WhyUsList"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    }
+  }
+}

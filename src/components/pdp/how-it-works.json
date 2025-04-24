@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_pdp_how_it_works",
+  "info": {
+    "displayName": "HowItWorks"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Cards": {
+      "displayName": "HowItWorksCard",
+      "type": "component",
+      "repeatable": true,
+      "component": "common.how-it-works-card"
+    }
+  }
+}

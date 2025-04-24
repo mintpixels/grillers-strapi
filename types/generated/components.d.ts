@@ -12,6 +12,17 @@ export interface CommonCollectionCard extends Struct.ComponentSchema {
   };
 }
 
+export interface CommonHowItWorksCard extends Struct.ComponentSchema {
+  collectionName: 'components_common_how_it_works_cards';
+  info: {
+    displayName: 'HowItWorksCard';
+  };
+  attributes: {
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Text: Schema.Attribute.Text;
+  };
+}
+
 export interface CommonLink extends Struct.ComponentSchema {
   collectionName: 'components_common_links';
   info: {
@@ -35,6 +46,17 @@ export interface CommonProductCard extends Struct.ComponentSchema {
     Price: Schema.Attribute.Decimal & Schema.Attribute.Required;
     Slug: Schema.Attribute.String & Schema.Attribute.Required;
     Title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface CommonWhyUsList extends Struct.ComponentSchema {
+  collectionName: 'components_common_why_us_lists';
+  info: {
+    displayName: 'WhyUsList';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    Title: Schema.Attribute.String;
   };
 }
 
@@ -140,6 +162,30 @@ export interface HomeTestimonial extends Struct.ComponentSchema {
   };
 }
 
+export interface PdpHowItWorks extends Struct.ComponentSchema {
+  collectionName: 'components_pdp_how_it_works';
+  info: {
+    displayName: 'HowItWorks';
+  };
+  attributes: {
+    Cards: Schema.Attribute.Component<'common.how-it-works-card', true>;
+    Description: Schema.Attribute.Text;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface PdpWhyUs extends Struct.ComponentSchema {
+  collectionName: 'components_pdp_whyuses';
+  info: {
+    displayName: 'WhyUs';
+  };
+  attributes: {
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    List: Schema.Attribute.Component<'common.why-us-list', true>;
+    Title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -206,8 +252,10 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'common.collection-card': CommonCollectionCard;
+      'common.how-it-works-card': CommonHowItWorksCard;
       'common.link': CommonLink;
       'common.product-card': CommonProductCard;
+      'common.why-us-list': CommonWhyUsList;
       'home.bestsellers': HomeBestsellers;
       'home.blog-explore': HomeBlogExplore;
       'home.follow-us': HomeFollowUs;
@@ -215,6 +263,8 @@ declare module '@strapi/strapi' {
       'home.kosher-promise': HomeKosherPromise;
       'home.shop-collections': HomeShopCollections;
       'home.testimonial': HomeTestimonial;
+      'pdp.how-it-works': PdpHowItWorks;
+      'pdp.why-us': PdpWhyUs;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_pdp_whyuses",
+  "info": {
+    "displayName": "WhyUs"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "List": {
+      "displayName": "WhyUsList",
+      "type": "component",
+      "repeatable": true,
+      "component": "common.why-us-list"
+    }
+  }
+}
