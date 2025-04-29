@@ -571,6 +571,7 @@ export interface ApiPdpPdp extends Struct.SingleTypeSchema {
 export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
+    description: '';
     displayName: 'Product';
     pluralName: 'products';
     singularName: 'product';
@@ -582,6 +583,13 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    FeaturedImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    GalleryImages: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -591,8 +599,44 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     medusa_product_id: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    Metadata: Schema.Attribute.Component<'pdp.product-metadata', false>;
     publishedAt: Schema.Attribute.DateTime;
+    Recipe: Schema.Attribute.Relation<'manyToOne', 'api::recipe.recipe'>;
     Title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRecipeRecipe extends Struct.CollectionTypeSchema {
+  collectionName: 'recipes';
+  info: {
+    description: '';
+    displayName: 'Recipe';
+    pluralName: 'recipes';
+    singularName: 'recipe';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::recipe.recipe'
+    > &
+      Schema.Attribute.Private;
+    Products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
+    publishedAt: Schema.Attribute.DateTime;
+    ShortDescription: Schema.Attribute.Text;
+    Slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1115,6 +1159,7 @@ declare module '@strapi/strapi' {
       'api::home.home': ApiHomeHome;
       'api::pdp.pdp': ApiPdpPdp;
       'api::product.product': ApiProductProduct;
+      'api::recipe.recipe': ApiRecipeRecipe;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

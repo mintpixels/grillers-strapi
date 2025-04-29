@@ -174,6 +174,22 @@ export interface PdpHowItWorks extends Struct.ComponentSchema {
   };
 }
 
+export interface PdpProductMetadata extends Struct.ComponentSchema {
+  collectionName: 'components_pdp_product_metadata';
+  info: {
+    displayName: 'ProductMetadata';
+  };
+  attributes: {
+    AvgPackSize: Schema.Attribute.String;
+    AvgPackWeight: Schema.Attribute.String;
+    Cooked: Schema.Attribute.Boolean;
+    GlutenFree: Schema.Attribute.Boolean;
+    PiecesPerPack: Schema.Attribute.Integer;
+    Serves: Schema.Attribute.String;
+    Uncooked: Schema.Attribute.Boolean;
+  };
+}
+
 export interface PdpWhyUs extends Struct.ComponentSchema {
   collectionName: 'components_pdp_whyuses';
   info: {
@@ -264,6 +280,7 @@ declare module '@strapi/strapi' {
       'home.shop-collections': HomeShopCollections;
       'home.testimonial': HomeTestimonial;
       'pdp.how-it-works': PdpHowItWorks;
+      'pdp.product-metadata': PdpProductMetadata;
       'pdp.why-us': PdpWhyUs;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;

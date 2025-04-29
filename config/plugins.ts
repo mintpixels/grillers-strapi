@@ -1,4 +1,8 @@
 export default () => ({
+  // slugify: {
+  //   enabled: true,
+  //   config: {},
+  // },
   graphql: {
     config: {
       endpoint: "/graphql",
