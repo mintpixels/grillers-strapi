@@ -36,12 +36,6 @@
     },
     "Content": {
       "type": "blocks"
-    },
-    "Products": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::product.product",
-      "mappedBy": "Recipe"
     }
   }
 }

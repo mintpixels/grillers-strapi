@@ -46,11 +46,10 @@
       "repeatable": false,
       "component": "pdp.product-metadata"
     },
-    "Recipe": {
+    "Recipes": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::recipe.recipe",
-      "inversedBy": "Products"
+      "relation": "oneToMany",
+      "target": "api::recipe.recipe"
     }
   }
 }

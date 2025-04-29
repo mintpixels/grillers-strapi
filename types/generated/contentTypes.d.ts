@@ -601,7 +601,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       Schema.Attribute.Unique;
     Metadata: Schema.Attribute.Component<'pdp.product-metadata', false>;
     publishedAt: Schema.Attribute.DateTime;
-    Recipe: Schema.Attribute.Relation<'manyToOne', 'api::recipe.recipe'>;
+    Recipes: Schema.Attribute.Relation<'oneToMany', 'api::recipe.recipe'>;
     Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -632,7 +632,6 @@ export interface ApiRecipeRecipe extends Struct.CollectionTypeSchema {
       'api::recipe.recipe'
     > &
       Schema.Attribute.Private;
-    Products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     ShortDescription: Schema.Attribute.Text;
     Slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
