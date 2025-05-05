@@ -210,7 +210,7 @@ export interface RecipeIngredient extends Struct.ComponentSchema {
     icon: 'carrot';
   };
   attributes: {
-    ingredient: Schema.Attribute.String;
+    ingredient: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -222,7 +222,7 @@ export interface RecipeStep extends Struct.ComponentSchema {
     icon: 'list-ol';
   };
   attributes: {
-    instruction: Schema.Attribute.Text;
+    instruction: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
 
