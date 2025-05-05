@@ -202,6 +202,30 @@ export interface PdpWhyUs extends Struct.ComponentSchema {
   };
 }
 
+export interface RecipeIngredient extends Struct.ComponentSchema {
+  collectionName: 'components_recipe_ingredients';
+  info: {
+    description: 'Single ingredient with amount and name';
+    displayName: 'Ingredient';
+    icon: 'carrot';
+  };
+  attributes: {
+    ingredient: Schema.Attribute.Text;
+  };
+}
+
+export interface RecipeStep extends Struct.ComponentSchema {
+  collectionName: 'components_recipe_steps';
+  info: {
+    description: 'Instruction step for recipe';
+    displayName: 'Step';
+    icon: 'list-ol';
+  };
+  attributes: {
+    instruction: Schema.Attribute.Text;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -282,6 +306,8 @@ declare module '@strapi/strapi' {
       'pdp.how-it-works': PdpHowItWorks;
       'pdp.product-metadata': PdpProductMetadata;
       'pdp.why-us': PdpWhyUs;
+      'recipe.ingredient': RecipeIngredient;
+      'recipe.step': RecipeStep;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

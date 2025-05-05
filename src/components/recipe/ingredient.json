@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_recipe_ingredients",
+  "info": {
+    "displayName": "Ingredient",
+    "icon": "carrot",
+    "description": "Single ingredient with amount and name"
+  },
+  "options": {},
+  "attributes": {
+    "ingredient": {
+      "type": "text"
+    }
+  }
+}

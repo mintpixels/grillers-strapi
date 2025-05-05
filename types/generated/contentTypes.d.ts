@@ -612,7 +612,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
 export interface ApiRecipeRecipe extends Struct.CollectionTypeSchema {
   collectionName: 'recipes';
   info: {
-    description: '';
+    description: 'Structured recipe content type';
     displayName: 'Recipe';
     pluralName: 'recipes';
     singularName: 'recipe';
@@ -621,21 +621,29 @@ export interface ApiRecipeRecipe extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Content: Schema.Attribute.Blocks;
+    CookTime: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Image: Schema.Attribute.Media<'images'>;
+    Ingredients: Schema.Attribute.Component<'recipe.ingredient', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::recipe.recipe'
     > &
       Schema.Attribute.Private;
+    NutritionalInfo: Schema.Attribute.Text;
+    PrepTime: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    PublishedDate: Schema.Attribute.Date;
+    Servings: Schema.Attribute.String;
     ShortDescription: Schema.Attribute.Text;
     Slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
+    Steps: Schema.Attribute.Component<'recipe.step', true>;
+    Tags: Schema.Attribute.String;
     Title: Schema.Attribute.String & Schema.Attribute.Required;
+    TotalTime: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

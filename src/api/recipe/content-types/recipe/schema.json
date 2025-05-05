@@ -5,7 +5,7 @@
     "singularName": "recipe",
     "pluralName": "recipes",
     "displayName": "Recipe",
-    "description": ""
+    "description": "Structured recipe content type"
   },
   "options": {
     "draftAndPublish": true
@@ -28,14 +28,39 @@
       "multiple": false,
       "required": false,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
       ]
     },
-    "Content": {
-      "type": "blocks"
+    "PublishedDate": {
+      "type": "date"
+    },
+    "Servings": {
+      "type": "string"
+    },
+    "PrepTime": {
+      "type": "string"
+    },
+    "CookTime": {
+      "type": "string"
+    },
+    "TotalTime": {
+      "type": "string"
+    },
+    "Ingredients": {
+      "type": "component",
+      "repeatable": true,
+      "component": "recipe.ingredient"
+    },
+    "Steps": {
+      "type": "component",
+      "repeatable": true,
+      "component": "recipe.step"
+    },
+    "NutritionalInfo": {
+      "type": "text"
+    },
+    "Tags": {
+      "type": "string"
     }
   }
 }
