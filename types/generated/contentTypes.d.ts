@@ -633,7 +633,6 @@ export interface ApiRecipeRecipe extends Struct.CollectionTypeSchema {
       'api::recipe.recipe'
     > &
       Schema.Attribute.Private;
-    NutritionalInfo: Schema.Attribute.Text;
     PrepTime: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     PublishedDate: Schema.Attribute.Date;
@@ -641,7 +640,6 @@ export interface ApiRecipeRecipe extends Struct.CollectionTypeSchema {
     ShortDescription: Schema.Attribute.Text;
     Slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
     Steps: Schema.Attribute.Component<'recipe.step', true>;
-    Tags: Schema.Attribute.String;
     Title: Schema.Attribute.String & Schema.Attribute.Required;
     TotalTime: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;

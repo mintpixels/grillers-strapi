@@ -55,12 +55,6 @@
       "type": "component",
       "repeatable": true,
       "component": "recipe.step"
-    },
-    "NutritionalInfo": {
-      "type": "text"
-    },
-    "Tags": {
-      "type": "string"
     }
   }
 }
