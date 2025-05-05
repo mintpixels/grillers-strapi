@@ -210,7 +210,7 @@ export interface RecipeIngredient extends Struct.ComponentSchema {
     icon: 'carrot';
   };
   attributes: {
-    ingredient: Schema.Attribute.Text;
+    ingredient: Schema.Attribute.String;
   };
 }
 

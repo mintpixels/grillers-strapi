@@ -8,7 +8,7 @@
   "options": {},
   "attributes": {
     "ingredient": {
-      "type": "text"
+      "type": "string"
     }
   }
 }
