@@ -4,7 +4,8 @@
   "info": {
     "singularName": "master-category",
     "pluralName": "master-categories",
-    "displayName": "MasterCategory"
+    "displayName": "MasterCategory",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,17 +20,17 @@
       "targetField": "Name",
       "required": true
     },
-    "ProductType": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::product-type.product-type",
-      "inversedBy": "master_categories"
-    },
-    "categories": {
+    "Categories": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::category.category",
       "mappedBy": "MasterCategory"
+    },
+    "ProductType": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product-type.product-type",
+      "inversedBy": "MasterCategories"
     }
   }
 }

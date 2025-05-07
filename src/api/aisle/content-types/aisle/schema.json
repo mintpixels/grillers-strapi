@@ -4,7 +4,8 @@
   "info": {
     "singularName": "aisle",
     "pluralName": "aisles",
-    "displayName": "Aisle"
+    "displayName": "Aisle",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,7 +20,7 @@
       "targetField": "Name",
       "required": true
     },
-    "product_types": {
+    "ProductTypes": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product-type.product-type",

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "product-type",
     "pluralName": "product-types",
-    "displayName": "ProductType"
+    "displayName": "ProductType",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,17 +20,17 @@
       "targetField": "Name",
       "required": true
     },
-    "Aisle": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::aisle.aisle",
-      "inversedBy": "product_types"
-    },
-    "master_categories": {
+    "MasterCategories": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::master-category.master-category",
       "mappedBy": "ProductType"
+    },
+    "Aisle": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::aisle.aisle",
+      "inversedBy": "ProductTypes"
     }
   }
 }

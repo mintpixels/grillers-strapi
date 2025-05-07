@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiAisleAisle extends Struct.CollectionTypeSchema {
   collectionName: 'aisles';
   info: {
+    description: '';
     displayName: 'Aisle';
     pluralName: 'aisles';
     singularName: 'aisle';
@@ -387,7 +388,7 @@ export interface ApiAisleAisle extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::aisle.aisle'> &
       Schema.Attribute.Private;
     Name: Schema.Attribute.String & Schema.Attribute.Required;
-    product_types: Schema.Attribute.Relation<
+    ProductTypes: Schema.Attribute.Relation<
       'oneToMany',
       'api::product-type.product-type'
     >;
@@ -402,6 +403,7 @@ export interface ApiAisleAisle extends Struct.CollectionTypeSchema {
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
+    description: '';
     displayName: 'Category';
     pluralName: 'categories';
     singularName: 'category';
@@ -426,7 +428,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     Name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     Slug: Schema.Attribute.UID<'Name'> & Schema.Attribute.Required;
-    sub_categories: Schema.Attribute.Relation<
+    SubCategories: Schema.Attribute.Relation<
       'oneToMany',
       'api::sub-category.sub-category'
     >;
@@ -508,6 +510,7 @@ export interface ApiMasterCategoryMasterCategory
   extends Struct.CollectionTypeSchema {
   collectionName: 'master_categories';
   info: {
+    description: '';
     displayName: 'MasterCategory';
     pluralName: 'master-categories';
     singularName: 'master-category';
@@ -516,7 +519,7 @@ export interface ApiMasterCategoryMasterCategory
     draftAndPublish: true;
   };
   attributes: {
-    categories: Schema.Attribute.Relation<
+    Categories: Schema.Attribute.Relation<
       'oneToMany',
       'api::category.category'
     >;
@@ -572,6 +575,7 @@ export interface ApiPdpPdp extends Struct.SingleTypeSchema {
 export interface ApiProductTypeProductType extends Struct.CollectionTypeSchema {
   collectionName: 'product_types';
   info: {
+    description: '';
     displayName: 'ProductType';
     pluralName: 'product-types';
     singularName: 'product-type';
@@ -590,7 +594,7 @@ export interface ApiProductTypeProductType extends Struct.CollectionTypeSchema {
       'api::product-type.product-type'
     > &
       Schema.Attribute.Private;
-    master_categories: Schema.Attribute.Relation<
+    MasterCategories: Schema.Attribute.Relation<
       'oneToMany',
       'api::master-category.master-category'
     >;
