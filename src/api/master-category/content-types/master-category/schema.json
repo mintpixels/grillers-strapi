@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "master_categories",
+  "info": {
+    "singularName": "master-category",
+    "pluralName": "master-categories",
+    "displayName": "MasterCategory"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Name",
+      "required": true
+    },
+    "ProductType": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product-type.product-type",
+      "inversedBy": "master_categories"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category",
+      "mappedBy": "MasterCategory"
+    }
+  }
+}

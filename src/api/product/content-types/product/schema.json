@@ -50,6 +50,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::recipe.recipe"
+    },
+    "Categorization": {
+      "type": "component",
+      "repeatable": false,
+      "component": "pdp.sategorization"
     }
   }
 }

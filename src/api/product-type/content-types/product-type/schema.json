@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_types",
+  "info": {
+    "singularName": "product-type",
+    "pluralName": "product-types",
+    "displayName": "ProductType"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Name",
+      "required": true
+    },
+    "Aisle": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::aisle.aisle",
+      "inversedBy": "product_types"
+    },
+    "master_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::master-category.master-category",
+      "mappedBy": "ProductType"
+    }
+  }
+}

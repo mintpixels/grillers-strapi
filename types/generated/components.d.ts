@@ -190,6 +190,30 @@ export interface PdpProductMetadata extends Struct.ComponentSchema {
   };
 }
 
+export interface PdpSategorization extends Struct.ComponentSchema {
+  collectionName: 'components_pdp_sategorizations';
+  info: {
+    displayName: '\u0421ategorization';
+    icon: 'stack';
+  };
+  attributes: {
+    Aisle: Schema.Attribute.Relation<'oneToOne', 'api::aisle.aisle'>;
+    Category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
+    MasterCategory: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::master-category.master-category'
+    >;
+    ProductType: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::product-type.product-type'
+    >;
+    SubCategory: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::sub-category.sub-category'
+    >;
+  };
+}
+
 export interface PdpWhyUs extends Struct.ComponentSchema {
   collectionName: 'components_pdp_whyuses';
   info: {
@@ -305,6 +329,7 @@ declare module '@strapi/strapi' {
       'home.testimonial': HomeTestimonial;
       'pdp.how-it-works': PdpHowItWorks;
       'pdp.product-metadata': PdpProductMetadata;
+      'pdp.sategorization': PdpSategorization;
       'pdp.why-us': PdpWhyUs;
       'recipe.ingredient': RecipeIngredient;
       'recipe.step': RecipeStep;

@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "aisles",
+  "info": {
+    "singularName": "aisle",
+    "pluralName": "aisles",
+    "displayName": "Aisle"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Name",
+      "required": true
+    },
+    "product_types": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-type.product-type",
+      "mappedBy": "Aisle"
+    }
+  }
+}
