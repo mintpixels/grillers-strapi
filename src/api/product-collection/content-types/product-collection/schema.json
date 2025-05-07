@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_collections",
+  "info": {
+    "singularName": "product-collection",
+    "pluralName": "product-collections",
+    "displayName": "ProductCollection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Slug": {
+      "type": "uid",
+      "required": true,
+      "targetField": "Name"
+    }
+  }
+}

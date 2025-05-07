@@ -572,6 +572,64 @@ export interface ApiPdpPdp extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiProductCollectionProductCollection
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'product_collections';
+  info: {
+    displayName: 'ProductCollection';
+    pluralName: 'product-collections';
+    singularName: 'product-collection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-collection.product-collection'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    Slug: Schema.Attribute.UID<'Name'> & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProductTagProductTag extends Struct.CollectionTypeSchema {
+  collectionName: 'product_tags';
+  info: {
+    displayName: 'ProductTag';
+    pluralName: 'product-tags';
+    singularName: 'product-tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-tag.product-tag'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProductTypeProductType extends Struct.CollectionTypeSchema {
   collectionName: 'product_types';
   info: {
@@ -1233,6 +1291,8 @@ declare module '@strapi/strapi' {
       'api::home.home': ApiHomeHome;
       'api::master-category.master-category': ApiMasterCategoryMasterCategory;
       'api::pdp.pdp': ApiPdpPdp;
+      'api::product-collection.product-collection': ApiProductCollectionProductCollection;
+      'api::product-tag.product-tag': ApiProductTagProductTag;
       'api::product-type.product-type': ApiProductTypeProductType;
       'api::product.product': ApiProductProduct;
       'api::recipe.recipe': ApiRecipeRecipe;

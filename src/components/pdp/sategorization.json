@@ -2,7 +2,8 @@
   "collectionName": "components_pdp_sategorizations",
   "info": {
     "displayName": "Сategorization",
-    "icon": "stack"
+    "icon": "stack",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -30,6 +31,16 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::sub-category.sub-category"
+    },
+    "ProductTags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-tag.product-tag"
+    },
+    "ProductCollections": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-collection.product-collection"
     }
   }
 }

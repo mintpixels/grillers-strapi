@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_tags",
+  "info": {
+    "singularName": "product-tag",
+    "pluralName": "product-tags",
+    "displayName": "ProductTag"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

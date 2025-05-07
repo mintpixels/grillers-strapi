@@ -193,6 +193,7 @@ export interface PdpProductMetadata extends Struct.ComponentSchema {
 export interface PdpSategorization extends Struct.ComponentSchema {
   collectionName: 'components_pdp_sategorizations';
   info: {
+    description: '';
     displayName: '\u0421ategorization';
     icon: 'stack';
   };
@@ -202,6 +203,14 @@ export interface PdpSategorization extends Struct.ComponentSchema {
     MasterCategory: Schema.Attribute.Relation<
       'oneToOne',
       'api::master-category.master-category'
+    >;
+    ProductCollections: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-collection.product-collection'
+    >;
+    ProductTags: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-tag.product-tag'
     >;
     ProductType: Schema.Attribute.Relation<
       'oneToOne',
