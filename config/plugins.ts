@@ -8,6 +8,7 @@ export default ({ env }) => ({
         {
           name: "api::product.product",
           populate: {
+            FeaturedImage: "*",
             Metadata: "*",
             Categorization: {
               populate: "*",
