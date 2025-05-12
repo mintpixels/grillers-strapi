@@ -7,7 +7,12 @@ export default ({ env }) => ({
       contentTypes: [
         {
           name: "api::product.product",
-          populate: { Metadata: "*", Categorization: "*" },
+          populate: {
+            Metadata: "*",
+            Categorization: {
+              populate: "*",
+            },
+          },
           hideFields: ["GalleryImages", "Recipes"],
         },
       ],
