@@ -2,7 +2,7 @@ export default ({ env }) => ({
   "strapi-algolia": {
     enabled: true,
     config: {
-      apiKey: env("ALGOLIA_ADMIN_KEY"),
+      apiKey: env("ALGOLIA_WRITE_KEY"),
       applicationId: env("ALGOLIA_APP_ID"),
       contentTypes: [
         {
