@@ -194,7 +194,9 @@ export interface PdpMedusaProduct extends Struct.ComponentSchema {
   attributes: {
     Description: Schema.Attribute.Text;
     Handle: Schema.Attribute.String;
-    ProductId: Schema.Attribute.String;
+    ProductId: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     Title: Schema.Attribute.String;
     Variants: Schema.Attribute.Component<'pdp.medusa-variants', true>;
   };

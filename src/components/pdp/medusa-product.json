@@ -7,7 +7,9 @@
   "options": {},
   "attributes": {
     "ProductId": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": true
     },
     "Title": {
       "type": "string"
