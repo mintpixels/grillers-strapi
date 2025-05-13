@@ -55,6 +55,12 @@
       "type": "component",
       "repeatable": false,
       "component": "pdp.sategorization"
+    },
+    "MedusaProduct": {
+      "displayName": "MedusaProduct",
+      "type": "component",
+      "repeatable": false,
+      "component": "pdp.medusa-product"
     }
   }
 }

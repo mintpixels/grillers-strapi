@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_pdp_medusa_products",
+  "info": {
+    "displayName": "MedusaProduct",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "ProductId": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Variants": {
+      "displayName": "MedusaVariants",
+      "type": "component",
+      "repeatable": true,
+      "component": "pdp.medusa-variants"
+    }
+  }
+}

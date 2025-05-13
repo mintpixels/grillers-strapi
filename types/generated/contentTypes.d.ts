@@ -697,6 +697,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     medusa_product_id: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    MedusaProduct: Schema.Attribute.Component<'pdp.medusa-product', false>;
     Metadata: Schema.Attribute.Component<'pdp.product-metadata', false>;
     publishedAt: Schema.Attribute.DateTime;
     Recipes: Schema.Attribute.Relation<'oneToMany', 'api::recipe.recipe'>;

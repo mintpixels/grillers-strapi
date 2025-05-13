@@ -174,6 +174,43 @@ export interface PdpHowItWorks extends Struct.ComponentSchema {
   };
 }
 
+export interface PdpMedusaPrice extends Struct.ComponentSchema {
+  collectionName: 'components_pdp_medusa_prices';
+  info: {
+    displayName: 'MedusaPrice';
+  };
+  attributes: {
+    CalculatedPriceNumber: Schema.Attribute.Decimal;
+    OriginalPriceNumber: Schema.Attribute.Decimal;
+  };
+}
+
+export interface PdpMedusaProduct extends Struct.ComponentSchema {
+  collectionName: 'components_pdp_medusa_products';
+  info: {
+    description: '';
+    displayName: 'MedusaProduct';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    ProductId: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
+    Variants: Schema.Attribute.Component<'pdp.medusa-variants', true>;
+  };
+}
+
+export interface PdpMedusaVariants extends Struct.ComponentSchema {
+  collectionName: 'components_pdp_medusa_variants';
+  info: {
+    displayName: 'MedusaVariants';
+  };
+  attributes: {
+    Price: Schema.Attribute.Component<'pdp.medusa-price', false>;
+    Title: Schema.Attribute.String;
+    VariantId: Schema.Attribute.String;
+  };
+}
+
 export interface PdpProductMetadata extends Struct.ComponentSchema {
   collectionName: 'components_pdp_product_metadata';
   info: {
@@ -337,6 +374,9 @@ declare module '@strapi/strapi' {
       'home.shop-collections': HomeShopCollections;
       'home.testimonial': HomeTestimonial;
       'pdp.how-it-works': PdpHowItWorks;
+      'pdp.medusa-price': PdpMedusaPrice;
+      'pdp.medusa-product': PdpMedusaProduct;
+      'pdp.medusa-variants': PdpMedusaVariants;
       'pdp.product-metadata': PdpProductMetadata;
       'pdp.sategorization': PdpSategorization;
       'pdp.why-us': PdpWhyUs;

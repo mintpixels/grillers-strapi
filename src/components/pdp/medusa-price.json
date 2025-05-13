@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_pdp_medusa_prices",
+  "info": {
+    "displayName": "MedusaPrice"
+  },
+  "options": {},
+  "attributes": {
+    "CalculatedPriceNumber": {
+      "type": "decimal"
+    },
+    "OriginalPriceNumber": {
+      "type": "decimal"
+    }
+  }
+}
