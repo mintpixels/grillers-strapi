@@ -15,6 +15,7 @@ export default ({ env }) => ({
             Categorization: {
               populate: "*",
             },
+            MedusaProduct: "*",
           },
           hideFields: ["GalleryImages", "Recipes"],
         },
