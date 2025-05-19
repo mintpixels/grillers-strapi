@@ -17,10 +17,6 @@ export default ({ env }) => ({
             },
             MedusaProduct: {
               populate: {
-                ProductId: true,
-                Title: true,
-                Description: true,
-                Handle: true,
                 Variants: {
                   populate: "*",
                 },
