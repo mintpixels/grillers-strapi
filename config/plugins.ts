@@ -16,7 +16,15 @@ export default ({ env }) => ({
               populate: "*",
             },
             MedusaProduct: {
-              populate: "*",
+              populate: {
+                ProductId: true,
+                Title: true,
+                Description: true,
+                Handle: true,
+                Variants: {
+                  populate: "*",
+                },
+              },
             },
           },
           hideFields: ["GalleryImages", "Recipes"],
