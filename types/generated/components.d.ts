@@ -12,6 +12,17 @@ export interface CommonCollectionCard extends Struct.ComponentSchema {
   };
 }
 
+export interface CommonHeaderNav extends Struct.ComponentSchema {
+  collectionName: 'components_common_header_navs';
+  info: {
+    displayName: 'HeaderNav';
+  };
+  attributes: {
+    Children: Schema.Attribute.Component<'common.link', true>;
+    Link: Schema.Attribute.Component<'common.link', false>;
+  };
+}
+
 export interface CommonHowItWorksCard extends Struct.ComponentSchema {
   collectionName: 'components_common_how_it_works_cards';
   info: {
@@ -365,6 +376,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'common.collection-card': CommonCollectionCard;
+      'common.header-nav': CommonHeaderNav;
       'common.how-it-works-card': CommonHowItWorksCard;
       'common.link': CommonLink;
       'common.product-card': CommonProductCard;
