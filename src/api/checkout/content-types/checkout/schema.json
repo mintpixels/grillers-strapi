@@ -11,10 +11,19 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "BlackoutDatesList": {
-      "type": "component",
-      "component": "checkout.blackout-dates-list",
-      "repeatable": true
+    "BlackoutDates": {
+      "type": "customField",
+      "customField": "plugin::multi-select.multi-select",
+      "default": "[]",
+      "options": [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ]
     }
   }
 }

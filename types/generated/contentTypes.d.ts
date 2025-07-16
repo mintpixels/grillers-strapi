@@ -453,10 +453,20 @@ export interface ApiCheckoutCheckout extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    BlackoutDatesList: Schema.Attribute.Component<
-      'checkout.blackout-dates-list',
-      true
-    >;
+    BlackoutDates: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'Sunday',
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+        ]
+      > &
+      Schema.Attribute.DefaultTo<'[]'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
