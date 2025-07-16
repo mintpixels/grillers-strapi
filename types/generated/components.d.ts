@@ -1,5 +1,25 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface CheckoutBlackoutDatesList extends Struct.ComponentSchema {
+  collectionName: 'components_checkout_blackout_dates_lists';
+  info: {
+    displayName: 'BlackoutDatesList';
+  };
+  attributes: {
+    DaysOfWeek: Schema.Attribute.Enumeration<
+      [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday',
+      ]
+    >;
+  };
+}
+
 export interface CommonCollectionCard extends Struct.ComponentSchema {
   collectionName: 'components_common_collection_cards';
   info: {
@@ -375,6 +395,7 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'checkout.blackout-dates-list': CheckoutBlackoutDatesList;
       'common.collection-card': CommonCollectionCard;
       'common.header-nav': CommonHeaderNav;
       'common.how-it-works-card': CommonHowItWorksCard;

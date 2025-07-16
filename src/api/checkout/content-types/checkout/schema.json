@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "checkouts",
+  "info": {
+    "singularName": "checkout",
+    "pluralName": "checkouts",
+    "displayName": "Checkout"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "BlackoutDatesList": {
+      "type": "component",
+      "component": "checkout.blackout-dates-list",
+      "repeatable": true
+    }
+  }
+}
