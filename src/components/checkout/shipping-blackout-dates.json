@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_checkout_shipping_blackout_dates",
+  "info": {
+    "displayName": "ShippingBlackoutDates"
+  },
+  "options": {},
+  "attributes": {
+    "BlackoutDate": {
+      "type": "date"
+    }
+  },
+  "config": {}
+}

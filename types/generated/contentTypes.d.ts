@@ -453,7 +453,21 @@ export interface ApiCheckoutCheckout extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    BlackoutDates: Schema.Attribute.JSON &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::checkout.checkout'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    ShippingBlackoutDates: Schema.Attribute.Component<
+      'checkout.shipping-blackout-dates',
+      true
+    >;
+    ShippingBlackoutDaysOfWeek: Schema.Attribute.JSON &
       Schema.Attribute.CustomField<
         'plugin::multi-select.multi-select',
         [
@@ -467,16 +481,6 @@ export interface ApiCheckoutCheckout extends Struct.SingleTypeSchema {
         ]
       > &
       Schema.Attribute.DefaultTo<'[]'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::checkout.checkout'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

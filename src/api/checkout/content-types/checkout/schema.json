@@ -11,7 +11,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "BlackoutDates": {
+    "ShippingBlackoutDaysOfWeek": {
       "type": "customField",
       "customField": "plugin::multi-select.multi-select",
       "default": "[]",
@@ -24,6 +24,11 @@
         "Friday",
         "Saturday"
       ]
+    },
+    "ShippingBlackoutDates": {
+      "type": "component",
+      "component": "checkout.shipping-blackout-dates",
+      "repeatable": true
     }
   }
 }
