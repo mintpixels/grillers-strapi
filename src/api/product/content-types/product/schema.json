@@ -10,6 +10,11 @@
   "options": {
     "draftAndPublish": true
   },
+  "pluginOptions": {
+    "strapi-import-export": {
+      "idField": "medusa_product_id"
+    }
+  },
   "attributes": {
     "medusa_product_id": {
       "type": "string",

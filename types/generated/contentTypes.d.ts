@@ -753,6 +753,11 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'strapi-import-export': {
+      idField: 'medusa_product_id';
+    };
+  };
   attributes: {
     Categorization: Schema.Attribute.Component<'pdp.sategorization', false>;
     createdAt: Schema.Attribute.DateTime;
