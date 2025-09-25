@@ -39,4 +39,15 @@ export default ({ env }) => ({
       },
     },
   },
+  "strapi-csv-import-export": {
+    enabled: true,
+    config: {
+      authorizedExports: ["api::product.product"],
+      authorizedImports: ["api::product.product"],
+    },
+  },
+  "strapi-import-export": {
+    enabled: true,
+    config: {},
+  },
 });
