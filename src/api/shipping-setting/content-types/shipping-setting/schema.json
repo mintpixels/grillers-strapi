@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "shipping_settings",
+  "info": {
+    "singularName": "shipping-setting",
+    "pluralName": "shipping-settings",
+    "displayName": "Shipping Setting"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "PlantPickupDiscountThreshold": {
+      "type": "decimal"
+    },
+    "PlantPickUpDiscount": {
+      "type": "decimal"
+    }
+  }
+}

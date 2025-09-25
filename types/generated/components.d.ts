@@ -370,6 +370,18 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedShippingZoneBreakpoints extends Struct.ComponentSchema {
+  collectionName: 'components_shared_shipping_zone_breakpoints';
+  info: {
+    displayName: 'Shipping Zone Breakpoints';
+    icon: 'rotate';
+  };
+  attributes: {
+    BreakpointPrice: Schema.Attribute.Decimal;
+    ShippingRate: Schema.Attribute.Decimal;
+  };
+}
+
 export interface SharedSlider extends Struct.ComponentSchema {
   collectionName: 'components_shared_sliders';
   info: {
@@ -412,6 +424,7 @@ declare module '@strapi/strapi' {
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
+      'shared.shipping-zone-breakpoints': SharedShippingZoneBreakpoints;
       'shared.slider': SharedSlider;
     }
   }

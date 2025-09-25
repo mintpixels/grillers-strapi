@@ -824,6 +824,126 @@ export interface ApiRecipeRecipe extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiShippingSettingShippingSetting
+  extends Struct.SingleTypeSchema {
+  collectionName: 'shipping_settings';
+  info: {
+    displayName: 'Shipping Setting';
+    pluralName: 'shipping-settings';
+    singularName: 'shipping-setting';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::shipping-setting.shipping-setting'
+    > &
+      Schema.Attribute.Private;
+    PlantPickUpDiscount: Schema.Attribute.Decimal;
+    PlantPickupDiscountThreshold: Schema.Attribute.Decimal;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiShippingZoneShippingZone
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'shipping_zones';
+  info: {
+    displayName: 'Shipping Zone';
+    pluralName: 'shipping-zones';
+    singularName: 'shipping-zone';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    City: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::shipping-zone.shipping-zone'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    ShippingZoneBreakpoints: Schema.Attribute.Component<
+      'shared.shipping-zone-breakpoints',
+      true
+    >;
+    State: Schema.Attribute.Enumeration<
+      [
+        'AK',
+        'AL',
+        'AR',
+        'AZ',
+        'CA',
+        'CO',
+        'CT',
+        'DE',
+        'FL',
+        'GA',
+        'HI',
+        'IA',
+        'ID',
+        'IL',
+        'IN',
+        'KS',
+        'KY',
+        'LA',
+        'MA',
+        'MD',
+        'ME',
+        'MI',
+        'MN',
+        'MO',
+        'MS',
+        'MT',
+        'NC',
+        'ND',
+        'NE',
+        'NH',
+        'NJ',
+        'NM',
+        'NV',
+        'NY',
+        'OH',
+        'OK',
+        'OR',
+        'PA',
+        'RI',
+        'SC',
+        'SD',
+        'TN',
+        'TX',
+        'UT',
+        'VA',
+        'VT',
+        'WA',
+        'WI',
+        'WV',
+        'WY',
+      ]
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ZIPCode: Schema.Attribute.String;
+    ZoneCode: Schema.Attribute.String;
+  };
+}
+
 export interface ApiSubCategorySubCategory extends Struct.CollectionTypeSchema {
   collectionName: 'sub_categories';
   info: {
@@ -1376,6 +1496,8 @@ declare module '@strapi/strapi' {
       'api::product-type.product-type': ApiProductTypeProductType;
       'api::product.product': ApiProductProduct;
       'api::recipe.recipe': ApiRecipeRecipe;
+      'api::shipping-setting.shipping-setting': ApiShippingSettingShippingSetting;
+      'api::shipping-zone.shipping-zone': ApiShippingZoneShippingZone;
       'api::sub-category.sub-category': ApiSubCategorySubCategory;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

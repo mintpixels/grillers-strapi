@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shared_shipping_zone_breakpoints",
+  "info": {
+    "displayName": "Shipping Zone Breakpoints",
+    "icon": "rotate"
+  },
+  "options": {},
+  "attributes": {
+    "BreakpointPrice": {
+      "type": "decimal"
+    },
+    "ShippingRate": {
+      "type": "decimal"
+    }
+  },
+  "config": {}
+}

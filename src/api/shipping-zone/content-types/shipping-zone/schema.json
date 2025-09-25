@@ -1,0 +1,87 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shipping_zones",
+  "info": {
+    "singularName": "shipping-zone",
+    "pluralName": "shipping-zones",
+    "displayName": "Shipping Zone"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "City": {
+      "type": "string"
+    },
+    "State": {
+      "type": "enumeration",
+      "enum": [
+        "AK",
+        "AL",
+        "AR",
+        "AZ",
+        "CA",
+        "CO",
+        "CT",
+        "DE",
+        "FL",
+        "GA",
+        "HI",
+        "IA",
+        "ID",
+        "IL",
+        "IN",
+        "KS",
+        "KY",
+        "LA",
+        "MA",
+        "MD",
+        "ME",
+        "MI",
+        "MN",
+        "MO",
+        "MS",
+        "MT",
+        "NC",
+        "ND",
+        "NE",
+        "NH",
+        "NJ",
+        "NM",
+        "NV",
+        "NY",
+        "OH",
+        "OK",
+        "OR",
+        "PA",
+        "RI",
+        "SC",
+        "SD",
+        "TN",
+        "TX",
+        "UT",
+        "VA",
+        "VT",
+        "WA",
+        "WI",
+        "WV",
+        "WY"
+      ]
+    },
+    "ZIPCode": {
+      "type": "string"
+    },
+    "ZoneCode": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "ShippingZoneBreakpoints": {
+      "type": "component",
+      "component": "shared.shipping-zone-breakpoints",
+      "repeatable": true
+    }
+  }
+}
