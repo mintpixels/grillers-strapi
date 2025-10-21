@@ -12,10 +12,12 @@
       "type": "string"
     },
     "Price": {
-      "displayName": "MedusaPrice",
       "type": "component",
-      "repeatable": false,
-      "component": "pdp.medusa-price"
+      "component": "pdp.medusa-price",
+      "repeatable": false
+    },
+    "Sku": {
+      "type": "string"
     }
   }
 }

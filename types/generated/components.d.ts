@@ -230,6 +230,7 @@ export interface PdpMedusaVariants extends Struct.ComponentSchema {
   };
   attributes: {
     Price: Schema.Attribute.Component<'pdp.medusa-price', false>;
+    Sku: Schema.Attribute.String;
     Title: Schema.Attribute.String;
     VariantId: Schema.Attribute.String;
   };
