@@ -456,12 +456,14 @@ export interface ApiCheckoutCheckout extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    DeliveryLeadTime: Schema.Attribute.Integer;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::checkout.checkout'
     > &
       Schema.Attribute.Private;
+    LocalPickupSameDayText: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     ShippingBlackoutDates: Schema.Attribute.Component<
       'checkout.shipping-blackout-dates',
@@ -484,6 +486,7 @@ export interface ApiCheckoutCheckout extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    UPSSameDayCutoffTime: Schema.Attribute.String;
   };
 }
 

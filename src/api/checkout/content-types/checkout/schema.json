@@ -29,6 +29,15 @@
       "type": "component",
       "component": "checkout.shipping-blackout-dates",
       "repeatable": true
+    },
+    "DeliveryLeadTime": {
+      "type": "integer"
+    },
+    "UPSSameDayCutoffTime": {
+      "type": "string"
+    },
+    "LocalPickupSameDayText": {
+      "type": "string"
     }
   }
 }
