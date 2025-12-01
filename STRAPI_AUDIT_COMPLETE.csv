@@ -1,0 +1,172 @@
+ID,Category,Type,Item,Description,Priority,Status,Strapi Status,Frontend Issue,SOW Reference,Effort,Impact,Action Required
+,,,,,,,,,,,,
+,,,EXISTING STRAPI CONTENT TYPES,,,,,,,,
+CT-001,Content Type,Collection,Product,Main product catalog with Medusa sync,N/A,Implemented,Complete,,DTC Storefront Development,N/A,Core,"None - extend for schema fields"
+CT-002,Content Type,Collection,Aisle,Top-level product categorization,N/A,Implemented,Partial,,DTC Storefront Development,Low,SEO,"Add Description, Image, SEO component"
+CT-003,Content Type,Collection,ProductType,2nd-level product categorization,N/A,Implemented,Partial,,DTC Storefront Development,Low,SEO,"Add Description, Image, SEO component"
+CT-004,Content Type,Collection,MasterCategory,3rd-level product categorization,N/A,Implemented,Partial,,DTC Storefront Development,Low,SEO,"Add Description, Image, SEO component"
+CT-005,Content Type,Collection,Category,4th-level product categorization,N/A,Implemented,Partial,,DTC Storefront Development,Low,SEO,"Add Description, Image, SEO component"
+CT-006,Content Type,Collection,SubCategory,5th-level product categorization,N/A,Implemented,Partial,,DTC Storefront Development,Low,SEO,"Add Description, Image, SEO component"
+CT-007,Content Type,Collection,ProductTag,Product tagging system,N/A,Implemented,Complete,,DTC Storefront Development,N/A,Filtering,None
+CT-008,Content Type,Collection,ProductCollection,Product grouping/collections,N/A,Implemented,Partial,,DTC Storefront Development,Medium,SEO,"Add Description, HeroImage, SEO component"
+CT-009,Content Type,Collection,Recipe,Recipe content management,N/A,Implemented,Partial,,Content Strategy,Medium,SEO,"Add SEO, Categories, Ratings, Video"
+CT-010,Content Type,Collection,ShippingZone,Shipping rates by location,N/A,Implemented,Complete,,Shipping System,N/A,Shipping,None
+CT-011,Content Type,Single,Global,Site-wide settings,N/A,Implemented,Partial,,Infrastructure,Medium,SEO,"Add Organization schema fields"
+CT-012,Content Type,Single,Home,Homepage page builder,N/A,Implemented,Partial,,DTC Storefront UI/UX,Low,Conversion,"Add Newsletter section to dynamic zone"
+CT-013,Content Type,Single,Header,Navigation structure,N/A,Implemented,Partial,,DTC Storefront UI/UX,Low,UX,"Add contact info fields"
+CT-014,Content Type,Single,Checkout,Checkout configuration,N/A,Implemented,Complete,,DTC Storefront Development,N/A,Checkout,None
+CT-015,Content Type,Single,ShippingSetting,Plant pickup settings,N/A,Implemented,Partial,,Shipping System,Medium,Shipping,"Add UPS API config fields"
+CT-016,Content Type,Single,PDP,Product detail page config,N/A,Implemented,Complete,,DTC Storefront UI/UX,N/A,PDP,None
+,,,,,,,,,,,,
+,,,EXISTING STRAPI COMPONENTS,,,,,,,,
+COMP-001,Component,PDP,product-metadata,Product dietary/sizing info,N/A,Implemented,Complete,,DTC Storefront Development,N/A,Product,None
+COMP-002,Component,PDP,sategorization,Product categorization relations,N/A,Implemented,Complete,,DTC Storefront Development,N/A,Product,None
+COMP-003,Component,PDP,medusa-product,Medusa sync data,N/A,Implemented,Complete,,DTC Storefront Development,N/A,Integration,None
+COMP-004,Component,PDP,medusa-variants,Product variants with SKU,N/A,Implemented,Complete,,DTC Storefront Development,N/A,Product,None
+COMP-005,Component,PDP,medusa-price,Pricing component,N/A,Implemented,Complete,,DTC Storefront Development,N/A,Product,None
+COMP-006,Component,PDP,how-it-works,How it works section,N/A,Implemented,Complete,,DTC Storefront UI/UX,N/A,Content,None
+COMP-007,Component,PDP,why-us,Why choose us section,N/A,Implemented,Complete,,DTC Storefront UI/UX,N/A,Content,None
+COMP-008,Component,Shared,seo,SEO meta fields,N/A,Implemented,Complete,,SEO Strategy,N/A,SEO,None
+COMP-009,Component,Shared,shipping-zone-breakpoints,Price-based shipping rates,N/A,Implemented,Complete,,Shipping System,N/A,Shipping,None
+COMP-010,Component,Shared,media,Media file component,N/A,Implemented,Complete,,Infrastructure,N/A,Media,None
+COMP-011,Component,Shared,link,Link component,N/A,Implemented,Complete,,DTC Storefront UI/UX,N/A,Navigation,None
+COMP-012,Component,Home,hero,Hero section,N/A,Implemented,Partial,#2 #6,DTC Storefront UI/UX,Low,Conversion,"Add CTAButton, Subtitle, ImageAlt"
+COMP-013,Component,Home,bestsellers,Bestsellers section,N/A,Implemented,Complete,,DTC Storefront UI/UX,N/A,Content,None
+COMP-014,Component,Home,shop-collections,Collections grid,N/A,Implemented,Complete,,DTC Storefront UI/UX,N/A,Content,None
+COMP-015,Component,Home,kosher-promise,Kosher promise section,N/A,Implemented,Complete,,DTC Storefront UI/UX,N/A,Brand,None
+COMP-016,Component,Home,testimonial,Customer testimonial,N/A,Implemented,Complete,,DTC Storefront UI/UX,N/A,Trust,None
+COMP-017,Component,Home,follow-us,Social follow section,N/A,Implemented,Complete,,Social Media Strategy,N/A,Social,None
+COMP-018,Component,Home,blog-explore,Blog/recipe preview,N/A,Implemented,Complete,,Content Strategy,N/A,Content,None
+COMP-019,Component,Common,header-nav,Navigation menu item,N/A,Implemented,Complete,,DTC Storefront UI/UX,N/A,Navigation,None
+COMP-020,Component,Common,product-card,Product card display,N/A,Implemented,Complete,,DTC Storefront UI/UX,N/A,Product,None
+COMP-021,Component,Common,collection-card,Collection card display,N/A,Implemented,Complete,,DTC Storefront UI/UX,N/A,Collection,None
+COMP-022,Component,Recipe,ingredient,Recipe ingredient item,N/A,Implemented,Complete,,Content Strategy,N/A,Recipe,None
+COMP-023,Component,Recipe,step,Recipe step item,N/A,Implemented,Complete,,Content Strategy,N/A,Recipe,None
+COMP-024,Component,Checkout,shipping-blackout-dates,Shipping blackout dates,N/A,Implemented,Complete,,Shipping System,N/A,Checkout,None
+,,,,,,,,,,,,
+,,,MISSING CONTENT TYPES (NEW),,,,,,,,
+NEW-001,Content Type,Collection,Review,Product reviews and ratings system,Critical,Missing,Not Started,#22,DTC Storefront Development,High,Conversion,"Create with Product relation, rating, status"
+NEW-002,Content Type,Collection,Wishlist,User wishlist/favorites,Medium,Missing,Not Started,#24 #73,DTC Storefront Development,Medium,Engagement,"Create with User and Product relations"
+NEW-003,Content Type,Collection,RecipeCategory,Recipe categorization,Medium,Missing,Not Started,#67,Content Strategy,Low,Organization,"Create with Recipe relation"
+NEW-004,Content Type,Collection,ShippingBox,Shipping box dimensions,High,Missing,Not Started,#55,Shipping System,Medium,Shipping,"Create with dimensions, weight fields"
+NEW-005,Content Type,Collection,Region,Multi-region configuration,Medium,Missing,Not Started,#47,Infrastructure,High,Expansion,"Create with currency, locale, flag"
+NEW-006,Content Type,Single,Footer,Footer content management,Critical,Missing,Not Started,#13 #14 #15 #16 #17 #18,DTC Storefront UI/UX,High,Brand,"Create with nav columns, social, legal"
+NEW-007,Content Type,Single,AnnouncementBar,Promotional announcements,High,Missing,Not Started,#9,DTC Storefront UI/UX,Low,Marketing,"Create with message, dates, styling"
+NEW-008,Content Type,Single,Analytics,Analytics configuration,Critical,Missing,Not Started,#35 #36,Data & Analytics,Low,Tracking,"Create with GA4, GTM IDs"
+NEW-009,Content Type,Single,CookieConsent,Cookie consent banner,Critical,Missing,Not Started,#37,Cookies & Privacy,Medium,Compliance,"Create with categories, messages"
+NEW-010,Content Type,Single,ColdChainSettings,Dry ice/cold chain config,Critical,Missing,Not Started,#56,Shipping System,Medium,Operations,"Create with pricing, ratios, thresholds"
+,,,,,,,,,,,,
+,,,MISSING COMPONENTS (NEW),,,,,,,,
+NEWCOMP-001,Component,Home,newsletter,Newsletter signup section,High,Missing,Not Started,#3 #14,Email Marketing,Low,Email Capture,"Create with title, description, button text"
+NEWCOMP-002,Component,Shared,organization,Organization schema data,High,Missing,Not Started,#5,SEO Strategy,Medium,SEO,"Create with address, phone, social"
+NEWCOMP-003,Component,Shared,social-links,Social media links,Medium,Missing,Not Started,#15,Social Media Strategy,Low,Social,"Create with platform URLs"
+NEWCOMP-004,Component,Shared,payment-methods,Payment method display,Low,Missing,Not Started,#17,DTC Storefront UI/UX,Low,Trust,"Create with boolean flags per method"
+NEWCOMP-005,Component,Shared,certification,Certification badge,Medium,Missing,Not Started,#18,DTC Storefront UI/UX,Low,Trust,"Create with name, image, link"
+NEWCOMP-006,Component,PDP,product-image,Product image with alt text,High,Missing,Not Started,#26,ADA Compliance,Low,Accessibility,"Create with image, altText, caption"
+NEWCOMP-007,Component,Recipe,nutrition-info,Recipe nutrition data,Medium,Missing,Not Started,#66,Content Strategy,Low,SEO,"Create with calories, protein, fat, carbs"
+,,,,,,,,,,,,
+,,,FIELD EXTENSIONS REQUIRED,,,,,,,,
+EXT-001,Extension,home.hero,CTAButton,Add CTA button to hero,High,Missing,Not Started,#2,DTC Storefront UI/UX,Low,Conversion,"Add component: common.link"
+EXT-002,Extension,home.hero,Subtitle,Add subtitle text,Medium,Missing,Not Started,#2,DTC Storefront UI/UX,Low,Content,"Add string field"
+EXT-003,Extension,home.hero,BackgroundImageAlt,Add accessibility alt text,High,Missing,Not Started,#6,ADA Compliance,Low,Accessibility,"Add string field"
+EXT-004,Extension,Product,Brand,Add brand for schema,Medium,Missing,Not Started,#20,SEO Strategy,Low,SEO,"Add string field, default 'Grillers Pride'"
+EXT-005,Extension,Product,GTIN,Add product identifier,Medium,Missing,Not Started,#20,SEO Strategy,Low,SEO,"Add string field"
+EXT-006,Extension,Product,Availability,Add stock status,High,Missing,Not Started,#20,SEO Strategy,Low,SEO,"Add enum: InStock, OutOfStock, PreOrder"
+EXT-007,Extension,Product,AggregateRating,Add rating summary,High,Missing,Not Started,#20 #22,SEO Strategy,Low,SEO,"Add component with value, count"
+EXT-008,Extension,Recipe,SEO,Add SEO component,High,Missing,Not Started,#65,SEO Strategy,Low,SEO,"Add component: shared.seo"
+EXT-009,Extension,Recipe,Author,Add recipe author,Medium,Missing,Not Started,#66,Content Strategy,Low,Schema,"Add string field"
+EXT-010,Extension,Recipe,Difficulty,Add difficulty level,Medium,Missing,Not Started,#67,Content Strategy,Low,Filtering,"Add enum: easy, medium, hard"
+EXT-011,Extension,Recipe,Cuisine,Add cuisine type,Medium,Missing,Not Started,#66,Content Strategy,Low,Schema,"Add string field"
+EXT-012,Extension,Recipe,Course,Add course type,Medium,Missing,Not Started,#66,Content Strategy,Low,Schema,"Add enum: appetizer, main, dessert, side"
+EXT-013,Extension,Recipe,NutritionInfo,Add nutrition data,Medium,Missing,Not Started,#66,Content Strategy,Low,SEO,"Add component: recipe.nutrition-info"
+EXT-014,Extension,Recipe,VideoUrl,Add video support,Medium,Missing,Not Started,#74,Content Strategy,Low,Engagement,"Add string field"
+EXT-015,Extension,Recipe,RecipeCategory,Add category relation,Medium,Missing,Not Started,#67,Content Strategy,Low,Organization,"Add relation to RecipeCategory"
+EXT-016,Extension,Recipe,AverageRating,Add rating average,Medium,Missing,Not Started,#72,Content Strategy,Low,Engagement,"Add decimal field"
+EXT-017,Extension,Recipe,RatingCount,Add rating count,Medium,Missing,Not Started,#72,Content Strategy,Low,Engagement,"Add integer field"
+EXT-018,Extension,ProductCollection,Description,Add collection description,High,Missing,Not Started,#29,DTC Storefront UI/UX,Low,Content,"Add text field"
+EXT-019,Extension,ProductCollection,LongDescription,Add rich description,Medium,Missing,Not Started,#29,DTC Storefront UI/UX,Low,Content,"Add blocks field"
+EXT-020,Extension,ProductCollection,HeroImage,Add collection hero image,High,Missing,Not Started,#32,DTC Storefront UI/UX,Low,Visual,"Add media field"
+EXT-021,Extension,ProductCollection,SEO,Add SEO component,High,Missing,Not Started,#28 #30,SEO Strategy,Low,SEO,"Add component: shared.seo"
+EXT-022,Extension,Global,OrganizationLogo,Add org logo for schema,High,Missing,Not Started,#5,SEO Strategy,Low,SEO,"Add media field"
+EXT-023,Extension,Global,OrganizationAddress,Add business address,High,Missing,Not Started,#5,SEO Strategy,Medium,SEO,"Add component with address fields"
+EXT-024,Extension,Global,OrganizationPhone,Add business phone,High,Missing,Not Started,#5 #12,SEO Strategy,Low,SEO,"Add string field"
+EXT-025,Extension,Global,OrganizationEmail,Add business email,High,Missing,Not Started,#5,SEO Strategy,Low,SEO,"Add string field"
+EXT-026,Extension,Global,SocialProfiles,Add social media links,Medium,Missing,Not Started,#5,SEO Strategy,Low,SEO,"Add component: shared.social-links"
+EXT-027,Extension,Header,PhoneNumber,Add phone to header,Medium,Missing,Not Started,#12,DTC Storefront UI/UX,Low,UX,"Add string field"
+EXT-028,Extension,Header,PhoneLabel,Add phone label,Low,Missing,Not Started,#12,DTC Storefront UI/UX,Low,UX,"Add string field"
+EXT-029,Extension,ShippingSetting,UPSAccountNumber,Add UPS account,High,Missing,Not Started,#54,Shipping System,Low,Integration,"Add string field (private)"
+EXT-030,Extension,ShippingSetting,EnableRealTimeRates,Enable UPS API rates,High,Missing,Not Started,#54,Shipping System,Low,Integration,"Add boolean field"
+EXT-031,Extension,ShippingSetting,DefaultOriginZip,Add origin ZIP,High,Missing,Not Started,#54,Shipping System,Low,Shipping,"Add string field"
+EXT-032,Extension,ShippingSetting,RateFallbackAmount,Add fallback rate,Medium,Missing,Not Started,#54,Shipping System,Low,Shipping,"Add decimal field"
+,,,,,,,,,,,,
+,,,SOW DELIVERABLES - CMS RELEVANT,,,,,,,,
+SOW-001,SOW,Deliverable,Site Flow,Create site flow in Figma,High,External,N/A,,Strategic Plan,External,Planning,Design deliverable - not CMS
+SOW-002,SOW,Deliverable,Data & Personalization Strategy,Implement personalization,High,Partial,Partial,,Strategic Plan,High,Personalization,Needs user preference fields in CMS
+SOW-003,SOW,Deliverable,User Journey Maps,Create user journey maps,Medium,External,N/A,,Strategic Plan,External,Planning,Design deliverable - not CMS
+SOW-004,SOW,Deliverable,Tech Stack Documentation,Document tech stack,High,Not Started,Not Started,,Strategic Plan,Medium,Documentation,Create in repo
+SOW-005,SOW,Deliverable,SEO Strategy,Implement SEO strategy,High,Partial,Partial,,SEO Strategy,Medium,SEO,Extend SEO components across all types
+SOW-006,SOW,Deliverable,Digital Marketing Plan,Support marketing needs,High,Partial,Partial,,Digital Marketing Plan,Medium,Marketing,Add newsletter, analytics, consent
+SOW-007,SOW,Deliverable,Event Capture Plan,Track user events,High,Not Started,Not Started,,Data & Analytics,Medium,Analytics,Add Analytics config type
+SOW-008,SOW,Deliverable,UTM Strategy,Support UTM tracking,Medium,Not Started,Not Started,,Data & Analytics,Low,Tracking,Consider UTM fields on content
+SOW-009,SOW,Deliverable,Cookies & Privacy,GDPR/CCPA compliance,Critical,Not Started,Not Started,,Data & Analytics,Medium,Compliance,Add CookieConsent type
+SOW-010,SOW,Deliverable,DTC Storefront UI/UX,Support UI/UX designs,High,Partial,Partial,,DTC Storefront UI/UX,Medium,UI/UX,Add missing page builder components
+SOW-011,SOW,Deliverable,DTC Storefront Development,Support all features,High,Partial,Partial,,DTC Storefront Development,High,Development,Multiple gaps identified
+SOW-012,SOW,Deliverable,Credit Card Verification,Support payment verification,High,External,N/A,,DTC Storefront Development,External,Payment,Medusa/payment layer - not CMS
+SOW-013,SOW,Deliverable,Shipping - Destination Calculation,Support shipping by ZIP,High,Implemented,Complete,,Shipping System,N/A,Shipping,ShippingZone handles this
+SOW-014,SOW,Deliverable,Shipping - Plant Pickup Discount,Support pickup discounts,High,Implemented,Complete,,Shipping System,N/A,Shipping,ShippingSetting handles this
+SOW-015,SOW,Deliverable,Shipping - Box Estimation,Support box calculation,High,Not Started,Not Started,,Shipping System,Medium,Shipping,Add ShippingBox type
+SOW-016,SOW,Deliverable,Shipping - Dry Ice Calculation,Support dry ice needs,High,Not Started,Not Started,,Shipping System,Medium,Shipping,Add ColdChainSettings type
+SOW-017,SOW,Deliverable,Shipping - UPS Charges,Support extra charges,Medium,Partial,Partial,,Shipping System,Low,Shipping,Extend ShippingZone breakpoints
+SOW-018,SOW,Deliverable,Shipping - UPS API Integration,Real-time UPS rates,High,Partial,Partial,,Shipping System,Medium,Integration,Add UPS config to ShippingSetting
+SOW-019,SOW,Deliverable,ADA Compliance WCAG 2.1 AA,Accessibility compliance,Critical,Partial,Partial,,ADA Compliance,Medium,Accessibility,Add alt text fields throughout
+SOW-020,SOW,Deliverable,QuickBooks Integration,Support QB data sync,High,Not Started,Not Started,,QuickBooks Integration,High,Integration,Consider OrderSync type if needed
+SOW-021,SOW,Deliverable,CMS Setup & Configuration,Configure Strapi CMS,High,Implemented,Complete,,Infrastructure,N/A,Infrastructure,Core setup complete
+SOW-022,SOW,Deliverable,CMS User Training,Train content editors,High,Not Started,Not Started,,Documentation & Training,Medium,Training,Create training materials
+SOW-023,SOW,Deliverable,CMS Documentation,Document CMS usage,High,Not Started,Not Started,,Documentation & Training,Medium,Documentation,Create user guides
+SOW-024,SOW,Deliverable,Tech Stack Documentation,Document architecture,High,Not Started,Not Started,,Documentation & Training,Medium,Documentation,Create tech docs
+SOW-025,SOW,Deliverable,Quality Assurance,Testing infrastructure,High,Not Started,Not Started,,Quality Assurance,High,Testing,Add tests to repo
+,,,,,,,,,,,,
+,,,FRONTEND ISSUE MAPPING,,,,,,,,
+FE-001,Frontend,Home,Hero CTA Button,Add CTA button to hero section,Medium,Missing,Not Started,#2,DTC Storefront UI/UX,Low,Conversion,Extend home.hero component
+FE-002,Frontend,Home,Newsletter Signup,Add newsletter section,High,Missing,Not Started,#3,Email Marketing,Low,Email Capture,Create newsletter component
+FE-003,Frontend,Home,JSON-LD Organization,Add Organization schema,High,Missing,Not Started,#5,SEO Strategy,Medium,SEO,Extend Global with org fields
+FE-004,Frontend,Home,Hero Accessibility,Add alt text to hero image,High,Missing,Not Started,#6,ADA Compliance,Low,Accessibility,Add BackgroundImageAlt field
+FE-005,Frontend,Header,Announcement Bar,Add promotional banner,Medium,Missing,Not Started,#9,DTC Storefront UI/UX,Low,Marketing,Create AnnouncementBar type
+FE-006,Frontend,Header,Phone Link,Add clickable phone number,Low,Missing,Not Started,#12,DTC Storefront UI/UX,Low,UX,Add to Header or Global
+FE-007,Frontend,Footer,Footer Content,Add CMS-managed footer,Critical,Missing,Not Started,#13 #16,DTC Storefront UI/UX,High,Brand,Create Footer type
+FE-008,Frontend,Footer,Newsletter in Footer,Add newsletter signup,High,Missing,Not Started,#14,Email Marketing,Low,Email Capture,Reuse newsletter component
+FE-009,Frontend,Footer,Social Links,Add social media links,Medium,Missing,Not Started,#15,Social Media Strategy,Low,Social,Add to Footer type
+FE-010,Frontend,Footer,Payment Icons,Show payment methods,Low,Missing,Not Started,#17,DTC Storefront UI/UX,Low,Trust,Add to Footer type
+FE-011,Frontend,Footer,Kosher Badge,Show certification,Medium,Missing,Not Started,#18,DTC Storefront UI/UX,Low,Trust,Add to Footer type
+FE-012,Frontend,PDP,JSON-LD Product,Add Product schema,High,Partial,Partial,#20,SEO Strategy,Medium,SEO,Extend Product with schema fields
+FE-013,Frontend,PDP,Product Reviews,Add review system,Medium,Missing,Not Started,#22,DTC Storefront Development,High,Conversion,Create Review type
+FE-014,Frontend,PDP,Wishlist,Add wishlist feature,Low,Missing,Not Started,#24,DTC Storefront Development,Medium,Engagement,Create Wishlist type
+FE-015,Frontend,PDP,Image Accessibility,Add alt text to gallery,High,Missing,Not Started,#26,ADA Compliance,Low,Accessibility,Create product-image component
+FE-016,Frontend,Collections,Collection Description,Add description field,Medium,Missing,Not Started,#29,DTC Storefront UI/UX,Low,Content,Extend ProductCollection
+FE-017,Frontend,Collections,JSON-LD Collection,Add CollectionPage schema,Medium,Missing,Not Started,#30,SEO Strategy,Low,SEO,Add SEO to ProductCollection
+FE-018,Frontend,Collections,Collection Filtering,Filter by attributes,High,Implemented,Partial,#31,DTC Storefront Development,N/A,Filtering,Verify Algolia indexing
+FE-019,Frontend,Collections,Collection Banner,Add hero image,Medium,Missing,Not Started,#32,DTC Storefront UI/UX,Low,Visual,Add HeroImage to ProductCollection
+FE-020,Frontend,Site-Wide,Google Analytics 4,Add GA4 tracking,Critical,Missing,Not Started,#35,Data & Analytics,Low,Tracking,Create Analytics type
+FE-021,Frontend,Site-Wide,Google Tag Manager,Add GTM tracking,Critical,Missing,Not Started,#36,Data & Analytics,Low,Tracking,Create Analytics type
+FE-022,Frontend,Site-Wide,Cookie Consent,Add consent banner,Critical,Missing,Not Started,#37,Cookies & Privacy,Medium,Compliance,Create CookieConsent type
+FE-023,Frontend,Checkout,UPS Real-time Rates,Add UPS API support,Critical,Partial,Partial,#54,Shipping System,Medium,Shipping,Extend ShippingSetting
+FE-024,Frontend,Checkout,Box Estimation,Add box calculation,High,Missing,Not Started,#55,Shipping System,Medium,Shipping,Create ShippingBox type
+FE-025,Frontend,Checkout,Dry Ice Calculation,Add dry ice config,High,Missing,Not Started,#56,Shipping System,Medium,Shipping,Create ColdChainSettings type
+FE-026,Frontend,Recipes,Recipe SEO,Add SEO to recipes,Medium,Missing,Not Started,#65,SEO Strategy,Low,SEO,Extend Recipe with SEO
+FE-027,Frontend,Recipes,JSON-LD Recipe,Add Recipe schema,High,Partial,Partial,#66,SEO Strategy,Medium,SEO,Extend Recipe with schema fields
+FE-028,Frontend,Recipes,Recipe Categories,Add category filtering,Medium,Missing,Not Started,#67,Content Strategy,Low,Organization,Create RecipeCategory type
+FE-029,Frontend,Recipes,Recipe Ratings,Add rating system,Low,Missing,Not Started,#72,Content Strategy,Low,Engagement,Extend Recipe with rating fields
+FE-030,Frontend,Recipes,Video Support,Add video embeds,Medium,Missing,Not Started,#74,Content Strategy,Low,Engagement,Add VideoUrl to Recipe
+,,,,,,,,,,,,
+,,,SUMMARY STATISTICS,,,,,,,,
+STAT-001,Summary,Count,Total Existing Content Types,16 content types currently in Strapi,N/A,N/A,N/A,,N/A,N/A,N/A,N/A
+STAT-002,Summary,Count,Total Existing Components,29 components currently in Strapi,N/A,N/A,N/A,,N/A,N/A,N/A,N/A
+STAT-003,Summary,Count,New Content Types Needed,10 new content types required,N/A,N/A,N/A,,N/A,N/A,N/A,N/A
+STAT-004,Summary,Count,New Components Needed,7 new components required,N/A,N/A,N/A,,N/A,N/A,N/A,N/A
+STAT-005,Summary,Count,Field Extensions Needed,32 field extensions required,N/A,N/A,N/A,,N/A,N/A,N/A,N/A
+STAT-006,Summary,Count,Frontend Issues Analyzed,74 frontend issues analyzed,N/A,N/A,N/A,,N/A,N/A,N/A,N/A
+STAT-007,Summary,Count,CMS Gaps Identified,32 CMS gaps requiring action,N/A,N/A,N/A,,N/A,N/A,N/A,N/A
+STAT-008,Summary,Count,Critical Priority Items,8 critical priority items,N/A,N/A,N/A,,N/A,N/A,N/A,N/A
+STAT-009,Summary,Count,High Priority Items,12 high priority items,N/A,N/A,N/A,,N/A,N/A,N/A,N/A
+STAT-010,Summary,Count,Medium Priority Items,9 medium priority items,N/A,N/A,N/A,,N/A,N/A,N/A,N/A
+STAT-011,Summary,Count,Low Priority Items,3 low priority items,N/A,N/A,N/A,,N/A,N/A,N/A,N/A
