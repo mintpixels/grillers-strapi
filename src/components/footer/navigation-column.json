@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_footer_navigation_columns",
+  "info": {
+    "displayName": "NavigationColumn",
+    "description": "A column of navigation links in the footer"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Links": {
+      "type": "component",
+      "component": "common.link",
+      "repeatable": true,
+      "required": false
+    }
+  }
+}
+

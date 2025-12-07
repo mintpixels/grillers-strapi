@@ -1,0 +1,75 @@
+{
+  "kind": "singleType",
+  "collectionName": "footers",
+  "info": {
+    "singularName": "footer",
+    "pluralName": "footers",
+    "displayName": "Footer",
+    "description": "Global footer content configuration"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "NavigationColumns": {
+      "type": "component",
+      "component": "footer.navigation-column",
+      "repeatable": true,
+      "required": false
+    },
+    "SocialLinks": {
+      "type": "component",
+      "component": "footer.social-link",
+      "repeatable": true,
+      "required": false
+    },
+    "ContactEmail": {
+      "type": "email",
+      "required": false
+    },
+    "ContactPhone": {
+      "type": "string",
+      "required": false
+    },
+    "ContactAddress": {
+      "type": "text",
+      "required": false
+    },
+    "LegalLinks": {
+      "type": "component",
+      "component": "common.link",
+      "repeatable": true,
+      "required": false
+    },
+    "PaymentMethods": {
+      "type": "component",
+      "component": "footer.payment-method",
+      "repeatable": true,
+      "required": false
+    },
+    "CertificationBadges": {
+      "type": "component",
+      "component": "footer.certification-badge",
+      "repeatable": true,
+      "required": false
+    },
+    "CopyrightText": {
+      "type": "string",
+      "required": false
+    },
+    "ShowNewsletterSection": {
+      "type": "boolean",
+      "default": true
+    },
+    "NewsletterTitle": {
+      "type": "string",
+      "required": false
+    },
+    "NewsletterDescription": {
+      "type": "text",
+      "required": false
+    }
+  }
+}
+

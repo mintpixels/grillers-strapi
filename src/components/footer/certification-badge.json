@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_footer_certification_badges",
+  "info": {
+    "displayName": "CertificationBadge",
+    "description": "Certification badge image and description"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "Description": {
+      "type": "text",
+      "required": false
+    }
+  }
+}
+

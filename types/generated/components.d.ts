@@ -81,6 +81,67 @@ export interface CommonWhyUsList extends Struct.ComponentSchema {
   };
 }
 
+export interface FooterCertificationBadge extends Struct.ComponentSchema {
+  collectionName: 'components_footer_certification_badges';
+  info: {
+    description: 'Certification badge image and description';
+    displayName: 'CertificationBadge';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface FooterNavigationColumn extends Struct.ComponentSchema {
+  collectionName: 'components_footer_navigation_columns';
+  info: {
+    description: 'A column of navigation links in the footer';
+    displayName: 'NavigationColumn';
+  };
+  attributes: {
+    Links: Schema.Attribute.Component<'common.link', true>;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface FooterPaymentMethod extends Struct.ComponentSchema {
+  collectionName: 'components_footer_payment_methods';
+  info: {
+    description: 'Payment method icon and name';
+    displayName: 'PaymentMethod';
+  };
+  attributes: {
+    Icon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface FooterSocialLink extends Struct.ComponentSchema {
+  collectionName: 'components_footer_social_links';
+  info: {
+    description: 'Social media link with platform name and URL';
+    displayName: 'SocialLink';
+  };
+  attributes: {
+    Icon: Schema.Attribute.Media<'images'>;
+    Platform: Schema.Attribute.Enumeration<
+      [
+        'Facebook',
+        'Instagram',
+        'Twitter',
+        'YouTube',
+        'LinkedIn',
+        'Pinterest',
+        'TikTok',
+      ]
+    > &
+      Schema.Attribute.Required;
+    Url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface HomeBestsellers extends Struct.ComponentSchema {
   collectionName: 'components_home_bestsellers';
   info: {
@@ -405,6 +466,10 @@ declare module '@strapi/strapi' {
       'common.link': CommonLink;
       'common.product-card': CommonProductCard;
       'common.why-us-list': CommonWhyUsList;
+      'footer.certification-badge': FooterCertificationBadge;
+      'footer.navigation-column': FooterNavigationColumn;
+      'footer.payment-method': FooterPaymentMethod;
+      'footer.social-link': FooterSocialLink;
       'home.bestsellers': HomeBestsellers;
       'home.blog-explore': HomeBlogExplore;
       'home.follow-us': HomeFollowUs;

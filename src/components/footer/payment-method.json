@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_footer_payment_methods",
+  "info": {
+    "displayName": "PaymentMethod",
+    "description": "Payment method icon and name"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Icon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    }
+  }
+}
+

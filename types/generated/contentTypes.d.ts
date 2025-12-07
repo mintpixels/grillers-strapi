@@ -490,6 +490,53 @@ export interface ApiCheckoutCheckout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiFooterFooter extends Struct.SingleTypeSchema {
+  collectionName: 'footers';
+  info: {
+    description: 'Global footer content configuration';
+    displayName: 'Footer';
+    pluralName: 'footers';
+    singularName: 'footer';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    CertificationBadges: Schema.Attribute.Component<
+      'footer.certification-badge',
+      true
+    >;
+    ContactAddress: Schema.Attribute.Text;
+    ContactEmail: Schema.Attribute.Email;
+    ContactPhone: Schema.Attribute.String;
+    CopyrightText: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    LegalLinks: Schema.Attribute.Component<'common.link', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::footer.footer'
+    > &
+      Schema.Attribute.Private;
+    NavigationColumns: Schema.Attribute.Component<
+      'footer.navigation-column',
+      true
+    >;
+    NewsletterDescription: Schema.Attribute.Text;
+    NewsletterTitle: Schema.Attribute.String;
+    PaymentMethods: Schema.Attribute.Component<'footer.payment-method', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    ShowNewsletterSection: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    SocialLinks: Schema.Attribute.Component<'footer.social-link', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -580,6 +627,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
         'home.blog-explore',
       ]
     >;
+    SEO: Schema.Attribute.Component<'shared.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -675,6 +723,7 @@ export interface ApiProductCollectionProductCollection
       Schema.Attribute.Private;
     Name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'shared.seo', false>;
     Slug: Schema.Attribute.UID<'Name'> & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -786,6 +835,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     Metadata: Schema.Attribute.Component<'pdp.product-metadata', false>;
     publishedAt: Schema.Attribute.DateTime;
     Recipes: Schema.Attribute.Relation<'oneToMany', 'api::recipe.recipe'>;
+    SEO: Schema.Attribute.Component<'shared.seo', false>;
     Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -820,6 +870,7 @@ export interface ApiRecipeRecipe extends Struct.CollectionTypeSchema {
     PrepTime: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     PublishedDate: Schema.Attribute.Date;
+    SEO: Schema.Attribute.Component<'shared.seo', false>;
     Servings: Schema.Attribute.String;
     ShortDescription: Schema.Attribute.Text;
     Slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
@@ -1494,6 +1545,7 @@ declare module '@strapi/strapi' {
       'api::aisle.aisle': ApiAisleAisle;
       'api::category.category': ApiCategoryCategory;
       'api::checkout.checkout': ApiCheckoutCheckout;
+      'api::footer.footer': ApiFooterFooter;
       'api::global.global': ApiGlobalGlobal;
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;

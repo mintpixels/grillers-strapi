@@ -66,6 +66,11 @@
       "type": "component",
       "repeatable": false,
       "component": "pdp.medusa-product"
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
     }
   }
 }
