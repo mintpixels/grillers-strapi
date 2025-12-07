@@ -521,6 +521,7 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
       'api::footer.footer'
     > &
       Schema.Attribute.Private;
+    Logo: Schema.Attribute.Media<'images'>;
     NavigationColumns: Schema.Attribute.Component<
       'footer.navigation-column',
       true

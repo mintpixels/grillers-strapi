@@ -12,6 +12,12 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "Logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
     "NavigationColumns": {
       "type": "component",
       "component": "footer.navigation-column",
