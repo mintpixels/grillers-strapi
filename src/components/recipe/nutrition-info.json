@@ -1,0 +1,51 @@
+{
+  "collectionName": "components_recipe_nutrition_infos",
+  "info": {
+    "displayName": "NutritionInfo",
+    "description": "Nutritional information for recipes (supports Recipe schema.org)"
+  },
+  "options": {},
+  "attributes": {
+    "Calories": {
+      "type": "integer",
+      "required": false,
+      "description": "Calories in kcal per serving"
+    },
+    "Protein": {
+      "type": "decimal",
+      "required": false,
+      "description": "Protein in grams per serving"
+    },
+    "Fat": {
+      "type": "decimal",
+      "required": false,
+      "description": "Total fat in grams per serving"
+    },
+    "Carbohydrates": {
+      "type": "decimal",
+      "required": false,
+      "description": "Total carbohydrates in grams per serving"
+    },
+    "Fiber": {
+      "type": "decimal",
+      "required": false,
+      "description": "Dietary fiber in grams per serving"
+    },
+    "Sugar": {
+      "type": "decimal",
+      "required": false,
+      "description": "Sugar in grams per serving"
+    },
+    "Sodium": {
+      "type": "decimal",
+      "required": false,
+      "description": "Sodium in milligrams per serving"
+    },
+    "ServingSize": {
+      "type": "string",
+      "required": false,
+      "description": "Serving size (e.g., '1 cup', '100g', '1 slice')"
+    }
+  }
+}
+

@@ -46,6 +46,32 @@
     "TotalTime": {
       "type": "string"
     },
+    "Difficulty": {
+      "type": "enumeration",
+      "enum": ["easy", "medium", "hard"],
+      "required": false,
+      "description": "Recipe difficulty level for filtering"
+    },
+    "VideoUrl": {
+      "type": "string",
+      "required": false,
+      "regex": "^(https?:\\/\\/)?(www\\.)?(youtube\\.com|youtu\\.be|vimeo\\.com)\\/.+$",
+      "description": "YouTube or Vimeo video URL for embedded cooking videos"
+    },
+    "AverageRating": {
+      "type": "decimal",
+      "required": false,
+      "min": 0,
+      "max": 5,
+      "description": "Average user rating (0-5 stars)"
+    },
+    "RatingCount": {
+      "type": "integer",
+      "required": false,
+      "default": 0,
+      "min": 0,
+      "description": "Total number of ratings received"
+    },
     "Ingredients": {
       "type": "component",
       "repeatable": true,
@@ -55,6 +81,18 @@
       "type": "component",
       "repeatable": true,
       "component": "recipe.step"
+    },
+    "NutritionInfo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "recipe.nutrition-info",
+      "description": "Nutritional information for Recipe schema.org structured data"
+    },
+    "RecipeCategories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::recipe-category.recipe-category",
+      "mappedBy": "Recipes"
     },
     "SEO": {
       "type": "component",

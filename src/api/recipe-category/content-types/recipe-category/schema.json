@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recipe_categories",
+  "info": {
+    "singularName": "recipe-category",
+    "pluralName": "recipe-categories",
+    "displayName": "Recipe Category",
+    "description": "Categories for organizing and filtering recipes"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "description": "Category name (e.g., 'Grilling', 'BBQ', 'Appetizers')"
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Name",
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "required": false,
+      "description": "Brief description of this recipe category"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Featured image for the category"
+    },
+    "Recipes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::recipe.recipe",
+      "inversedBy": "RecipeCategories"
+    }
+  }
+}
+
