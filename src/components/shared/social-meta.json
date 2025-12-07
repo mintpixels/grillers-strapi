@@ -1,0 +1,85 @@
+{
+  "collectionName": "components_shared_social_metas",
+  "info": {
+    "name": "SocialMeta",
+    "icon": "share",
+    "displayName": "Social Meta",
+    "description": "Open Graph and Twitter Card metadata for social sharing"
+  },
+  "options": {},
+  "attributes": {
+    "ogTitle": {
+      "type": "string",
+      "required": false,
+      "maxLength": 60
+    },
+    "ogDescription": {
+      "type": "text",
+      "required": false,
+      "maxLength": 200
+    },
+    "ogImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "ogImageAlt": {
+      "type": "string",
+      "required": false,
+      "maxLength": 100
+    },
+    "ogType": {
+      "type": "enumeration",
+      "enum": [
+        "website",
+        "article",
+        "product",
+        "profile"
+      ],
+      "default": "website",
+      "required": false
+    },
+    "twitterCard": {
+      "type": "enumeration",
+      "enum": [
+        "summary",
+        "summary_large_image",
+        "app",
+        "player"
+      ],
+      "default": "summary_large_image",
+      "required": false
+    },
+    "twitterTitle": {
+      "type": "string",
+      "required": false,
+      "maxLength": 70
+    },
+    "twitterDescription": {
+      "type": "text",
+      "required": false,
+      "maxLength": 200
+    },
+    "twitterImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "twitterImageAlt": {
+      "type": "string",
+      "required": false,
+      "maxLength": 100
+    },
+    "twitterCreator": {
+      "type": "string",
+      "required": false
+    },
+    "twitterSite": {
+      "type": "string",
+      "required": false
+    }
+  }
+}
+

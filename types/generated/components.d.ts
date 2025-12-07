@@ -420,15 +420,39 @@ export interface SharedRichText extends Struct.ComponentSchema {
 export interface SharedSeo extends Struct.ComponentSchema {
   collectionName: 'components_shared_seos';
   info: {
-    description: '';
-    displayName: 'Seo';
-    icon: 'allergies';
+    description: 'Core SEO settings for search engines and AI indexing';
+    displayName: 'SEO';
+    icon: 'search';
     name: 'Seo';
   };
   attributes: {
-    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
+    canonicalUrl: Schema.Attribute.String;
+    keywords: Schema.Attribute.String;
+    metaDescription: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 160;
+        minLength: 50;
+      }>;
+    metaRobots: Schema.Attribute.Enumeration<
+      [
+        'index, follow',
+        'noindex, follow',
+        'index, nofollow',
+        'noindex, nofollow',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'index, follow'>;
+    metaTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 60;
+        minLength: 1;
+      }>;
+    metaViewport: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'width=device-width, initial-scale=1'>;
+    structuredData: Schema.Attribute.JSON;
   };
 }
 
@@ -453,6 +477,54 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
   attributes: {
     files: Schema.Attribute.Media<'images', true>;
+  };
+}
+
+export interface SharedSocialMeta extends Struct.ComponentSchema {
+  collectionName: 'components_shared_social_metas';
+  info: {
+    description: 'Open Graph and Twitter Card metadata for social sharing';
+    displayName: 'Social Meta';
+    icon: 'share';
+    name: 'SocialMeta';
+  };
+  attributes: {
+    ogDescription: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
+    ogImage: Schema.Attribute.Media<'images'>;
+    ogImageAlt: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
+    ogTitle: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 60;
+      }>;
+    ogType: Schema.Attribute.Enumeration<
+      ['website', 'article', 'product', 'profile']
+    > &
+      Schema.Attribute.DefaultTo<'website'>;
+    twitterCard: Schema.Attribute.Enumeration<
+      ['summary', 'summary_large_image', 'app', 'player']
+    > &
+      Schema.Attribute.DefaultTo<'summary_large_image'>;
+    twitterCreator: Schema.Attribute.String;
+    twitterDescription: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
+    twitterImage: Schema.Attribute.Media<'images'>;
+    twitterImageAlt: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
+    twitterSite: Schema.Attribute.String;
+    twitterTitle: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 70;
+      }>;
   };
 }
 
@@ -492,6 +564,7 @@ declare module '@strapi/strapi' {
       'shared.seo': SharedSeo;
       'shared.shipping-zone-breakpoints': SharedShippingZoneBreakpoints;
       'shared.slider': SharedSlider;
+      'shared.social-meta': SharedSocialMeta;
     }
   }
 }

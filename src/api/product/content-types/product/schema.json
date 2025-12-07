@@ -71,6 +71,11 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.seo"
+    },
+    "SocialMeta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.social-meta"
     }
   }
 }

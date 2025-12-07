@@ -465,6 +465,7 @@ export interface ApiCheckoutCheckout extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     LocalPickupSameDayText: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'shared.seo', false>;
     ShippingBlackoutDates: Schema.Attribute.Component<
       'checkout.shipping-blackout-dates',
       true
@@ -628,6 +629,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       ]
     >;
     SEO: Schema.Attribute.Component<'shared.seo', false>;
+    SocialMeta: Schema.Attribute.Component<'shared.social-meta', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -725,6 +727,7 @@ export interface ApiProductCollectionProductCollection
     publishedAt: Schema.Attribute.DateTime;
     SEO: Schema.Attribute.Component<'shared.seo', false>;
     Slug: Schema.Attribute.UID<'Name'> & Schema.Attribute.Required;
+    SocialMeta: Schema.Attribute.Component<'shared.social-meta', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -836,6 +839,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     Recipes: Schema.Attribute.Relation<'oneToMany', 'api::recipe.recipe'>;
     SEO: Schema.Attribute.Component<'shared.seo', false>;
+    SocialMeta: Schema.Attribute.Component<'shared.social-meta', false>;
     Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -874,6 +878,7 @@ export interface ApiRecipeRecipe extends Struct.CollectionTypeSchema {
     Servings: Schema.Attribute.String;
     ShortDescription: Schema.Attribute.Text;
     Slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
+    SocialMeta: Schema.Attribute.Component<'shared.social-meta', false>;
     Steps: Schema.Attribute.Component<'recipe.step', true>;
     Title: Schema.Attribute.String & Schema.Attribute.Required;
     TotalTime: Schema.Attribute.String;
