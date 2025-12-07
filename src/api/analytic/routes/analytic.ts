@@ -1,5 +1,5 @@
 /**
- * analytics router
+ * analytic router
  */
 
 import { factories } from '@strapi/strapi';
