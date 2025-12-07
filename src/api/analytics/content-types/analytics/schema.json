@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "analytics",
+  "info": {
+    "singularName": "analytic",
+    "pluralName": "analytics",
+    "displayName": "Analytics",
+    "description": "Analytics and tracking configuration for GA4 and GTM"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "GA4MeasurementID": {
+      "type": "string",
+      "required": false
+    },
+    "GTMContainerID": {
+      "type": "string",
+      "required": false
+    },
+    "EnableAnalytics": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "DebugMode": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}
+

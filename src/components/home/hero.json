@@ -17,6 +17,11 @@
       ],
       "type": "media",
       "multiple": false
+    },
+    "CTAButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.link"
     }
   }
 }

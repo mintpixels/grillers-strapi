@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_shared_newsletters",
+  "info": {
+    "displayName": "Newsletter",
+    "description": "Newsletter signup section for email marketing"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "required": false
+    },
+    "ButtonText": {
+      "type": "string",
+      "default": "Subscribe",
+      "required": false
+    },
+    "PlaceholderText": {
+      "type": "string",
+      "default": "Enter your email",
+      "required": false
+    },
+    "SuccessMessage": {
+      "type": "string",
+      "default": "Thanks for subscribing!",
+      "required": false
+    },
+    "ErrorMessage": {
+      "type": "string",
+      "default": "Please enter a valid email",
+      "required": false
+    }
+  }
+}
+

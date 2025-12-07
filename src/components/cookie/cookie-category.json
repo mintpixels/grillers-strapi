@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_cookie_cookie_categories",
+  "info": {
+    "displayName": "CookieCategory",
+    "description": "Cookie category for GDPR/CCPA consent management"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "required": false
+    },
+    "Required": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}
+

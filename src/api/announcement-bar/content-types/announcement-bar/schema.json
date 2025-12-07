@@ -1,0 +1,57 @@
+{
+  "kind": "singleType",
+  "collectionName": "announcement_bars",
+  "info": {
+    "singularName": "announcement-bar",
+    "pluralName": "announcement-bars",
+    "displayName": "AnnouncementBar",
+    "description": "Promotional announcement bar with scheduling"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Message": {
+      "type": "text",
+      "required": true
+    },
+    "LinkURL": {
+      "type": "string",
+      "required": false
+    },
+    "LinkText": {
+      "type": "string",
+      "required": false
+    },
+    "BackgroundColor": {
+      "type": "string",
+      "default": "#000000",
+      "required": false
+    },
+    "TextColor": {
+      "type": "string",
+      "default": "#FFFFFF",
+      "required": false
+    },
+    "StartDate": {
+      "type": "datetime",
+      "required": false
+    },
+    "EndDate": {
+      "type": "datetime",
+      "required": false
+    },
+    "Enabled": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "Dismissible": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}
+

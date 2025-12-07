@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_shared_organizations",
+  "info": {
+    "displayName": "Organization",
+    "description": "Organization information for schema.org structured data"
+  },
+  "options": {},
+  "attributes": {
+    "StreetAddress": {
+      "type": "string",
+      "required": false
+    },
+    "City": {
+      "type": "string",
+      "required": false
+    },
+    "State": {
+      "type": "string",
+      "required": false
+    },
+    "PostalCode": {
+      "type": "string",
+      "required": false
+    },
+    "Country": {
+      "type": "string",
+      "default": "United States",
+      "required": false
+    },
+    "Phone": {
+      "type": "string",
+      "required": false
+    },
+    "Email": {
+      "type": "email",
+      "required": false
+    },
+    "SocialProfiles": {
+      "type": "json",
+      "required": false
+    }
+  }
+}
+

@@ -1,0 +1,64 @@
+{
+  "kind": "singleType",
+  "collectionName": "cookie_consents",
+  "info": {
+    "singularName": "cookie-consent",
+    "pluralName": "cookie-consents",
+    "displayName": "CookieConsent",
+    "description": "Cookie consent banner configuration for GDPR/CCPA compliance"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "BannerMessage": {
+      "type": "text",
+      "required": true
+    },
+    "AcceptButtonText": {
+      "type": "string",
+      "default": "Accept All",
+      "required": false
+    },
+    "RejectButtonText": {
+      "type": "string",
+      "default": "Reject All",
+      "required": false
+    },
+    "PreferencesButtonText": {
+      "type": "string",
+      "default": "Manage Preferences",
+      "required": false
+    },
+    "PrivacyPolicyLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.link",
+      "required": false
+    },
+    "CookieCategories": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cookie.cookie-category",
+      "required": false
+    },
+    "Position": {
+      "type": "enumeration",
+      "enum": ["bottom", "top", "modal"],
+      "default": "bottom",
+      "required": true
+    },
+    "BackgroundColor": {
+      "type": "string",
+      "default": "#000000",
+      "required": false
+    },
+    "TextColor": {
+      "type": "string",
+      "default": "#FFFFFF",
+      "required": false
+    }
+  }
+}
+
