@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_pdp_product_images",
+  "info": {
+    "displayName": "ProductImage",
+    "description": "Product image with accessibility and ordering"
+  },
+  "options": {},
+  "attributes": {
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "AltText": {
+      "type": "string",
+      "required": true
+    },
+    "Caption": {
+      "type": "text",
+      "required": false
+    },
+    "IsPrimary": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "SortOrder": {
+      "type": "integer",
+      "required": false
+    }
+  }
+}
+

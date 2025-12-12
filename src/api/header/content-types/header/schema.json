@@ -15,6 +15,15 @@
       "type": "component",
       "component": "common.header-nav",
       "repeatable": true
+    },
+    "PhoneNumber": {
+      "type": "string",
+      "required": false
+    },
+    "PhoneLabel": {
+      "type": "string",
+      "required": false,
+      "default": "Call us:"
     }
   }
 }

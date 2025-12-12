@@ -1,0 +1,85 @@
+{
+  "collectionName": "components_shared_testimonial_sections",
+  "info": {
+    "displayName": "TestimonialSection",
+    "description": "Reusable testimonial display component with filtering and display options"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": false
+    },
+    "Subtitle": {
+      "type": "text",
+      "required": false
+    },
+    "DisplayStyle": {
+      "type": "enumeration",
+      "enum": [
+        "carousel",
+        "grid",
+        "featured-single",
+        "list"
+      ],
+      "required": true,
+      "default": "carousel"
+    },
+    "ItemsToShow": {
+      "type": "integer",
+      "required": false,
+      "default": 3,
+      "min": 1
+    },
+    "ShowRatings": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "ShowPhotos": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "BackgroundColor": {
+      "type": "string",
+      "required": false
+    },
+    "FilterByTags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag"
+    },
+    "FilterByCategories": {
+      "type": "enumeration",
+      "enum": [
+        "Product Quality",
+        "Customer Service",
+        "Shipping",
+        "Overall Experience"
+      ],
+      "required": false
+    },
+    "SortOrder": {
+      "type": "enumeration",
+      "enum": [
+        "date-desc",
+        "date-asc",
+        "display-order",
+        "random"
+      ],
+      "required": false,
+      "default": "date-desc"
+    },
+    "ShowAllLink": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "AllLinkUrl": {
+      "type": "string",
+      "required": false
+    }
+  }
+}
+

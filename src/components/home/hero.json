@@ -8,6 +8,10 @@
     "Title": {
       "type": "string"
     },
+    "Subtitle": {
+      "type": "text",
+      "required": false
+    },
     "BackgroundImage": {
       "allowedTypes": [
         "images",
@@ -17,6 +21,10 @@
       ],
       "type": "media",
       "multiple": false
+    },
+    "BackgroundImageAlt": {
+      "type": "string",
+      "required": true
     },
     "CTAButton": {
       "type": "component",

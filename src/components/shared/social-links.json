@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_shared_social_links",
+  "info": {
+    "displayName": "SocialLinks",
+    "description": "Social media platform URLs"
+  },
+  "options": {},
+  "attributes": {
+    "Instagram": {
+      "type": "string",
+      "required": false
+    },
+    "Facebook": {
+      "type": "string",
+      "required": false
+    },
+    "Pinterest": {
+      "type": "string",
+      "required": false
+    },
+    "TikTok": {
+      "type": "string",
+      "required": false
+    },
+    "Twitter": {
+      "type": "string",
+      "required": false
+    },
+    "YouTube": {
+      "type": "string",
+      "required": false
+    }
+  }
+}
+

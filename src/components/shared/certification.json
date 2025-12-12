@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_certifications",
+  "info": {
+    "displayName": "Certification",
+    "description": "Certification badge with image and link"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "BadgeImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "AltText": {
+      "type": "string",
+      "required": true
+    },
+    "LinkUrl": {
+      "type": "string",
+      "required": false
+    }
+  }
+}
+

@@ -16,6 +16,24 @@
     },
     "PlantPickUpDiscount": {
       "type": "decimal"
+    },
+    "UPSAccountNumber": {
+      "type": "string",
+      "required": false,
+      "private": true
+    },
+    "EnableRealTimeRates": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "DefaultOriginZip": {
+      "type": "string",
+      "required": false
+    },
+    "RateFallbackAmount": {
+      "type": "decimal",
+      "required": false
     }
   }
 }

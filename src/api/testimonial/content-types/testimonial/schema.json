@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "testimonials",
+  "info": {
+    "singularName": "testimonial",
+    "pluralName": "testimonials",
+    "displayName": "Testimonial",
+    "description": "Customer testimonials with rich filtering and categorization"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "CustomerName": {
+      "type": "string",
+      "required": true
+    },
+    "CustomerTitle": {
+      "type": "string",
+      "required": false
+    },
+    "CustomerCompany": {
+      "type": "string",
+      "required": false
+    },
+    "CustomerLocation": {
+      "type": "string",
+      "required": false
+    },
+    "CustomerPhoto": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "TestimonialText": {
+      "type": "blocks",
+      "required": true
+    },
+    "FeaturedQuote": {
+      "type": "text",
+      "required": false
+    },
+    "Rating": {
+      "type": "integer",
+      "required": false,
+      "min": 1,
+      "max": 5
+    },
+    "DateReceived": {
+      "type": "date",
+      "required": true
+    },
+    "DisplayOrder": {
+      "type": "integer",
+      "required": false
+    },
+    "IsActive": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "Tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "testimonials"
+    },
+    "Categories": {
+      "type": "enumeration",
+      "enum": [
+        "Product Quality",
+        "Customer Service",
+        "Shipping",
+        "Overall Experience"
+      ],
+      "required": false
+    }
+  }
+}
+

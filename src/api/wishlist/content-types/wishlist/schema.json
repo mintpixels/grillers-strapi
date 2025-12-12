@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wishlists",
+  "info": {
+    "singularName": "wishlist",
+    "pluralName": "wishlists",
+    "displayName": "Wishlist",
+    "description": "User wishlist for products and recipes"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "MedusaCustomerId": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product"
+    },
+    "Recipes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::recipe.recipe"
+    }
+  }
+}
+

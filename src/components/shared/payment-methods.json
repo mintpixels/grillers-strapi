@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_shared_payment_methods",
+  "info": {
+    "displayName": "PaymentMethods",
+    "description": "Payment method icon display configuration"
+  },
+  "options": {},
+  "attributes": {
+    "ShowVisa": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "ShowMastercard": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "ShowAmex": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "ShowDiscover": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "ShowPayPal": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "ShowApplePay": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "ShowGooglePay": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    }
+  }
+}
+

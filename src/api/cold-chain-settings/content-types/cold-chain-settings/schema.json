@@ -1,0 +1,43 @@
+{
+  "kind": "singleType",
+  "collectionName": "cold_chain_settings",
+  "info": {
+    "singularName": "cold-chain-settings",
+    "pluralName": "cold-chain-settings",
+    "displayName": "ColdChainSettings",
+    "description": "Cold chain shipping configuration for temperature-sensitive products"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "DryIcePricePerLb": {
+      "type": "decimal",
+      "required": false
+    },
+    "MinimumDryIceAmount": {
+      "type": "decimal",
+      "required": false
+    },
+    "TemperatureThreshold": {
+      "type": "decimal",
+      "required": false
+    },
+    "ColdChainSurcharge": {
+      "type": "decimal",
+      "required": false
+    },
+    "Enabled": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "TransitDayThresholds": {
+      "type": "component",
+      "repeatable": true,
+      "component": "checkout.transit-threshold"
+    }
+  }
+}
+

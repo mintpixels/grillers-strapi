@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shipping_boxes",
+  "info": {
+    "singularName": "shipping-box",
+    "pluralName": "shipping-boxes",
+    "displayName": "ShippingBox",
+    "description": "Shipping box dimensions and weights for rate calculation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Length": {
+      "type": "decimal",
+      "required": true
+    },
+    "Width": {
+      "type": "decimal",
+      "required": true
+    },
+    "Height": {
+      "type": "decimal",
+      "required": true
+    },
+    "MaxWeight": {
+      "type": "decimal",
+      "required": false
+    },
+    "TareWeight": {
+      "type": "decimal",
+      "required": false
+    },
+    "Active": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    }
+  }
+}
+

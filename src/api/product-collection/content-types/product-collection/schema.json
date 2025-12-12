@@ -19,6 +19,24 @@
       "required": true,
       "targetField": "Name"
     },
+    "Description": {
+      "type": "text",
+      "required": false
+    },
+    "LongDescription": {
+      "type": "blocks",
+      "required": false
+    },
+    "HeroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "HeroImageAlt": {
+      "type": "string",
+      "required": false
+    },
     "SEO": {
       "type": "component",
       "repeatable": false,

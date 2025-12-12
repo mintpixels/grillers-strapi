@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_checkout_transit_thresholds",
+  "info": {
+    "displayName": "TransitThreshold",
+    "description": "Transit day threshold for dry ice calculation"
+  },
+  "options": {},
+  "attributes": {
+    "TransitDays": {
+      "type": "integer",
+      "required": true
+    },
+    "DryIceMultiplier": {
+      "type": "decimal",
+      "required": true
+    }
+  }
+}
+
