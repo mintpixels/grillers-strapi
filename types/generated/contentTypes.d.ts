@@ -404,6 +404,88 @@ export interface ApiAisleAisle extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAnalyticAnalytic extends Struct.SingleTypeSchema {
+  collectionName: 'analytics';
+  info: {
+    description: 'Analytics and tracking configuration for GA4 and GTM';
+    displayName: 'Analytics';
+    pluralName: 'analytics';
+    singularName: 'analytic';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {};
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    DebugMode: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    EnableAnalytics: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    GA4MeasurementID: Schema.Attribute.String;
+    GTMContainerID: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::analytic.analytic'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAnnouncementBarAnnouncementBar
+  extends Struct.SingleTypeSchema {
+  collectionName: 'announcement_bars';
+  info: {
+    description: 'Promotional announcement bar with scheduling';
+    displayName: 'AnnouncementBar';
+    pluralName: 'announcement-bars';
+    singularName: 'announcement-bar';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {};
+  attributes: {
+    BackgroundColor: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'#000000'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Dismissible: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    Enabled: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    EndDate: Schema.Attribute.DateTime;
+    LinkText: Schema.Attribute.String;
+    LinkURL: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::announcement-bar.announcement-bar'
+    > &
+      Schema.Attribute.Private;
+    Message: Schema.Attribute.Text & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    StartDate: Schema.Attribute.DateTime;
+    TextColor: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'#FFFFFF'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
@@ -435,6 +517,45 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     SubCategories: Schema.Attribute.Relation<
       'oneToMany',
       'api::sub-category.sub-category'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiColdChainSettingsColdChainSettings
+  extends Struct.SingleTypeSchema {
+  collectionName: 'cold_chain_settings';
+  info: {
+    description: 'Cold chain shipping configuration for temperature-sensitive products';
+    displayName: 'ColdChainSettings';
+    pluralName: 'cold-chain-settings';
+    singularName: 'cold-chain-settings';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {};
+  attributes: {
+    ColdChainSurcharge: Schema.Attribute.Decimal;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    DryIcePricePerLb: Schema.Attribute.Decimal;
+    Enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cold-chain-settings.cold-chain-settings'
+    > &
+      Schema.Attribute.Private;
+    MinimumDryIceAmount: Schema.Attribute.Decimal;
+    publishedAt: Schema.Attribute.DateTime;
+    TemperatureThreshold: Schema.Attribute.Decimal;
+    TransitDayThresholds: Schema.Attribute.Component<
+      'checkout.transit-threshold',
+      true
     >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -488,6 +609,51 @@ export interface ApiCheckoutCheckout extends Struct.SingleTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     UPSSameDayCutoffTime: Schema.Attribute.String;
+  };
+}
+
+export interface ApiCookieConsentCookieConsent extends Struct.SingleTypeSchema {
+  collectionName: 'cookie_consents';
+  info: {
+    description: 'Cookie consent banner configuration for GDPR/CCPA compliance';
+    displayName: 'CookieConsent';
+    pluralName: 'cookie-consents';
+    singularName: 'cookie-consent';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {};
+  attributes: {
+    AcceptButtonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Accept All'>;
+    BackgroundColor: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'#000000'>;
+    BannerMessage: Schema.Attribute.Text & Schema.Attribute.Required;
+    CookieCategories: Schema.Attribute.Component<'cookie.cookie-category', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cookie-consent.cookie-consent'
+    > &
+      Schema.Attribute.Private;
+    Position: Schema.Attribute.Enumeration<['bottom', 'top', 'modal']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'bottom'>;
+    PreferencesButtonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Manage Preferences'>;
+    PrivacyPolicyLink: Schema.Attribute.Component<'common.link', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    RejectButtonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Reject All'>;
+    TextColor: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'#FFFFFF'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -838,10 +1004,44 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     MedusaProduct: Schema.Attribute.Component<'pdp.medusa-product', false>;
     Metadata: Schema.Attribute.Component<'pdp.product-metadata', false>;
     publishedAt: Schema.Attribute.DateTime;
-    Recipes: Schema.Attribute.Relation<'oneToMany', 'api::recipe.recipe'>;
+    Recipes: Schema.Attribute.Relation<'manyToMany', 'api::recipe.recipe'>;
     SEO: Schema.Attribute.Component<'shared.seo', false>;
     SocialMeta: Schema.Attribute.Component<'shared.social-meta', false>;
     Title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRecipeCategoryRecipeCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'recipe_categories';
+  info: {
+    description: 'Categories for organizing and filtering recipes';
+    displayName: 'Recipe Category';
+    pluralName: 'recipe-categories';
+    singularName: 'recipe-category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::recipe-category.recipe-category'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    Recipes: Schema.Attribute.Relation<'manyToMany', 'api::recipe.recipe'>;
+    Slug: Schema.Attribute.UID<'Name'> & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -860,10 +1060,16 @@ export interface ApiRecipeRecipe extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    AverageRating: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<{
+        max: 5;
+        min: 0;
+      }>;
     CookTime: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Difficulty: Schema.Attribute.Enumeration<['easy', 'medium', 'hard']>;
     Image: Schema.Attribute.Media<'images'>;
     Ingredients: Schema.Attribute.Component<'recipe.ingredient', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -872,9 +1078,23 @@ export interface ApiRecipeRecipe extends Struct.CollectionTypeSchema {
       'api::recipe.recipe'
     > &
       Schema.Attribute.Private;
+    NutritionInfo: Schema.Attribute.Component<'recipe.nutrition-info', false>;
     PrepTime: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     PublishedDate: Schema.Attribute.Date;
+    RatingCount: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<{
+        min: 0;
+      }> &
+      Schema.Attribute.DefaultTo<0>;
+    RecipeCategories: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::recipe-category.recipe-category'
+    >;
+    RelatedProducts: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::product.product'
+    >;
     SEO: Schema.Attribute.Component<'shared.seo', false>;
     Servings: Schema.Attribute.String;
     ShortDescription: Schema.Attribute.Text;
@@ -886,6 +1106,88 @@ export interface ApiRecipeRecipe extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    VideoUrl: Schema.Attribute.String;
+  };
+}
+
+export interface ApiRegionRegion extends Struct.CollectionTypeSchema {
+  collectionName: 'regions';
+  info: {
+    description: 'Multi-region support for internationalization and hreflang tags';
+    displayName: 'Region';
+    pluralName: 'regions';
+    singularName: 'region';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    CurrencyCode: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 3;
+      }>;
+    FlagImage: Schema.Attribute.Media<'images'>;
+    IsDefault: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    Locale: Schema.Attribute.String & Schema.Attribute.Required;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::region.region'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    RegionCode: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 5;
+      }>;
+    RegionName: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiShippingBoxShippingBox extends Struct.CollectionTypeSchema {
+  collectionName: 'shipping_boxes';
+  info: {
+    description: 'Shipping box dimensions and weights for rate calculation';
+    displayName: 'ShippingBox';
+    pluralName: 'shipping-boxes';
+    singularName: 'shipping-box';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Height: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    Length: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::shipping-box.shipping-box'
+    > &
+      Schema.Attribute.Private;
+    MaxWeight: Schema.Attribute.Decimal;
+    Name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    publishedAt: Schema.Attribute.DateTime;
+    TareWeight: Schema.Attribute.Decimal;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Width: Schema.Attribute.Decimal & Schema.Attribute.Required;
   };
 }
 
@@ -1033,6 +1335,127 @@ export interface ApiSubCategorySubCategory extends Struct.CollectionTypeSchema {
     Name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     Slug: Schema.Attribute.UID<'Name'> & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTagTag extends Struct.CollectionTypeSchema {
+  collectionName: 'tags';
+  info: {
+    description: 'Flexible tag system for content categorization';
+    displayName: 'Tag';
+    pluralName: 'tags';
+    singularName: 'tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Color: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.Text;
+    IsActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'> &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    publishedAt: Schema.Attribute.DateTime;
+    Slug: Schema.Attribute.UID<'Name'> & Schema.Attribute.Required;
+    testimonials: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::testimonial.testimonial'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
+  collectionName: 'testimonials';
+  info: {
+    description: 'Customer testimonials with rich filtering and categorization';
+    displayName: 'Testimonial';
+    pluralName: 'testimonials';
+    singularName: 'testimonial';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Categories: Schema.Attribute.Enumeration<
+      [
+        'Product Quality',
+        'Customer Service',
+        'Shipping',
+        'Overall Experience',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    CustomerCompany: Schema.Attribute.String;
+    CustomerLocation: Schema.Attribute.String;
+    CustomerName: Schema.Attribute.String & Schema.Attribute.Required;
+    CustomerPhoto: Schema.Attribute.Media<'images'>;
+    CustomerTitle: Schema.Attribute.String;
+    DateReceived: Schema.Attribute.Date & Schema.Attribute.Required;
+    DisplayOrder: Schema.Attribute.Integer;
+    FeaturedQuote: Schema.Attribute.Text;
+    IsActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial.testimonial'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Rating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<{
+        max: 5;
+        min: 1;
+      }>;
+    Tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
+    TestimonialText: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiWishlistWishlist extends Struct.CollectionTypeSchema {
+  collectionName: 'wishlists';
+  info: {
+    description: 'User wishlist for products and recipes';
+    displayName: 'Wishlist';
+    pluralName: 'wishlists';
+    singularName: 'wishlist';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::wishlist.wishlist'
+    > &
+      Schema.Attribute.Private;
+    MedusaCustomerId: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    Products: Schema.Attribute.Relation<'manyToMany', 'api::product.product'>;
+    publishedAt: Schema.Attribute.DateTime;
+    Recipes: Schema.Attribute.Relation<'manyToMany', 'api::recipe.recipe'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1549,8 +1972,12 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::aisle.aisle': ApiAisleAisle;
+      'api::analytic.analytic': ApiAnalyticAnalytic;
+      'api::announcement-bar.announcement-bar': ApiAnnouncementBarAnnouncementBar;
       'api::category.category': ApiCategoryCategory;
       'api::checkout.checkout': ApiCheckoutCheckout;
+      'api::cold-chain-settings.cold-chain-settings': ApiColdChainSettingsColdChainSettings;
+      'api::cookie-consent.cookie-consent': ApiCookieConsentCookieConsent;
       'api::footer.footer': ApiFooterFooter;
       'api::global.global': ApiGlobalGlobal;
       'api::header.header': ApiHeaderHeader;
@@ -1561,10 +1988,16 @@ declare module '@strapi/strapi' {
       'api::product-tag.product-tag': ApiProductTagProductTag;
       'api::product-type.product-type': ApiProductTypeProductType;
       'api::product.product': ApiProductProduct;
+      'api::recipe-category.recipe-category': ApiRecipeCategoryRecipeCategory;
       'api::recipe.recipe': ApiRecipeRecipe;
+      'api::region.region': ApiRegionRegion;
+      'api::shipping-box.shipping-box': ApiShippingBoxShippingBox;
       'api::shipping-setting.shipping-setting': ApiShippingSettingShippingSetting;
       'api::shipping-zone.shipping-zone': ApiShippingZoneShippingZone;
       'api::sub-category.sub-category': ApiSubCategorySubCategory;
+      'api::tag.tag': ApiTagTag;
+      'api::testimonial.testimonial': ApiTestimonialTestimonial;
+      'api::wishlist.wishlist': ApiWishlistWishlist;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
