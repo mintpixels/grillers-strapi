@@ -53,8 +53,9 @@
     },
     "Recipes": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::recipe.recipe"
+      "relation": "manyToMany",
+      "target": "api::recipe.recipe",
+      "inversedBy": "RelatedProducts"
     },
     "Categorization": {
       "type": "component",
