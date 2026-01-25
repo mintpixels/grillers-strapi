@@ -6,7 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "id": {
+    "slug": {
       "type": "uid",
       "required": true
     },
