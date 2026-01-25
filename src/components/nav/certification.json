@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_nav_certifications",
+  "info": {
+    "displayName": "Certification",
+    "description": "Certification badge for navigation bottom bar"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

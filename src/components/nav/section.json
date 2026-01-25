@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_nav_sections",
+  "info": {
+    "displayName": "Section",
+    "description": "Navigation section with title and items"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.link",
+      "required": true
+    }
+  }
+}

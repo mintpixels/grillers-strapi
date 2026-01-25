@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_nav_featureds",
+  "info": {
+    "displayName": "Featured",
+    "description": "Featured item section for mega menu navigation"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "badge": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

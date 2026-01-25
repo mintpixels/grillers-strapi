@@ -1,20 +1,33 @@
 {
   "collectionName": "components_common_header_navs",
   "info": {
-    "displayName": "HeaderNav"
+    "displayName": "HeaderNav",
+    "description": "Mega menu navigation item with sections, featured content, and bottom bar"
   },
   "options": {},
   "attributes": {
-    "Link": {
-      "type": "component",
-      "component": "common.link",
-      "repeatable": false
+    "id": {
+      "type": "uid",
+      "required": true
     },
-    "Children": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "sections": {
       "type": "component",
-      "component": "common.link",
-      "repeatable": true
+      "repeatable": true,
+      "component": "nav.section"
+    },
+    "featured": {
+      "type": "component",
+      "repeatable": false,
+      "component": "nav.featured"
+    },
+    "bottomBar": {
+      "type": "component",
+      "repeatable": false,
+      "component": "nav.bottom-bar"
     }
-  },
-  "config": {}
+  }
 }

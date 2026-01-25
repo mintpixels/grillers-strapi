@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_nav_bottom_bars",
+  "info": {
+    "displayName": "BottomBar",
+    "description": "Bottom bar section for mega menu navigation"
+  },
+  "options": {},
+  "attributes": {
+    "certifications": {
+      "type": "component",
+      "repeatable": true,
+      "component": "nav.certification"
+    },
+    "viewAllText": {
+      "type": "string"
+    },
+    "viewAllUrl": {
+      "type": "string"
+    }
+  }
+}
