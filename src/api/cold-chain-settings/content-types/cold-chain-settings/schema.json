@@ -2,7 +2,7 @@
   "kind": "singleType",
   "collectionName": "cold_chain_settings",
   "info": {
-    "singularName": "cold-chain-settings",
+    "singularName": "cold-chain-setting",
     "pluralName": "cold-chain-settings",
     "displayName": "ColdChainSettings",
     "description": "Cold chain shipping configuration for temperature-sensitive products"
