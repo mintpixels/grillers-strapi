@@ -1134,7 +1134,7 @@ export interface ApiRegionRegion extends Struct.CollectionTypeSchema {
     FlagImage: Schema.Attribute.Media<'images'>;
     IsDefault: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    Locale: Schema.Attribute.String & Schema.Attribute.Required;
+    LocaleCode: Schema.Attribute.String & Schema.Attribute.Required;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::region.region'
