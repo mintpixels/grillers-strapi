@@ -531,7 +531,7 @@ export interface ApiColdChainSettingsColdChainSettings
     description: 'Cold chain shipping configuration for temperature-sensitive products';
     displayName: 'ColdChainSettings';
     pluralName: 'cold-chain-settings';
-    singularName: 'cold-chain-settings';
+    singularName: 'cold-chain-setting';
   };
   options: {
     draftAndPublish: false;
@@ -547,7 +547,7 @@ export interface ApiColdChainSettingsColdChainSettings
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::cold-chain-settings.cold-chain-settings'
+      'api::cold-chain-setting.cold-chain-setting'
     > &
       Schema.Attribute.Private;
     MinimumDryIceAmount: Schema.Attribute.Decimal;
@@ -1976,7 +1976,7 @@ declare module '@strapi/strapi' {
       'api::announcement-bar.announcement-bar': ApiAnnouncementBarAnnouncementBar;
       'api::category.category': ApiCategoryCategory;
       'api::checkout.checkout': ApiCheckoutCheckout;
-      'api::cold-chain-settings.cold-chain-settings': ApiColdChainSettingsColdChainSettings;
+      'api::cold-chain-setting.cold-chain-setting': ApiColdChainSettingsColdChainSettings;
       'api::cookie-consent.cookie-consent': ApiCookieConsentCookieConsent;
       'api::footer.footer': ApiFooterFooter;
       'api::global.global': ApiGlobalGlobal;
