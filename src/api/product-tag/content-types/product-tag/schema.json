@@ -13,6 +13,15 @@
     "Name": {
       "type": "string",
       "required": true
+    },
+    "Description": {
+      "type": "text"
+    },
+    "SEOTitle": {
+      "type": "string"
+    },
+    "SEODescription": {
+      "type": "text"
     }
   }
 }
