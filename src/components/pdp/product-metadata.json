@@ -8,6 +8,9 @@
     "GlutenFree": {
       "type": "boolean"
     },
+    "MSG": {
+      "type": "boolean"
+    },
     "Uncooked": {
       "type": "boolean"
     },
