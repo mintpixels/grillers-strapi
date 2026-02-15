@@ -22,12 +22,6 @@
     "Url": {
       "type": "string",
       "required": true
-    },
-    "Icon": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": ["images"]
     }
   }
 }

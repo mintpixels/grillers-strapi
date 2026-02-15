@@ -7,31 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "Aisle": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::aisle.aisle"
-    },
-    "ProductType": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::product-type.product-type"
-    },
-    "MasterCategory": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::master-category.master-category"
-    },
-    "Category": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::category.category"
-    },
-    "SubCategory": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::sub-category.sub-category"
-    },
     "ProductTags": {
       "type": "relation",
       "relation": "oneToMany",
