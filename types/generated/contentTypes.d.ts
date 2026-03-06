@@ -585,6 +585,20 @@ export interface ApiCheckoutCheckout extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     LocalPickupSameDayText: Schema.Attribute.String;
+    PlantPickupAdditionalDates: Schema.Attribute.Component<
+      'checkout.plant-pickup-date',
+      true
+    >;
+    PlantPickupAvailableDays: Schema.Attribute.JSON &
+      Schema.Attribute.DefaultTo<'["Tuesday", "Wednesday"]'>;
+    PlantPickupBlackoutDates: Schema.Attribute.Component<
+      'checkout.plant-pickup-date',
+      true
+    >;
+    PlantPickupCutoffHours: Schema.Attribute.Integer &
+      Schema.Attribute.DefaultTo<0>;
+    PlantPickupPostOrderNote: Schema.Attribute.Text &
+      Schema.Attribute.DefaultTo<'We will call you when your order is ready on the day of pickup.'>;
     publishedAt: Schema.Attribute.DateTime;
     SEO: Schema.Attribute.Component<'shared.seo', false>;
     ShippingBlackoutDates: Schema.Attribute.Component<
@@ -1311,6 +1325,50 @@ export interface ApiShippingZoneShippingZone
   };
 }
 
+export interface ApiSoutheastPickupLocationSoutheastPickupLocation
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'southeast_pickup_locations';
+  info: {
+    description: 'Cities available for Southeast pickup with scheduled dates';
+    displayName: 'SoutheastPickupLocation';
+    pluralName: 'southeast-pickup-locations';
+    singularName: 'southeast-pickup-location';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {};
+  attributes: {
+    Address: Schema.Attribute.String;
+    AvailableDates: Schema.Attribute.Component<
+      'checkout.plant-pickup-date',
+      true
+    >;
+    City: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    CutoffDays: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<3>;
+    Description: Schema.Attribute.Text;
+    IsActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::southeast-pickup-location.southeast-pickup-location'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    State: Schema.Attribute.Enumeration<
+      ['AL', 'FL', 'GA', 'NC', 'SC', 'TN']
+    > &
+      Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ZipCode: Schema.Attribute.String;
+  };
+}
+
 export interface ApiSubCategorySubCategory extends Struct.CollectionTypeSchema {
   collectionName: 'sub_categories';
   info: {
@@ -1994,6 +2052,7 @@ declare module '@strapi/strapi' {
       'api::shipping-box.shipping-box': ApiShippingBoxShippingBox;
       'api::shipping-setting.shipping-setting': ApiShippingSettingShippingSetting;
       'api::shipping-zone.shipping-zone': ApiShippingZoneShippingZone;
+      'api::southeast-pickup-location.southeast-pickup-location': ApiSoutheastPickupLocationSoutheastPickupLocation;
       'api::sub-category.sub-category': ApiSubCategorySubCategory;
       'api::tag.tag': ApiTagTag;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;

@@ -1,5 +1,15 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface CheckoutPlantPickupDate extends Struct.ComponentSchema {
+  collectionName: 'components_checkout_plant_pickup_dates';
+  info: {
+    displayName: 'PlantPickupDate';
+  };
+  attributes: {
+    Date: Schema.Attribute.Date;
+  };
+}
+
 export interface CheckoutShippingBlackoutDates extends Struct.ComponentSchema {
   collectionName: 'components_checkout_shipping_blackout_dates';
   info: {
@@ -125,7 +135,6 @@ export interface FooterSocialLink extends Struct.ComponentSchema {
     displayName: 'SocialLink';
   };
   attributes: {
-    Icon: Schema.Attribute.Media<'images'>;
     Platform: Schema.Attribute.Enumeration<
       [
         'Facebook',
@@ -321,12 +330,6 @@ export interface PdpSategorization extends Struct.ComponentSchema {
     icon: 'stack';
   };
   attributes: {
-    Aisle: Schema.Attribute.Relation<'oneToOne', 'api::aisle.aisle'>;
-    Category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
-    MasterCategory: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::master-category.master-category'
-    >;
     ProductCollections: Schema.Attribute.Relation<
       'oneToMany',
       'api::product-collection.product-collection'
@@ -334,14 +337,6 @@ export interface PdpSategorization extends Struct.ComponentSchema {
     ProductTags: Schema.Attribute.Relation<
       'oneToMany',
       'api::product-tag.product-tag'
-    >;
-    ProductType: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::product-type.product-type'
-    >;
-    SubCategory: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::sub-category.sub-category'
     >;
   };
 }
@@ -531,6 +526,7 @@ export interface SharedSocialMeta extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'checkout.plant-pickup-date': CheckoutPlantPickupDate;
       'checkout.shipping-blackout-dates': CheckoutShippingBlackoutDates;
       'common.collection-card': CommonCollectionCard;
       'common.header-nav': CommonHeaderNav;
