@@ -1359,7 +1359,14 @@ export interface ApiSoutheastPickupLocationSoutheastPickupLocation
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     State: Schema.Attribute.Enumeration<
-      ['AL', 'FL', 'GA', 'NC', 'SC', 'TN']
+      [
+        'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA',
+        'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD',
+        'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE',
+        'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA',
+        'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA',
+        'WI', 'WV', 'WY',
+      ]
     > &
       Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
