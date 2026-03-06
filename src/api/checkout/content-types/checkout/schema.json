@@ -39,6 +39,28 @@
     "LocalPickupSameDayText": {
       "type": "string"
     },
+    "PlantPickupAvailableDays": {
+      "type": "json",
+      "default": ["Tuesday", "Wednesday"]
+    },
+    "PlantPickupAdditionalDates": {
+      "type": "component",
+      "component": "checkout.plant-pickup-date",
+      "repeatable": true
+    },
+    "PlantPickupBlackoutDates": {
+      "type": "component",
+      "component": "checkout.plant-pickup-date",
+      "repeatable": true
+    },
+    "PlantPickupPostOrderNote": {
+      "type": "text",
+      "default": "We will call you when your order is ready on the day of pickup."
+    },
+    "PlantPickupCutoffHours": {
+      "type": "integer",
+      "default": 0
+    },
     "SEO": {
       "type": "component",
       "repeatable": false,

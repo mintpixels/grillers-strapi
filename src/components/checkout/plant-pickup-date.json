@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_checkout_plant_pickup_dates",
+  "info": {
+    "displayName": "PlantPickupDate"
+  },
+  "options": {},
+  "attributes": {
+    "Date": {
+      "type": "date"
+    }
+  }
+}
