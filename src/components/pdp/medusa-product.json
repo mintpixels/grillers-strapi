@@ -25,6 +25,11 @@
     },
     "Handle": {
       "type": "string"
+    },
+    "Status": {
+      "type": "enumeration",
+      "enum": ["draft", "proposed", "published", "rejected"],
+      "required": false
     }
   }
 }

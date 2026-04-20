@@ -26,6 +26,9 @@ export default ({ env }) => ({
           hideFields: ["GalleryImages", "Recipes"],
         },
       ],
+      transformerCallback: async (_indexName, record) => {
+        return record?.MedusaProduct?.Status === "published" ? record : null;
+      },
     },
   },
   graphql: {
