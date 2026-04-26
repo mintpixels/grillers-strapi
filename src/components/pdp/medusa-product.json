@@ -17,6 +17,11 @@
     "Description": {
       "type": "text"
     },
+    "ShortDescription": {
+      "type": "text",
+      "maxLength": 200,
+      "required": false
+    },
     "Variants": {
       "displayName": "MedusaVariants",
       "type": "component",
