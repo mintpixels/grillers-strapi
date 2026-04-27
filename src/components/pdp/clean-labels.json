@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_pdp_clean_labels",
+  "info": {
+    "displayName": "CleanLabels",
+    "description": "Production-method claims about what was NOT used (antibiotics, hormones, MSG, nitrites, nitrates, gluten, steroids)."
+  },
+  "options": {},
+  "attributes": {
+    "AntibioticFree": {
+      "type": "boolean",
+      "default": false
+    },
+    "HormoneFree": {
+      "type": "boolean",
+      "default": false
+    },
+    "NoSteroids": {
+      "type": "boolean",
+      "default": false
+    },
+    "NoMSG": {
+      "type": "boolean",
+      "default": false
+    },
+    "GlutenFree": {
+      "type": "boolean",
+      "default": false
+    },
+    "NoNitrites": {
+      "type": "boolean",
+      "default": false
+    },
+    "NoNitrates": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

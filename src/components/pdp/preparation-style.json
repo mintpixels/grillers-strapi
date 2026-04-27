@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_pdp_preparation_styles",
+  "info": {
+    "displayName": "PreparationStyle",
+    "description": "How the product was processed before sale: smoked, pickled, cured, marinated, sliced, ground, etc."
+  },
+  "options": {},
+  "attributes": {
+    "Smoked": {
+      "type": "boolean",
+      "default": false
+    },
+    "Pickled": {
+      "type": "boolean",
+      "default": false
+    },
+    "Cured": {
+      "type": "boolean",
+      "default": false
+    },
+    "Marinated": {
+      "type": "boolean",
+      "default": false
+    },
+    "MarinadeFlavor": {
+      "type": "string"
+    },
+    "CharGrilled": {
+      "type": "boolean",
+      "default": false
+    },
+    "Sliced": {
+      "type": "boolean",
+      "default": false
+    },
+    "Ground": {
+      "type": "boolean",
+      "default": false
+    },
+    "Bulk": {
+      "type": "boolean",
+      "default": false
+    },
+    "Offcut": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

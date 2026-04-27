@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_pdp_sourcings",
+  "info": {
+    "displayName": "Sourcing",
+    "description": "Where the product comes from and how the animal was raised."
+  },
+  "options": {},
+  "attributes": {
+    "Brand": {
+      "type": "string"
+    },
+    "Source": {
+      "type": "string"
+    },
+    "Origin": {
+      "type": "string"
+    },
+    "Breed": {
+      "type": "string"
+    },
+    "Supplier": {
+      "type": "string"
+    },
+    "Angus": {
+      "type": "boolean",
+      "default": false
+    },
+    "GrassFed": {
+      "type": "boolean",
+      "default": false
+    },
+    "Organic": {
+      "type": "boolean",
+      "default": false
+    },
+    "FreeRange": {
+      "type": "boolean",
+      "default": false
+    },
+    "SouthAmerican": {
+      "type": "boolean",
+      "default": false
+    },
+    "GrainFree": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

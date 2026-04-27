@@ -51,6 +51,41 @@
       "repeatable": false,
       "component": "pdp.product-metadata"
     },
+    "Sourcing": {
+      "type": "component",
+      "repeatable": false,
+      "component": "pdp.sourcing"
+    },
+    "CleanLabels": {
+      "type": "component",
+      "repeatable": false,
+      "component": "pdp.clean-labels"
+    },
+    "CutCharacteristics": {
+      "type": "component",
+      "repeatable": false,
+      "component": "pdp.cut-characteristics"
+    },
+    "CookState": {
+      "type": "component",
+      "repeatable": false,
+      "component": "pdp.cook-state"
+    },
+    "PreparationStyle": {
+      "type": "component",
+      "repeatable": false,
+      "component": "pdp.preparation-style"
+    },
+    "PackagingFormat": {
+      "type": "component",
+      "repeatable": false,
+      "component": "pdp.packaging-format"
+    },
+    "KosherStatus": {
+      "type": "component",
+      "repeatable": false,
+      "component": "pdp.kosher-status"
+    },
     "Recipes": {
       "type": "relation",
       "relation": "manyToMany",

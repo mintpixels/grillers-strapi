@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_pdp_packaging_formats",
+  "info": {
+    "displayName": "PackagingFormat",
+    "description": "How the product is packaged: vacuum-packed, bulk pack, boilable pouch, aluminum pan, IQF."
+  },
+  "options": {},
+  "attributes": {
+    "VacuumPacked": {
+      "type": "boolean",
+      "default": false
+    },
+    "BulkPack": {
+      "type": "boolean",
+      "default": false
+    },
+    "BoilablePouch": {
+      "type": "boolean",
+      "default": false
+    },
+    "AluminumPan": {
+      "type": "boolean",
+      "default": false
+    },
+    "IQF": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

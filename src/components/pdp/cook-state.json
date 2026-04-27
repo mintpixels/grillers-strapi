@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_pdp_cook_states",
+  "info": {
+    "displayName": "CookState",
+    "description": "How the product is sold relative to cooking: uncooked, fully cooked, ready to eat, or heat-and-serve."
+  },
+  "options": {},
+  "attributes": {
+    "Uncooked": {
+      "type": "boolean",
+      "default": false
+    },
+    "FullyCooked": {
+      "type": "boolean",
+      "default": false
+    },
+    "ReadyToEat": {
+      "type": "boolean",
+      "default": false
+    },
+    "HeatAndServe": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

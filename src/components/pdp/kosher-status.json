@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_pdp_kosher_statuses",
+  "info": {
+    "displayName": "KosherStatus",
+    "description": "Kosher certification, dairy/pareve/meat classification, and supervision level."
+  },
+  "options": {},
+  "attributes": {
+    "KosherForPassover": {
+      "type": "boolean",
+      "default": false
+    },
+    "Pareve": {
+      "type": "boolean",
+      "default": false
+    },
+    "Meat": {
+      "type": "boolean",
+      "default": false
+    },
+    "Dairy": {
+      "type": "boolean",
+      "default": false
+    },
+    "CholovYisroel": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
