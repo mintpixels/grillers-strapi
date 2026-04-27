@@ -5,29 +5,75 @@
   },
   "options": {},
   "attributes": {
-    "GlutenFree": {
-      "type": "boolean"
-    },
-    "MSG": {
-      "type": "boolean"
-    },
-    "Uncooked": {
-      "type": "boolean"
-    },
-    "Cooked": {
-      "type": "boolean"
-    },
-    "AvgPackSize": {
-      "type": "string"
-    },
-    "AvgPackWeight": {
-      "type": "string"
-    },
-    "Serves": {
-      "type": "string"
-    },
-    "PiecesPerPack": {
-      "type": "integer"
-    }
+    "GlutenFree": { "type": "boolean", "default": false },
+    "MSG": { "type": "boolean", "default": false },
+    "Uncooked": { "type": "boolean", "default": false },
+    "Cooked": { "type": "boolean", "default": false },
+    "AvgPackSize": { "type": "string" },
+    "AvgPackWeight": { "type": "string" },
+    "Serves": { "type": "string" },
+    "PiecesPerPack": { "type": "integer" },
+
+    "Brand": { "type": "string" },
+    "Source": { "type": "string" },
+    "Origin": { "type": "string" },
+    "Breed": { "type": "string" },
+    "Supplier": { "type": "string" },
+    "Angus": { "type": "boolean", "default": false },
+    "GrassFed": { "type": "boolean", "default": false },
+    "Organic": { "type": "boolean", "default": false },
+    "FreeRange": { "type": "boolean", "default": false },
+    "SouthAmerican": { "type": "boolean", "default": false },
+    "GrainFree": { "type": "boolean", "default": false },
+
+    "AntibioticFree": { "type": "boolean", "default": false },
+    "HormoneFree": { "type": "boolean", "default": false },
+    "NoSteroids": { "type": "boolean", "default": false },
+    "NoNitrites": { "type": "boolean", "default": false },
+    "NoNitrates": { "type": "boolean", "default": false },
+
+    "BoneIn": { "type": "boolean", "default": false },
+    "Boneless": { "type": "boolean", "default": false },
+    "SkinOn": { "type": "boolean", "default": false },
+    "Skinless": { "type": "boolean", "default": false },
+    "Trimmed": { "type": "boolean", "default": false },
+    "Untrimmed": { "type": "boolean", "default": false },
+    "Netted": { "type": "boolean", "default": false },
+    "FirstCut": { "type": "boolean", "default": false },
+    "DeckelOn": { "type": "boolean", "default": false },
+    "WholePacker": { "type": "boolean", "default": false },
+    "CowboyCut": { "type": "boolean", "default": false },
+    "Thickness": { "type": "string" },
+    "Pargiot": { "type": "boolean", "default": false },
+    "Capon": { "type": "boolean", "default": false },
+    "Schnitzel": { "type": "boolean", "default": false },
+    "Strips": { "type": "boolean", "default": false },
+    "Marrow": { "type": "boolean", "default": false },
+    "Kebab": { "type": "boolean", "default": false },
+
+    "HeatAndServe": { "type": "boolean", "default": false },
+
+    "Smoked": { "type": "boolean", "default": false },
+    "Pickled": { "type": "boolean", "default": false },
+    "Cured": { "type": "boolean", "default": false },
+    "Marinated": { "type": "boolean", "default": false },
+    "MarinadeFlavor": { "type": "string" },
+    "CharGrilled": { "type": "boolean", "default": false },
+    "Sliced": { "type": "boolean", "default": false },
+    "Ground": { "type": "boolean", "default": false },
+    "Bulk": { "type": "boolean", "default": false },
+    "Offcut": { "type": "boolean", "default": false },
+
+    "VacuumPacked": { "type": "boolean", "default": false },
+    "BulkPack": { "type": "boolean", "default": false },
+    "BoilablePouch": { "type": "boolean", "default": false },
+    "AluminumPan": { "type": "boolean", "default": false },
+    "IQF": { "type": "boolean", "default": false },
+
+    "KosherForPassover": { "type": "boolean", "default": false },
+    "Pareve": { "type": "boolean", "default": false },
+    "Meat": { "type": "boolean", "default": false },
+    "Dairy": { "type": "boolean", "default": false },
+    "CholovYisroel": { "type": "boolean", "default": false }
   }
 }
