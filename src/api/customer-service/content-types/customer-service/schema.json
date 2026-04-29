@@ -1,0 +1,56 @@
+{
+  "kind": "singleType",
+  "collectionName": "customer_services",
+  "info": {
+    "singularName": "customer-service",
+    "pluralName": "customer-services",
+    "displayName": "Customer Service",
+    "description": "Content for /us/customer-service — title, intro, contact info, FAQ list, optional rich-text body."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Intro": {
+      "type": "text",
+      "required": false
+    },
+    "ContactEmail": {
+      "type": "email",
+      "required": false
+    },
+    "ContactPhone": {
+      "type": "string",
+      "required": false
+    },
+    "ContactHours": {
+      "type": "text",
+      "required": false
+    },
+    "FAQs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.faq-item",
+      "required": false
+    },
+    "Content": {
+      "type": "blocks",
+      "required": false
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "SocialMeta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.social-meta"
+    }
+  }
+}

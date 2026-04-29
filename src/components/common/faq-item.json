@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_common_faq_items",
+  "info": {
+    "displayName": "FAQItem",
+    "description": "A single question/answer pair, used by the customer-service single type"
+  },
+  "options": {},
+  "attributes": {
+    "Question": {
+      "type": "string",
+      "required": true
+    },
+    "Answer": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
