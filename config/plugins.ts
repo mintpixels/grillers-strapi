@@ -27,7 +27,12 @@ export default ({ env }) => ({
         },
       ],
       transformerCallback: async (_indexName, record) => {
-        return record?.MedusaProduct?.Status === "published" ? record : null;
+        if (record?.MedusaProduct?.Status !== "published") return null;
+        const skus: string[] = (record?.MedusaProduct?.Variants ?? [])
+          .map((v: any) => v?.Sku ?? "")
+          .filter(Boolean);
+        if (skus.some((s) => s.startsWith("RM-") || s.startsWith("Z-"))) return null;
+        return record;
       },
     },
   },
