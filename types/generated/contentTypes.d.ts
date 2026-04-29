@@ -671,6 +671,44 @@ export interface ApiCookieConsentCookieConsent extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiCustomerServiceCustomerService
+  extends Struct.SingleTypeSchema {
+  collectionName: 'customer_services';
+  info: {
+    description: 'Content for /us/customer-service — title, intro, contact info, FAQ list, optional rich-text body.';
+    displayName: 'Customer Service';
+    pluralName: 'customer-services';
+    singularName: 'customer-service';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ContactEmail: Schema.Attribute.Email;
+    ContactHours: Schema.Attribute.Text;
+    ContactPhone: Schema.Attribute.String;
+    Content: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    FAQs: Schema.Attribute.Component<'common.faq-item', true>;
+    Intro: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::customer-service.customer-service'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'shared.seo', false>;
+    SocialMeta: Schema.Attribute.Component<'shared.social-meta', false>;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFooterFooter extends Struct.SingleTypeSchema {
   collectionName: 'footers';
   info: {
@@ -811,6 +849,39 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     >;
     SEO: Schema.Attribute.Component<'shared.seo', false>;
     SocialMeta: Schema.Attribute.Component<'shared.social-meta', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiLegalPageLegalPage extends Struct.CollectionTypeSchema {
+  collectionName: 'legal_pages';
+  info: {
+    description: 'Privacy Policy, Terms of Sale, Terms of Use — one entry per slug. Renders at /us/legal/[slug].';
+    displayName: 'Legal Page';
+    pluralName: 'legal-pages';
+    singularName: 'legal-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::legal-page.legal-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'shared.seo', false>;
+    Slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
+    SocialMeta: Schema.Attribute.Component<'shared.social-meta', false>;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2043,10 +2114,12 @@ declare module '@strapi/strapi' {
       'api::checkout.checkout': ApiCheckoutCheckout;
       'api::cold-chain-setting.cold-chain-setting': ApiColdChainSettingsColdChainSettings;
       'api::cookie-consent.cookie-consent': ApiCookieConsentCookieConsent;
+      'api::customer-service.customer-service': ApiCustomerServiceCustomerService;
       'api::footer.footer': ApiFooterFooter;
       'api::global.global': ApiGlobalGlobal;
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;
+      'api::legal-page.legal-page': ApiLegalPageLegalPage;
       'api::master-category.master-category': ApiMasterCategoryMasterCategory;
       'api::pdp.pdp': ApiPdpPdp;
       'api::product-collection.product-collection': ApiProductCollectionProductCollection;

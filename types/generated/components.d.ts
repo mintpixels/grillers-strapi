@@ -32,6 +32,18 @@ export interface CommonCollectionCard extends Struct.ComponentSchema {
   };
 }
 
+export interface CommonFaqItem extends Struct.ComponentSchema {
+  collectionName: 'components_common_faq_items';
+  info: {
+    description: 'A single question/answer pair, used by the customer-service single type';
+    displayName: 'FAQItem';
+  };
+  attributes: {
+    Answer: Schema.Attribute.Text & Schema.Attribute.Required;
+    Question: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface CommonHeaderNav extends Struct.ComponentSchema {
   collectionName: 'components_common_header_navs';
   info: {
@@ -529,6 +541,7 @@ declare module '@strapi/strapi' {
       'checkout.plant-pickup-date': CheckoutPlantPickupDate;
       'checkout.shipping-blackout-dates': CheckoutShippingBlackoutDates;
       'common.collection-card': CommonCollectionCard;
+      'common.faq-item': CommonFaqItem;
       'common.header-nav': CommonHeaderNav;
       'common.how-it-works-card': CommonHowItWorksCard;
       'common.link': CommonLink;
