@@ -867,10 +867,19 @@ export interface ApiLegalPageLegalPage extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Content: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    Body: Schema.Attribute.DynamicZone<
+      [
+        'info.section',
+        'info.feature-grid',
+        'info.image-block',
+        'shared.rich-text',
+      ]
+    >;
+    Content: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Hero: Schema.Attribute.Component<'info.hero', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_info_feature_cards",
+  "info": {
+    "displayName": "Info Feature Card",
+    "icon": "square",
+    "description": "Single feature card: optional icon, title, body."
+  },
+  "options": {},
+  "attributes": {
+    "Icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Body": {
+      "type": "text"
+    }
+  }
+}

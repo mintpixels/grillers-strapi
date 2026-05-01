@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_info_image_blocks",
+  "info": {
+    "displayName": "Info Image Block",
+    "icon": "image",
+    "description": "Standalone image with optional caption."
+  },
+  "options": {},
+  "attributes": {
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"],
+      "required": true
+    },
+    "Alt": {
+      "type": "string",
+      "required": true
+    },
+    "Caption": {
+      "type": "string"
+    },
+    "Width": {
+      "type": "enumeration",
+      "enum": ["contained", "full"],
+      "default": "contained"
+    }
+  }
+}

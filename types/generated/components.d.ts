@@ -163,6 +163,87 @@ export interface FooterSocialLink extends Struct.ComponentSchema {
   };
 }
 
+export interface InfoFeatureCard extends Struct.ComponentSchema {
+  collectionName: 'components_info_feature_cards';
+  info: {
+    description: 'Single feature card: optional icon, title, body.';
+    displayName: 'Info Feature Card';
+    icon: 'square';
+  };
+  attributes: {
+    Body: Schema.Attribute.Text;
+    Icon: Schema.Attribute.Media<'images'>;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface InfoFeatureGrid extends Struct.ComponentSchema {
+  collectionName: 'components_info_feature_grids';
+  info: {
+    description: 'Grid of feature cards (1/2/3-up).';
+    displayName: 'Info Feature Grid';
+    icon: 'th-large';
+  };
+  attributes: {
+    Cards: Schema.Attribute.Component<'info.feature-card', true>;
+    Heading: Schema.Attribute.String;
+    Intro: Schema.Attribute.Text;
+  };
+}
+
+export interface InfoHero extends Struct.ComponentSchema {
+  collectionName: 'components_info_heroes';
+  info: {
+    description: 'Hero block for legal/info pages: eyebrow, headline, subhead, image, CTAs.';
+    displayName: 'Info Hero';
+    icon: 'layer-group';
+  };
+  attributes: {
+    Eyebrow: Schema.Attribute.String;
+    Headline: Schema.Attribute.String & Schema.Attribute.Required;
+    Image: Schema.Attribute.Media<'images'>;
+    ImageAlt: Schema.Attribute.String;
+    PrimaryCta: Schema.Attribute.Component<'common.link', false>;
+    SecondaryCta: Schema.Attribute.Component<'common.link', false>;
+    Subhead: Schema.Attribute.Text;
+  };
+}
+
+export interface InfoImageBlock extends Struct.ComponentSchema {
+  collectionName: 'components_info_image_blocks';
+  info: {
+    description: 'Standalone image with optional caption.';
+    displayName: 'Info Image Block';
+    icon: 'image';
+  };
+  attributes: {
+    Alt: Schema.Attribute.String & Schema.Attribute.Required;
+    Caption: Schema.Attribute.String;
+    Image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Width: Schema.Attribute.Enumeration<['contained', 'full']> &
+      Schema.Attribute.DefaultTo<'contained'>;
+  };
+}
+
+export interface InfoSection extends Struct.ComponentSchema {
+  collectionName: 'components_info_sections';
+  info: {
+    description: 'Titled prose section with optional image.';
+    displayName: 'Info Section';
+    icon: 'paragraph';
+  };
+  attributes: {
+    Body: Schema.Attribute.Blocks;
+    Image: Schema.Attribute.Media<'images'>;
+    ImageAlt: Schema.Attribute.String;
+    ImagePosition: Schema.Attribute.Enumeration<
+      ['none', 'full', 'left', 'right']
+    > &
+      Schema.Attribute.DefaultTo<'none'>;
+    Title: Schema.Attribute.String;
+  };
+}
+
 export interface HomeBestsellers extends Struct.ComponentSchema {
   collectionName: 'components_home_bestsellers';
   info: {
@@ -558,6 +639,11 @@ declare module '@strapi/strapi' {
       'home.kosher-promise': HomeKosherPromise;
       'home.shop-collections': HomeShopCollections;
       'home.testimonial': HomeTestimonial;
+      'info.feature-card': InfoFeatureCard;
+      'info.feature-grid': InfoFeatureGrid;
+      'info.hero': InfoHero;
+      'info.image-block': InfoImageBlock;
+      'info.section': InfoSection;
       'pdp.how-it-works': PdpHowItWorks;
       'pdp.medusa-price': PdpMedusaPrice;
       'pdp.medusa-product': PdpMedusaProduct;

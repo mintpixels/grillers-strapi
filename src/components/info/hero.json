@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_info_heroes",
+  "info": {
+    "displayName": "Info Hero",
+    "icon": "layer-group",
+    "description": "Hero block for legal/info pages: eyebrow, headline, subhead, image, CTAs."
+  },
+  "options": {},
+  "attributes": {
+    "Eyebrow": {
+      "type": "string"
+    },
+    "Headline": {
+      "type": "string",
+      "required": true
+    },
+    "Subhead": {
+      "type": "text"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "ImageAlt": {
+      "type": "string"
+    },
+    "PrimaryCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.link"
+    },
+    "SecondaryCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.link"
+    }
+  }
+}

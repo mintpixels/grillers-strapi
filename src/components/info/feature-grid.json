@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_info_feature_grids",
+  "info": {
+    "displayName": "Info Feature Grid",
+    "icon": "th-large",
+    "description": "Grid of feature cards (1/2/3-up)."
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Intro": {
+      "type": "text"
+    },
+    "Cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "info.feature-card"
+    }
+  }
+}

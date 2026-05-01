@@ -5,7 +5,7 @@
     "singularName": "legal-page",
     "pluralName": "legal-pages",
     "displayName": "Legal Page",
-    "description": "Privacy Policy, Terms of Sale, Terms of Use — one entry per slug. Renders at /us/legal/[slug]."
+    "description": "Privacy Policy, Terms of Sale, Terms of Use, About, Shipping, etc. — one entry per slug. Renders at /us/legal/[slug]."
   },
   "options": {
     "draftAndPublish": true
@@ -21,9 +21,22 @@
       "type": "string",
       "required": true
     },
+    "Hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "info.hero"
+    },
+    "Body": {
+      "type": "dynamiczone",
+      "components": [
+        "info.section",
+        "info.feature-grid",
+        "info.image-block",
+        "shared.rich-text"
+      ]
+    },
     "Content": {
-      "type": "blocks",
-      "required": true
+      "type": "blocks"
     },
     "SEO": {
       "type": "component",
