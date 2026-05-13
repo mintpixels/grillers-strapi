@@ -11,6 +11,12 @@ export default ({ env }) => ({
             FeaturedImage: {
               fields: ["url"],
             },
+            // GalleryImages indexed for #116 — search results product cards
+            // need them so the ProductCardCarousel renders chevrons / N-of-N
+            // indicators, matching Bestsellers / PLP UX.
+            GalleryImages: {
+              fields: ["url"],
+            },
             Metadata: "*",
             Categorization: {
               populate: "*",
@@ -23,7 +29,7 @@ export default ({ env }) => ({
               },
             },
           },
-          hideFields: ["GalleryImages", "Recipes"],
+          hideFields: ["Recipes"],
         },
       ],
       transformerCallback: async (_indexName, record) => {
