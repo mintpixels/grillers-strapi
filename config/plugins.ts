@@ -33,7 +33,14 @@ export default ({ env }) => ({
         },
       ],
       transformerCallback: async (_indexName, record) => {
-        if (record?.MedusaProduct?.Status !== "published") return null;
+        // Only drop explicit drafts. Treating null Status as "assume
+        // published" because the MedusaProduct.Status field on Strapi
+        // entries is unreliable — 706 of 767 entries have it set to null
+        // (#114 — backfill pending) even though the underlying Medusa
+        // products are real published items the storefront uses. Filtering
+        // on Status === "published" excluded almost everything, which is
+        // how #93's search-coverage incident happened.
+        if (record?.MedusaProduct?.Status === "draft") return null;
         const skus: string[] = (record?.MedusaProduct?.Variants ?? [])
           .map((v: any) => v?.Sku ?? "")
           .filter(Boolean);
