@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "back_in_stock_requests",
+  "info": {
+    "singularName": "back-in-stock-request",
+    "pluralName": "back-in-stock-requests",
+    "displayName": "Back in Stock Request",
+    "description": "Customer requests to be notified when a specific OOS product is restocked (#102). Created from the storefront PDP capture form; processed by the restock trigger when inventory crosses zero."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "content-manager": {
+      "visible": true
+    },
+    "content-type-builder": {
+      "visible": true
+    }
+  },
+  "attributes": {
+    "Email": {
+      "type": "email",
+      "required": true,
+      "regex": "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+    },
+    "MedusaProductId": {
+      "type": "string",
+      "required": true,
+      "description": "Medusa `prod_…` id of the requested product."
+    },
+    "ProductHandle": {
+      "type": "string",
+      "required": true,
+      "description": "Storefront URL handle (used to build the restock email's product link)."
+    },
+    "ProductTitle": {
+      "type": "string",
+      "required": true,
+      "description": "Snapshot of the product title at the time of request (so the restock email can show the name the customer originally saw)."
+    },
+    "NotifiedAt": {
+      "type": "datetime",
+      "required": false,
+      "description": "Timestamp the restock email was sent. Null until the trigger fires."
+    },
+    "UnsubscribedAt": {
+      "type": "datetime",
+      "required": false,
+      "description": "Set when the customer clicks the unsubscribe link in the confirm email — restock trigger skips them."
+    },
+    "UnsubscribeToken": {
+      "type": "string",
+      "required": true,
+      "private": true,
+      "description": "Random, single-use token used to authenticate the unsubscribe link without exposing the request id."
+    },
+    "Source": {
+      "type": "enumeration",
+      "enum": ["pdp", "side_cart", "search"],
+      "default": "pdp",
+      "description": "Which storefront surface created the request — useful for funnel attribution."
+    }
+  }
+}
