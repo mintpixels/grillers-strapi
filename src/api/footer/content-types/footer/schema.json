@@ -8,7 +8,7 @@
     "description": "Global footer content configuration"
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
