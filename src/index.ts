@@ -4,6 +4,7 @@ import {
   syncKosherPromiseCopy,
   KOSHER_PROMISE_BODY_VERSION,
 } from "./bootstrap/sync-kosher-promise-copy"
+import { registerAlgoliaStubCleanup } from "./bootstrap/algolia-stub-cleanup"
 
 export default {
   /**
@@ -12,7 +13,7 @@ export default {
    *
    * This gives you an opportunity to extend code.
    */
-  register(/* { strapi }: { strapi: Core.Strapi } */) {},
+  register(_args: { strapi: any }) {},
 
   /**
    * An asynchronous bootstrap function that runs before
@@ -33,6 +34,18 @@ export default {
     } catch (err) {
       strapi.log.error(
         `[bootstrap] sync-kosher-promise-copy failed: ${err instanceof Error ? err.message : String(err)}`
+      )
+    }
+
+    // Runtime patch for the strapi-algolia null-transformer stub bug (#115).
+    // Lives in bootstrap (not register) so the plugin's own lifecycle
+    // subscription runs first; our cleanup follows behind to delete any
+    // objectID-only stubs the plugin leaves.
+    try {
+      registerAlgoliaStubCleanup({ strapi })
+    } catch (err) {
+      strapi.log.error(
+        `[bootstrap] register-algolia-stub-cleanup failed: ${err instanceof Error ? err.message : String(err)}`
       )
     }
   },
