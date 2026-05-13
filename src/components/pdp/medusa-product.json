@@ -35,6 +35,11 @@
       "type": "enumeration",
       "enum": ["draft", "proposed", "published", "rejected"],
       "required": false
+    },
+    "PricingMode": {
+      "type": "enumeration",
+      "enum": ["per_lb", "fixed_price"],
+      "required": false
     }
   }
 }
