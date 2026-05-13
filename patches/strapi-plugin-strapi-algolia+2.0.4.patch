@@ -1,0 +1,128 @@
+diff --git a/node_modules/strapi-plugin-strapi-algolia/dist/server/index.js b/node_modules/strapi-plugin-strapi-algolia/dist/server/index.js
+index ef77d94..d60a39e 100644
+--- a/node_modules/strapi-plugin-strapi-algolia/dist/server/index.js
++++ b/node_modules/strapi-plugin-strapi-algolia/dist/server/index.js
+@@ -205,15 +205,20 @@ const strapi$1 = ({ strapi: strapi2 }) => ({
+         if (strapiObject.publishedAt === null) {
+           objectsIdsToDelete.push(entryId);
+         } else {
+-          objectsToSave.push(
+-            utilsService.filterProperties(
+-              {
+-                objectID: entryId,
+-                ...transformerCallback ? transformerCallback(contentType, strapiObject) : strapiObject
+-              },
+-              hideFields
+-            )
+-          );
++          const _transformed = transformerCallback ? await transformerCallback(contentType, strapiObject) : strapiObject;
++          if (_transformed == null) {
++            objectsIdsToDelete.push(entryId);
++          } else {
++            objectsToSave.push(
++              utilsService.filterProperties(
++                {
++                  objectID: entryId,
++                  ..._transformed
++                },
++                hideFields
++              )
++            );
++          }
+         }
+       } catch (error) {
+         console.error(
+@@ -244,15 +249,20 @@ const strapi$1 = ({ strapi: strapi2 }) => ({
+         if (article.publishedAt === null) {
+           objectsIdsToDelete.push(entryIdWithPrefix);
+         } else {
+-          objectsToSave.push(
+-            utilsService.filterProperties(
+-              {
+-                objectID: entryIdWithPrefix,
+-                ...transformerCallback ? transformerCallback(contentType, article) : article
+-              },
+-              hideFields
+-            )
+-          );
++          const _transformed = transformerCallback ? await transformerCallback(contentType, article) : article;
++          if (_transformed == null) {
++            objectsIdsToDelete.push(entryIdWithPrefix);
++          } else {
++            objectsToSave.push(
++              utilsService.filterProperties(
++                {
++                  objectID: entryIdWithPrefix,
++                  ..._transformed
++                },
++                hideFields
++              )
++            );
++          }
+         }
+       } catch (error) {
+         console.error(
+diff --git a/node_modules/strapi-plugin-strapi-algolia/dist/server/index.mjs b/node_modules/strapi-plugin-strapi-algolia/dist/server/index.mjs
+index 571613e..93342c5 100644
+--- a/node_modules/strapi-plugin-strapi-algolia/dist/server/index.mjs
++++ b/node_modules/strapi-plugin-strapi-algolia/dist/server/index.mjs
+@@ -182,15 +182,20 @@ const strapi$1 = ({ strapi: strapi2 }) => ({
+         if (strapiObject.publishedAt === null) {
+           objectsIdsToDelete.push(entryId);
+         } else {
+-          objectsToSave.push(
+-            utilsService.filterProperties(
+-              {
+-                objectID: entryId,
+-                ...transformerCallback ? transformerCallback(contentType, strapiObject) : strapiObject
+-              },
+-              hideFields
+-            )
+-          );
++          const _transformed = transformerCallback ? await transformerCallback(contentType, strapiObject) : strapiObject;
++          if (_transformed == null) {
++            objectsIdsToDelete.push(entryId);
++          } else {
++            objectsToSave.push(
++              utilsService.filterProperties(
++                {
++                  objectID: entryId,
++                  ..._transformed
++                },
++                hideFields
++              )
++            );
++          }
+         }
+       } catch (error) {
+         console.error(
+@@ -221,15 +226,20 @@ const strapi$1 = ({ strapi: strapi2 }) => ({
+         if (article.publishedAt === null) {
+           objectsIdsToDelete.push(entryIdWithPrefix);
+         } else {
+-          objectsToSave.push(
+-            utilsService.filterProperties(
+-              {
+-                objectID: entryIdWithPrefix,
+-                ...transformerCallback ? transformerCallback(contentType, article) : article
+-              },
+-              hideFields
+-            )
+-          );
++          const _transformed = transformerCallback ? await transformerCallback(contentType, article) : article;
++          if (_transformed == null) {
++            objectsIdsToDelete.push(entryIdWithPrefix);
++          } else {
++            objectsToSave.push(
++              utilsService.filterProperties(
++                {
++                  objectID: entryIdWithPrefix,
++                  ..._transformed
++                },
++                hideFields
++              )
++            );
++          }
+         }
+       } catch (error) {
+         console.error(
