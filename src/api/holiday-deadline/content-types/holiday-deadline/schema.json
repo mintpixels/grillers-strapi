@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "holiday_deadlines",
+  "info": {
+    "singularName": "holiday-deadline",
+    "pluralName": "holiday-deadlines",
+    "displayName": "Holiday Deadline",
+    "description": "CMS-managed holiday order deadline rows for the footer holidays page."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "HolidayName": {
+      "type": "string",
+      "required": true
+    },
+    "HolidayDate": {
+      "type": "date",
+      "required": true
+    },
+    "DeliveryCutoff": {
+      "type": "string",
+      "required": true
+    },
+    "UPSShippingCutoff": {
+      "type": "string",
+      "required": true
+    },
+    "PlantPickupCutoff": {
+      "type": "string",
+      "required": true
+    },
+    "Notes": {
+      "type": "text"
+    },
+    "IsActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "SortOrder": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}
