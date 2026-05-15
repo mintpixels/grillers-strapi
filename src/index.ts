@@ -31,9 +31,10 @@ export default {
    * run jobs, or perform some special logic.
    */
   async bootstrap({ strapi }: { strapi: any }) {
-    // Idempotent content migrations. Each migration uses a store key so it
-    // only runs once per content version — bump the version constant in the
-    // migration file to force a re-run on the next deploy.
+    // Fast/idempotent steps that must complete before the server accepts
+    // traffic. Anything slow MUST be deferred (see `setImmediate` below),
+    // because Strapi Cloud kills the instance if the HTTP server hasn't
+    // bound to :1337 within the platform's health-check window.
     try {
       await syncKosherPromiseCopy({
         strapi,
@@ -45,32 +46,8 @@ export default {
       )
     }
 
-    try {
-      await syncRecipeTaxonomy({
-        strapi,
-        targetVersion: RECIPE_TAXONOMY_WRITEBACK_VERSION,
-      })
-    } catch (err) {
-      strapi.log.error(
-        `[bootstrap] sync-recipe-taxonomy failed: ${err instanceof Error ? err.message : String(err)}`
-      )
-    }
-
-    try {
-      await syncCuratedCollections({
-        strapi,
-        targetVersion: CURATED_COLLECTIONS_VERSION,
-      })
-    } catch (err) {
-      strapi.log.error(
-        `[bootstrap] sync-curated-collections failed: ${err instanceof Error ? err.message : String(err)}`
-      )
-    }
-
     // Runtime patch for the strapi-algolia null-transformer stub bug (#115).
-    // Lives in bootstrap (not register) so the plugin's own lifecycle
-    // subscription runs first; our cleanup follows behind to delete any
-    // objectID-only stubs the plugin leaves.
+    // Synchronous subscription register — finishes immediately.
     try {
       registerAlgoliaStubCleanup({ strapi })
     } catch (err) {
@@ -78,5 +55,36 @@ export default {
         `[bootstrap] register-algolia-stub-cleanup failed: ${err instanceof Error ? err.message : String(err)}`
       )
     }
+
+    // Heavy data migrations — fire-and-forget AFTER bootstrap returns so
+    // the server binds to :1337 before Strapi Cloud's health check times
+    // out. Both syncs are gated on a store-key version flag, so a partial
+    // run on one deploy just resumes on the next. We deliberately do not
+    // await; errors are logged inside the sync functions.
+    setImmediate(() => {
+      void (async () => {
+        try {
+          await syncRecipeTaxonomy({
+            strapi,
+            targetVersion: RECIPE_TAXONOMY_WRITEBACK_VERSION,
+          })
+        } catch (err) {
+          strapi.log.error(
+            `[deferred] sync-recipe-taxonomy failed: ${err instanceof Error ? err.message : String(err)}`
+          )
+        }
+
+        try {
+          await syncCuratedCollections({
+            strapi,
+            targetVersion: CURATED_COLLECTIONS_VERSION,
+          })
+        } catch (err) {
+          strapi.log.error(
+            `[deferred] sync-curated-collections failed: ${err instanceof Error ? err.message : String(err)}`
+          )
+        }
+      })()
+    })
   },
 }
