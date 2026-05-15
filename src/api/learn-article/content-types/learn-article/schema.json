@@ -1,0 +1,123 @@
+{
+  "kind": "collectionType",
+  "collectionName": "learn_articles",
+  "info": {
+    "singularName": "learn-article",
+    "pluralName": "learn-articles",
+    "displayName": "Learn Article",
+    "description": "Butcher education hub articles for kosher meat, cut library, cooking guidance, and buying guidance."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Title",
+      "required": true
+    },
+    "Category": {
+      "type": "enumeration",
+      "enum": ["Kosher Meat 101", "Cut Library", "Cooking & Buying Guides"],
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "required": true
+    },
+    "ReadTime": {
+      "type": "string",
+      "required": false
+    },
+    "UpdatedLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Customer-facing updated date label, for example May 15, 2026."
+    },
+    "HeroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "HeroImageAlt": {
+      "type": "string",
+      "required": false
+    },
+    "QuickAnswer": {
+      "type": "text",
+      "required": true
+    },
+    "Facts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "learn.quick-fact"
+    },
+    "Sections": {
+      "type": "component",
+      "repeatable": true,
+      "component": "learn.article-section"
+    },
+    "FAQs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.faq-item"
+    },
+    "PrimaryCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.link"
+    },
+    "SecondaryCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.link"
+    },
+    "RelatedLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.link"
+    },
+    "SourceLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.link"
+    },
+    "ReviewStatus": {
+      "type": "enumeration",
+      "enum": [
+        "drafting",
+        "butcher_review",
+        "kashruth_review",
+        "approved",
+        "needs_revision"
+      ],
+      "required": true,
+      "default": "drafting",
+      "description": "Internal editorial status for Peter, Ryan, kashruth, and SEO review."
+    },
+    "KashruthReviewRequired": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "ReviewerNotes": {
+      "type": "text",
+      "required": false
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "SocialMeta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.social-meta"
+    }
+  }
+}

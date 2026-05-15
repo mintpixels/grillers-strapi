@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_learn_article_sections",
+  "info": {
+    "displayName": "Learn Article Section",
+    "icon": "book",
+    "description": "Structured section for butcher education articles."
+  },
+  "options": {},
+  "attributes": {
+    "SectionId": {
+      "type": "string",
+      "required": true,
+      "description": "Anchor id for table of contents and deep links."
+    },
+    "Heading": {
+      "type": "string",
+      "required": true
+    },
+    "Body": {
+      "type": "blocks",
+      "required": false
+    },
+    "Bullets": {
+      "type": "json",
+      "required": false,
+      "description": "Array of bullet strings."
+    },
+    "TableColumns": {
+      "type": "json",
+      "required": false,
+      "description": "Array of table column labels."
+    },
+    "TableRows": {
+      "type": "json",
+      "required": false,
+      "description": "Array of table rows, where each row is an array of cell strings."
+    },
+    "Callout": {
+      "type": "text",
+      "required": false
+    }
+  }
+}

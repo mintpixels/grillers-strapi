@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_learn_quick_facts",
+  "info": {
+    "displayName": "Learn Quick Fact",
+    "icon": "check",
+    "description": "Short label and value pair for education article fact panels."
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string",
+      "required": true
+    },
+    "Value": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
