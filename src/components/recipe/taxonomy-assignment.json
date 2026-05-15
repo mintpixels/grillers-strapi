@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_recipe_taxonomy_assignments",
+  "info": {
+    "displayName": "Recipe Taxonomy Assignment",
+    "icon": "filter",
+    "description": "Computed or editorial assignment of a recipe to a customer-facing discovery bucket."
+  },
+  "options": {},
+  "attributes": {
+    "BucketId": {
+      "type": "string",
+      "required": true,
+      "description": "Stable bucket slug, e.g. shabbos-table or yom-tov-passover."
+    },
+    "BucketLabel": {
+      "type": "string",
+      "required": false
+    },
+    "Confidence": {
+      "type": "decimal",
+      "required": false,
+      "min": 0,
+      "max": 1
+    },
+    "Reasons": {
+      "type": "json",
+      "required": false,
+      "description": "Array of plain-English reasons explaining the assignment."
+    },
+    "Signals": {
+      "type": "json",
+      "required": false,
+      "description": "Array of matched taxonomy signals used to make the assignment."
+    },
+    "Source": {
+      "type": "enumeration",
+      "enum": ["computed", "editorial"],
+      "required": true,
+      "default": "computed"
+    }
+  }
+}

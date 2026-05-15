@@ -4,6 +4,14 @@ import {
   syncKosherPromiseCopy,
   KOSHER_PROMISE_BODY_VERSION,
 } from "./bootstrap/sync-kosher-promise-copy"
+import {
+  syncRecipeTaxonomy,
+  RECIPE_TAXONOMY_WRITEBACK_VERSION,
+} from "./bootstrap/sync-recipe-taxonomy"
+import {
+  syncCuratedCollections,
+  CURATED_COLLECTIONS_VERSION,
+} from "./bootstrap/sync-curated-collections"
 import { registerAlgoliaStubCleanup } from "./bootstrap/algolia-stub-cleanup"
 
 export default {
@@ -34,6 +42,28 @@ export default {
     } catch (err) {
       strapi.log.error(
         `[bootstrap] sync-kosher-promise-copy failed: ${err instanceof Error ? err.message : String(err)}`
+      )
+    }
+
+    try {
+      await syncRecipeTaxonomy({
+        strapi,
+        targetVersion: RECIPE_TAXONOMY_WRITEBACK_VERSION,
+      })
+    } catch (err) {
+      strapi.log.error(
+        `[bootstrap] sync-recipe-taxonomy failed: ${err instanceof Error ? err.message : String(err)}`
+      )
+    }
+
+    try {
+      await syncCuratedCollections({
+        strapi,
+        targetVersion: CURATED_COLLECTIONS_VERSION,
+      })
+    } catch (err) {
+      strapi.log.error(
+        `[bootstrap] sync-curated-collections failed: ${err instanceof Error ? err.message : String(err)}`
       )
     }
 

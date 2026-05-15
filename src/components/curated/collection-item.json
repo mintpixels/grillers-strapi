@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_curated_collection_items",
+  "info": {
+    "displayName": "Curated Collection Item",
+    "description": "An ordered product line inside a curated collection. Expands into a normal Medusa cart line at add-to-cart time."
+  },
+  "options": {},
+  "attributes": {
+    "Product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "ProductHandle": {
+      "type": "string",
+      "required": false,
+      "description": "Fallback storefront handle. Seed scripts populate this from the related product."
+    },
+    "Quantity": {
+      "type": "integer",
+      "required": true,
+      "default": 1,
+      "min": 1
+    },
+    "Required": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "Role": {
+      "type": "string",
+      "required": false,
+      "description": "Customer-facing reason this item belongs in the collection, e.g. anchor, protein, side, heritage marker."
+    },
+    "Notes": {
+      "type": "text",
+      "required": false
+    },
+    "SortOrder": {
+      "type": "integer",
+      "required": false
+    }
+  }
+}

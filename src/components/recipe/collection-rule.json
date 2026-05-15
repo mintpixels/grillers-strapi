@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_recipe_collection_rules",
+  "info": {
+    "displayName": "Recipe Collection Rule",
+    "icon": "bulletList",
+    "description": "Optional matching rule for filling a recipe collection or personalization surface."
+  },
+  "options": {},
+  "attributes": {
+    "MatchField": {
+      "type": "enumeration",
+      "enum": [
+        "bucket",
+        "occasion",
+        "protein",
+        "cut_family",
+        "method",
+        "effort_level",
+        "kfp_status",
+        "product_keyword",
+        "customer_state",
+        "freezer_signal"
+      ],
+      "required": true
+    },
+    "MatchValues": {
+      "type": "json",
+      "required": false,
+      "description": "Array of values matched against recipe or customer context."
+    },
+    "Priority": {
+      "type": "integer",
+      "required": false,
+      "default": 100
+    },
+    "Notes": {
+      "type": "text",
+      "required": false
+    }
+  }
+}

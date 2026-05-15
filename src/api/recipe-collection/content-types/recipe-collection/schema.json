@@ -1,0 +1,116 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recipe_collections",
+  "info": {
+    "singularName": "recipe-collection",
+    "pluralName": "recipe-collections",
+    "displayName": "Recipe Collection",
+    "description": "Curated cookbook-style recipe shelves for occasions, cuts, methods, editorial themes, and lifecycle recommendations."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Name",
+      "required": true
+    },
+    "Eyebrow": {
+      "type": "string",
+      "required": false
+    },
+    "ShortDescription": {
+      "type": "text",
+      "required": false
+    },
+    "Intro": {
+      "type": "blocks",
+      "required": false
+    },
+    "HeroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "HeroImageAlt": {
+      "type": "string",
+      "required": false
+    },
+    "CollectionType": {
+      "type": "enumeration",
+      "enum": [
+        "occasion",
+        "cut",
+        "method",
+        "constraint",
+        "editorial",
+        "butchers_pick",
+        "lifecycle"
+      ],
+      "required": true,
+      "default": "editorial"
+    },
+    "BucketId": {
+      "type": "string",
+      "required": false,
+      "description": "Optional stable taxonomy bucket slug used by the storefront, e.g. shabbos-table."
+    },
+    "Recipes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::recipe.recipe",
+      "inversedBy": "RecipeCollections"
+    },
+    "FeaturedRecipes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::recipe.recipe"
+    },
+    "RelatedCollections": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::recipe-collection.recipe-collection"
+    },
+    "CollectionRules": {
+      "type": "component",
+      "repeatable": true,
+      "component": "recipe.collection-rule"
+    },
+    "SurfacePlacements": {
+      "type": "json",
+      "required": false,
+      "description": "Array of surfaces such as recipe_hub, pdp, cart, email, sms, agent, or post_purchase."
+    },
+    "PersonalizationSignals": {
+      "type": "json",
+      "required": false,
+      "description": "Structured signals for purchase-history, freezer, lifecycle, and seasonal recommendation matching."
+    },
+    "SortOrder": {
+      "type": "integer",
+      "required": true,
+      "default": 100
+    },
+    "IsActive": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "SocialMeta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.social-meta"
+    }
+  }
+}

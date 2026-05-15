@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_curated_recommendation_rules",
+  "info": {
+    "displayName": "Recommendation Rule",
+    "description": "Simple storefront matching rules for PDP, cart, homepage, and lifecycle placements."
+  },
+  "options": {},
+  "attributes": {
+    "Surface": {
+      "type": "enumeration",
+      "enum": ["homepage", "pdp", "cart", "checkout", "email", "sms", "agent"],
+      "required": true,
+      "default": "pdp"
+    },
+    "Trigger": {
+      "type": "enumeration",
+      "enum": [
+        "default",
+        "product_keyword",
+        "cart_keyword",
+        "customer_state",
+        "seasonal_window",
+        "category_gap",
+        "free_shipping_gap"
+      ],
+      "required": true,
+      "default": "default"
+    },
+    "MatchKeywords": {
+      "type": "json",
+      "required": false,
+      "description": "Array of lowercase keywords. A storefront match scores when the current product/cart text includes one of them."
+    },
+    "CustomerState": {
+      "type": "enumeration",
+      "enum": ["all", "guest_or_no_orders", "returning", "lapsed", "high_value"],
+      "default": "all"
+    },
+    "Priority": {
+      "type": "integer",
+      "default": 100
+    },
+    "Notes": {
+      "type": "text",
+      "required": false
+    }
+  }
+}

@@ -109,6 +109,171 @@
       "relation": "manyToMany",
       "target": "api::product.product",
       "mappedBy": "Recipes"
+    },
+    "RecipeCollections": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::recipe-collection.recipe-collection",
+      "mappedBy": "Recipes",
+      "description": "Curated cookbook shelves or recommendation collections this recipe belongs to."
+    },
+    "PrimaryRecipeBucket": {
+      "type": "string",
+      "required": false,
+      "description": "Primary discovery bucket slug, e.g. shabbos-table, weeknight-dinner, or yom-tov-passover."
+    },
+    "RecipeBuckets": {
+      "type": "json",
+      "required": false,
+      "description": "Ordered array of taxonomy bucket slugs used by the recipe hub and recommendations."
+    },
+    "RecipeBucketAssignments": {
+      "type": "component",
+      "repeatable": true,
+      "component": "recipe.taxonomy-assignment",
+      "description": "Explainable bucket assignments with confidence, reasons, and matched signals."
+    },
+    "RecipeOccasions": {
+      "type": "json",
+      "required": false,
+      "description": "Array of occasion tags such as shabbos, weeknight, yom_tov, passover, hosting, or grilling."
+    },
+    "RecipeProteins": {
+      "type": "json",
+      "required": false,
+      "description": "Array of normalized proteins such as beef, chicken, turkey, lamb, veal, duck, or prepared."
+    },
+    "RecipeCutFamilies": {
+      "type": "json",
+      "required": false,
+      "description": "Array of cut families such as briskets-roasts, whole-birds, steaks-chops, ribs, ground-meat, soup-stock, stew-braise, poultry-parts, quick-cuts, prepared, or specialty."
+    },
+    "RecipeMethods": {
+      "type": "json",
+      "required": false,
+      "description": "Array of cooking methods such as roast, braise, grill, sear, skillet, or slow-cook."
+    },
+    "EffortLevel": {
+      "type": "enumeration",
+      "enum": ["quick", "moderate", "project", "heat_and_serve_assist", "unknown"],
+      "required": false,
+      "default": "unknown"
+    },
+    "KfpStatus": {
+      "type": "enumeration",
+      "enum": ["kfp", "kfp_candidate", "year_round", "not_kfp", "unknown"],
+      "required": false,
+      "default": "unknown",
+      "description": "Kosher-for-Passover suitability marker. Editorial review should promote candidates to kfp or year_round as appropriate."
+    },
+    "PrepTimeMinutes": {
+      "type": "integer",
+      "required": false,
+      "min": 0
+    },
+    "CookTimeMinutes": {
+      "type": "integer",
+      "required": false,
+      "min": 0
+    },
+    "TotalTimeMinutes": {
+      "type": "integer",
+      "required": false,
+      "min": 0
+    },
+    "ServingsMin": {
+      "type": "integer",
+      "required": false,
+      "min": 0
+    },
+    "ServingsMax": {
+      "type": "integer",
+      "required": false,
+      "min": 0
+    },
+    "MakeAhead": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "FreezerFriendly": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "ButcherNote": {
+      "type": "blocks",
+      "required": false,
+      "description": "Short butcher-facing guidance or product education for this recipe."
+    },
+    "ServingNote": {
+      "type": "blocks",
+      "required": false
+    },
+    "WhyThisCutWorks": {
+      "type": "blocks",
+      "required": false,
+      "description": "Explanation of why the selected cut/product fits this recipe."
+    },
+    "MakeAheadNote": {
+      "type": "blocks",
+      "required": false
+    },
+    "FreezerNote": {
+      "type": "blocks",
+      "required": false
+    },
+    "TaxonomyVersion": {
+      "type": "string",
+      "required": false,
+      "description": "Classifier or editorial taxonomy version that last updated the computed metadata."
+    },
+    "TaxonomyReviewNeeded": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "TaxonomyReviewStatus": {
+      "type": "enumeration",
+      "enum": [
+        "auto_classified",
+        "needs_editorial_review",
+        "editor_approved",
+        "editor_rejected"
+      ],
+      "required": false,
+      "default": "auto_classified"
+    },
+    "TaxonomyReasons": {
+      "type": "json",
+      "required": false,
+      "description": "Flattened explanation strings for audits and editorial review queues."
+    },
+    "RecipeAttributes": {
+      "type": "json",
+      "required": false,
+      "description": "Raw computed classifier attributes retained for reproducibility and backfills."
+    },
+    "RecommendationSignals": {
+      "type": "json",
+      "required": false,
+      "description": "Structured signals for purchase-history, freezer, lifecycle, and PDP recommendation scoring."
+    },
+    "RecommendationExclusions": {
+      "type": "json",
+      "required": false,
+      "description": "Rules or product handles that should suppress this recipe from a recommendation surface."
+    },
+    "PersonalizationTags": {
+      "type": "json",
+      "required": false,
+      "description": "Denormalized tags for ranking recipes against a customer order history or freezer inventory."
+    },
+    "MerchandisingWeight": {
+      "type": "integer",
+      "required": false,
+      "default": 100,
+      "description": "Editorial ranking weight. Higher numbers can lift a recipe within a matching collection."
     }
   }
 }

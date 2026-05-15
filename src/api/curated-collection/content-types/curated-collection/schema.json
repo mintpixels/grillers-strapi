@@ -1,0 +1,152 @@
+{
+  "kind": "collectionType",
+  "collectionName": "curated_collections",
+  "info": {
+    "singularName": "curated-collection",
+    "pluralName": "curated-collections",
+    "displayName": "Curated Collection",
+    "description": "Merchandised buyable collections for starter packs, holidays, Shabbos, grilling, premium cuts, and post-purchase/cart upsells."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Slug": {
+      "type": "uid",
+      "required": true,
+      "targetField": "Name"
+    },
+    "Eyebrow": {
+      "type": "string",
+      "required": false
+    },
+    "ShortDescription": {
+      "type": "text",
+      "required": true
+    },
+    "LongDescription": {
+      "type": "blocks",
+      "required": false
+    },
+    "CollectionType": {
+      "type": "enumeration",
+      "enum": ["sku_backed", "curation_profile"],
+      "required": true,
+      "default": "sku_backed"
+    },
+    "Occasion": {
+      "type": "enumeration",
+      "enum": [
+        "starter",
+        "shabbos",
+        "weeknight",
+        "holiday",
+        "grilling",
+        "premium",
+        "heritage",
+        "prepared",
+        "stock_up",
+        "cart_upsell",
+        "other"
+      ],
+      "required": true,
+      "default": "other"
+    },
+    "CustomerStateFilter": {
+      "type": "enumeration",
+      "enum": ["all", "guest_or_no_orders", "returning", "lapsed", "high_value"],
+      "required": true,
+      "default": "all"
+    },
+    "VisibilityStart": {
+      "type": "date",
+      "required": false
+    },
+    "VisibilityEnd": {
+      "type": "date",
+      "required": false
+    },
+    "HeroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "HeroImageAlt": {
+      "type": "string",
+      "required": false
+    },
+    "Items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "curated.collection-item"
+    },
+    "CurationSlots": {
+      "type": "component",
+      "repeatable": true,
+      "component": "curated.curation-slot"
+    },
+    "RecommendationRules": {
+      "type": "component",
+      "repeatable": true,
+      "component": "curated.recommendation-rule"
+    },
+    "TargetPriceCents": {
+      "type": "integer",
+      "required": false,
+      "description": "Merchandising target only. Cart charges actual item-level prices."
+    },
+    "TargetMinWeightLb": {
+      "type": "decimal",
+      "required": false
+    },
+    "TargetMaxWeightLb": {
+      "type": "decimal",
+      "required": false
+    },
+    "SortOrder": {
+      "type": "integer",
+      "required": true,
+      "default": 100
+    },
+    "IsFeatured": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "IsActive": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "SurfacePlacements": {
+      "type": "json",
+      "required": false,
+      "description": "Array of surfaces such as homepage, pdp, cart, email, sms, agent."
+    },
+    "PdpMatchKeywords": {
+      "type": "json",
+      "required": false,
+      "description": "Lowercase keywords used by the storefront to rank PDP recommendations."
+    },
+    "StrategySignals": {
+      "type": "json",
+      "required": false,
+      "description": "Why this collection exists: retention, basket affinity, seasonality, margin, or operational notes."
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "SocialMeta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.social-meta"
+    }
+  }
+}
