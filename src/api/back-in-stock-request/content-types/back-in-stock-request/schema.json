@@ -29,6 +29,16 @@
       "required": true,
       "description": "Medusa `prod_…` id of the requested product."
     },
+    "MedusaVariantId": {
+      "type": "string",
+      "required": false,
+      "description": "Medusa `variant_…` id of the selected SKU when the request was created. Used for SKU-specific restock notification fan-out."
+    },
+    "Sku": {
+      "type": "string",
+      "required": false,
+      "description": "SKU snapshot for the selected variant. Provides a fallback selector when variant IDs are remapped during catalog migration."
+    },
     "ProductHandle": {
       "type": "string",
       "required": true,
@@ -43,6 +53,21 @@
       "type": "datetime",
       "required": false,
       "description": "Timestamp the restock email was sent. Null until the trigger fires."
+    },
+    "NotificationEmailId": {
+      "type": "string",
+      "required": false,
+      "description": "Postmark/Medusa notification id for the restock email send."
+    },
+    "RestockEventKey": {
+      "type": "string",
+      "required": false,
+      "description": "Inventory-item restock event key that notified this request. Prevents ambiguity during high-demand SKU thrash."
+    },
+    "LastNotificationError": {
+      "type": "text",
+      "required": false,
+      "description": "Most recent restock-send failure, if any. Successful sends clear this through the trigger by setting NotifiedAt."
     },
     "UnsubscribedAt": {
       "type": "datetime",
