@@ -3,20 +3,28 @@
 import {
   syncKosherPromiseCopy,
   KOSHER_PROMISE_BODY_VERSION,
-} from "./bootstrap/sync-kosher-promise-copy"
+} from "./bootstrap/sync-kosher-promise-copy";
 import {
   syncRecipeTaxonomy,
   RECIPE_TAXONOMY_WRITEBACK_VERSION,
-} from "./bootstrap/sync-recipe-taxonomy"
+} from "./bootstrap/sync-recipe-taxonomy";
 import {
   syncCuratedCollections,
   CURATED_COLLECTIONS_VERSION,
-} from "./bootstrap/sync-curated-collections"
+} from "./bootstrap/sync-curated-collections";
 import {
   syncAtlantaDeliveryZones,
   ATLANTA_DELIVERY_ZONES_VERSION,
-} from "./bootstrap/sync-atlanta-delivery-zones"
-import { registerAlgoliaStubCleanup } from "./bootstrap/algolia-stub-cleanup"
+} from "./bootstrap/sync-atlanta-delivery-zones";
+import {
+  syncProductHechsherMetadata,
+  PRODUCT_HECHSHER_METADATA_VERSION,
+} from "./bootstrap/sync-product-hechsher-metadata";
+import {
+  syncStructuredInfoPages,
+  STRUCTURED_INFO_PAGES_VERSION,
+} from "./bootstrap/sync-structured-info-pages";
+import { registerAlgoliaStubCleanup } from "./bootstrap/algolia-stub-cleanup";
 
 export default {
   /**
@@ -43,21 +51,25 @@ export default {
       await syncKosherPromiseCopy({
         strapi,
         targetVersion: KOSHER_PROMISE_BODY_VERSION,
-      })
+      });
     } catch (err) {
       strapi.log.error(
-        `[bootstrap] sync-kosher-promise-copy failed: ${err instanceof Error ? err.message : String(err)}`
-      )
+        `[bootstrap] sync-kosher-promise-copy failed: ${
+          err instanceof Error ? err.message : String(err)
+        }`
+      );
     }
 
     // Runtime patch for the strapi-algolia null-transformer stub bug (#115).
     // Synchronous subscription register — finishes immediately.
     try {
-      registerAlgoliaStubCleanup({ strapi })
+      registerAlgoliaStubCleanup({ strapi });
     } catch (err) {
       strapi.log.error(
-        `[bootstrap] register-algolia-stub-cleanup failed: ${err instanceof Error ? err.message : String(err)}`
-      )
+        `[bootstrap] register-algolia-stub-cleanup failed: ${
+          err instanceof Error ? err.message : String(err)
+        }`
+      );
     }
 
     // Heavy data migrations — fire-and-forget AFTER bootstrap returns so
@@ -71,35 +83,67 @@ export default {
           await syncRecipeTaxonomy({
             strapi,
             targetVersion: RECIPE_TAXONOMY_WRITEBACK_VERSION,
-          })
+          });
         } catch (err) {
           strapi.log.error(
-            `[deferred] sync-recipe-taxonomy failed: ${err instanceof Error ? err.message : String(err)}`
-          )
+            `[deferred] sync-recipe-taxonomy failed: ${
+              err instanceof Error ? err.message : String(err)
+            }`
+          );
         }
 
         try {
           await syncAtlantaDeliveryZones({
             strapi,
             targetVersion: ATLANTA_DELIVERY_ZONES_VERSION,
-          })
+          });
         } catch (err) {
           strapi.log.error(
-            `[deferred] sync-atlanta-delivery-zones failed: ${err instanceof Error ? err.message : String(err)}`
-          )
+            `[deferred] sync-atlanta-delivery-zones failed: ${
+              err instanceof Error ? err.message : String(err)
+            }`
+          );
+        }
+
+        try {
+          await syncProductHechsherMetadata({
+            strapi,
+            targetVersion: PRODUCT_HECHSHER_METADATA_VERSION,
+          });
+        } catch (err) {
+          strapi.log.error(
+            `[deferred] sync-product-hechsher-metadata failed: ${
+              err instanceof Error ? err.message : String(err)
+            }`
+          );
+        }
+
+        try {
+          await syncStructuredInfoPages({
+            strapi,
+            targetVersion: STRUCTURED_INFO_PAGES_VERSION,
+          });
+        } catch (err) {
+          strapi.log.error(
+            `[deferred] sync-structured-info-pages failed: ${
+              err instanceof Error ? err.message : String(err)
+            }`
+          );
         }
 
         try {
           await syncCuratedCollections({
             strapi,
             targetVersion: CURATED_COLLECTIONS_VERSION,
-          })
+          });
         } catch (err) {
           strapi.log.error(
-            `[deferred] sync-curated-collections failed: ${err instanceof Error ? err.message : String(err)}`
-          )
+            `[deferred] sync-curated-collections failed: ${
+              err instanceof Error ? err.message : String(err)
+            }`
+          );
         }
-      })()
-    })
+      })();
+    });
   },
-}
+};
