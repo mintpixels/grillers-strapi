@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_info_table_columns",
+  "info": {
+    "displayName": "Info Table Column",
+    "icon": "grip-lines-vertical",
+    "description": "Column definition for a structured info table."
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string",
+      "required": true
+    },
+    "Key": {
+      "type": "string",
+      "required": true
+    },
+    "Alignment": {
+      "type": "enumeration",
+      "enum": ["left", "center", "right"],
+      "required": true,
+      "default": "left"
+    },
+    "IsPrimary": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    }
+  }
+}

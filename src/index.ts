@@ -12,6 +12,10 @@ import {
   syncCuratedCollections,
   CURATED_COLLECTIONS_VERSION,
 } from "./bootstrap/sync-curated-collections"
+import {
+  syncAtlantaDeliveryZones,
+  ATLANTA_DELIVERY_ZONES_VERSION,
+} from "./bootstrap/sync-atlanta-delivery-zones"
 import { registerAlgoliaStubCleanup } from "./bootstrap/algolia-stub-cleanup"
 
 export default {
@@ -71,6 +75,17 @@ export default {
         } catch (err) {
           strapi.log.error(
             `[deferred] sync-recipe-taxonomy failed: ${err instanceof Error ? err.message : String(err)}`
+          )
+        }
+
+        try {
+          await syncAtlantaDeliveryZones({
+            strapi,
+            targetVersion: ATLANTA_DELIVERY_ZONES_VERSION,
+          })
+        } catch (err) {
+          strapi.log.error(
+            `[deferred] sync-atlanta-delivery-zones failed: ${err instanceof Error ? err.message : String(err)}`
           )
         }
 

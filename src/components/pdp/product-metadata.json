@@ -74,6 +74,25 @@
     "Pareve": { "type": "boolean", "default": false },
     "Meat": { "type": "boolean", "default": false },
     "Dairy": { "type": "boolean", "default": false },
-    "CholovYisroel": { "type": "boolean", "default": false }
+    "CholovYisroel": { "type": "boolean", "default": false },
+
+    "ChassidishShchita": { "type": "boolean", "default": false },
+    "CHK": { "type": "boolean", "default": false },
+    "RabbiWeissmandl": { "type": "boolean", "default": false },
+    "OU": { "type": "boolean", "default": false },
+    "StarK": { "type": "boolean", "default": false },
+    "RabbiTeitelbaum": { "type": "boolean", "default": false },
+    "CRC": { "type": "boolean", "default": false },
+    "Lubavitch": { "type": "boolean", "default": false },
+
+    "QualifiesForFreeDeliveryOffers": {
+      "type": "boolean",
+      "default": true,
+      "description": "Product-level fallback. Variant/SKU-level value on MedusaVariants wins when populated."
+    },
+    "FreeDeliveryExclusionReason": {
+      "type": "string",
+      "description": "Optional customer-safe reason shown only when this product does not count toward free delivery."
+    }
   }
 }

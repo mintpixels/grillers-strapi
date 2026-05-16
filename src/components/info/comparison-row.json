@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_info_comparison_rows",
+  "info": {
+    "displayName": "Info Comparison Row",
+    "icon": "exchange-alt",
+    "description": "One row in a two-option comparison table."
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string",
+      "required": true
+    },
+    "LeftValue": {
+      "type": "text",
+      "required": true
+    },
+    "RightValue": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

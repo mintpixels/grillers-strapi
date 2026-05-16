@@ -11,6 +11,60 @@
       "relation": "oneToOne",
       "target": "api::product.product"
     },
+    "OriginalProduct": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product",
+      "description": "Optional item the customer expected before this substituted item replaced it."
+    },
+    "OriginalProductName": {
+      "type": "string",
+      "required": false,
+      "description": "Fallback customer-facing original item name when no OriginalProduct relation is available."
+    },
+    "OriginalQuantity": {
+      "type": "integer",
+      "required": true,
+      "default": 1,
+      "min": 1,
+      "description": "Quantity of the original item this line replaces. Used to compare value and weight impact."
+    },
+    "SubstitutionStatus": {
+      "type": "enumeration",
+      "enum": ["none", "out_of_stock_substituted", "editor_substituted"],
+      "required": true,
+      "default": "none"
+    },
+    "SubstitutionValuePolicy": {
+      "type": "enumeration",
+      "enum": ["actual_replacement_price", "equal_or_better_value", "smaller_pack_acknowledged", "requires_editor_review"],
+      "required": true,
+      "default": "actual_replacement_price",
+      "description": "Private/editorial policy for whether the replacement value is acceptable."
+    },
+    "ShippingCostRisk": {
+      "type": "enumeration",
+      "enum": ["normal", "heavier_or_bulkier", "margin_review_required"],
+      "required": true,
+      "default": "normal",
+      "description": "Private business guardrail. Use review values for replacements that materially change cold-chain weight, bulk, or margin."
+    },
+    "RequiresBusinessReview": {
+      "type": "boolean",
+      "required": true,
+      "default": false,
+      "description": "Internal guardrail for substitutions that could change shipping cost or bundle economics."
+    },
+    "SubstitutionNote": {
+      "type": "text",
+      "required": false,
+      "description": "Customer-facing explanation of what changed and why."
+    },
+    "RequiresSubstitutionAcknowledgement": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
     "ProductHandle": {
       "type": "string",
       "required": false,
@@ -34,7 +88,8 @@
     },
     "Notes": {
       "type": "text",
-      "required": false
+      "required": false,
+      "description": "Internal/editor notes. Do not render to customers."
     },
     "SortOrder": {
       "type": "integer",

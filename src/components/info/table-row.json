@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_info_table_rows",
+  "info": {
+    "displayName": "Info Table Row",
+    "icon": "grip-lines",
+    "description": "One row in a structured info table. Cells is a JSON object keyed by column key."
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string",
+      "required": false
+    },
+    "Cells": {
+      "type": "json",
+      "required": true
+    }
+  }
+}

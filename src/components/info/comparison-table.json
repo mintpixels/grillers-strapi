@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_info_comparison_tables",
+  "info": {
+    "displayName": "Info Comparison Table",
+    "icon": "columns",
+    "description": "Structured two-option comparison block for customer-service/info pages."
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string",
+      "required": false
+    },
+    "Intro": {
+      "type": "text",
+      "required": false
+    },
+    "DecisionLabel": {
+      "type": "string",
+      "required": true,
+      "default": "Decision point"
+    },
+    "LeftOptionLabel": {
+      "type": "string",
+      "required": true
+    },
+    "RightOptionLabel": {
+      "type": "string",
+      "required": true
+    },
+    "Rows": {
+      "type": "component",
+      "repeatable": true,
+      "component": "info.comparison-row"
+    },
+    "Caption": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

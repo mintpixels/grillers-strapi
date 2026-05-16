@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "atlanta_delivery_zones",
+  "info": {
+    "singularName": "atlanta-delivery-zone",
+    "pluralName": "atlanta-delivery-zones",
+    "displayName": "Atlanta Delivery Zone",
+    "description": "Structured ZIP-level delivery day, cutoff, and rate table used by checkout, PDP/cart progress, and shipping pages."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ZipCode": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "DeliveryDay": {
+      "type": "enumeration",
+      "enum": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "required": true
+    },
+    "Weekdays": {
+      "type": "json",
+      "required": false,
+      "description": "Array of numeric weekdays, 0=Sunday ... 6=Saturday. Defaults from DeliveryDay when empty."
+    },
+    "CutoffHourLocal": {
+      "type": "integer",
+      "required": true,
+      "default": 12,
+      "min": 0,
+      "max": 23
+    },
+    "FreeDeliveryThresholdCents": {
+      "type": "integer",
+      "required": true,
+      "default": 25000
+    },
+    "Rate250PlusCents": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "Rate150To249Cents": {
+      "type": "integer",
+      "required": true
+    },
+    "Rate100To149Cents": {
+      "type": "integer",
+      "required": true
+    },
+    "Rate50To99Cents": {
+      "type": "integer",
+      "required": true
+    },
+    "Rate0To49Cents": {
+      "type": "integer",
+      "required": true
+    },
+    "IsActive": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "SortOrder": {
+      "type": "integer",
+      "required": false,
+      "default": 100
+    },
+    "Notes": {
+      "type": "text",
+      "required": false
+    }
+  }
+}

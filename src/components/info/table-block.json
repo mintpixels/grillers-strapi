@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_info_table_blocks",
+  "info": {
+    "displayName": "Info Table",
+    "icon": "table",
+    "description": "Reusable structured table block for rates, schedules, city lists, and policy matrices."
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string",
+      "required": false
+    },
+    "Intro": {
+      "type": "text",
+      "required": false
+    },
+    "Columns": {
+      "type": "component",
+      "repeatable": true,
+      "component": "info.table-column"
+    },
+    "Rows": {
+      "type": "component",
+      "repeatable": true,
+      "component": "info.table-row"
+    },
+    "MobilePresentation": {
+      "type": "enumeration",
+      "enum": ["scroll-table", "cards", "comparison"],
+      "required": true,
+      "default": "cards"
+    },
+    "Caption": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

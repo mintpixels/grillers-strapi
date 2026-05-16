@@ -18,6 +18,16 @@
     },
     "Sku": {
       "type": "string"
+    },
+    "QualifiesForFreeDeliveryOffers": {
+      "type": "boolean",
+      "default": true,
+      "description": "When false, this SKU can be purchased but does not count toward free shipping/free local delivery thresholds."
+    },
+    "FreeDeliveryExclusionReason": {
+      "type": "string",
+      "required": false,
+      "description": "Optional customer-safe line-item note, e.g. 'Does not count toward free delivery.'"
     }
   }
 }

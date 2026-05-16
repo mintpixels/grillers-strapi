@@ -32,6 +32,16 @@
       "type": "blocks",
       "required": false
     },
+    "CustomerFacingRationale": {
+      "type": "text",
+      "required": false,
+      "description": "Public explanation of why this collection is useful. Internal strategy signals must stay in StrategySignals."
+    },
+    "SubstitutionPolicyCopy": {
+      "type": "text",
+      "required": false,
+      "description": "Optional customer-facing copy shown when one or more collection items are substituted."
+    },
     "CollectionType": {
       "type": "enumeration",
       "enum": ["sku_backed", "curation_profile"],

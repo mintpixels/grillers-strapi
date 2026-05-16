@@ -32,6 +32,8 @@
         "info.section",
         "info.feature-grid",
         "info.image-block",
+        "info.table-block",
+        "info.comparison-table",
         "shared.rich-text"
       ]
     },

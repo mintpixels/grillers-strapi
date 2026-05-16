@@ -124,6 +124,17 @@ function mapItem(item, product, index) {
     Product: product?.documentId,
     ProductHandle: handle || item.handle || "",
     Quantity: item.quantity || 1,
+    OriginalQuantity: item.originalQuantity || 1,
+    OriginalProductName: item.originalProductName || "",
+    SubstitutionStatus: item.substitutionStatus || "none",
+    SubstitutionValuePolicy:
+      item.substitutionValuePolicy || "actual_replacement_price",
+    ShippingCostRisk: item.shippingCostRisk || "normal",
+    RequiresBusinessReview: Boolean(item.requiresBusinessReview),
+    SubstitutionNote: item.substitutionNote || "",
+    RequiresSubstitutionAcknowledgement: Boolean(
+      item.requiresSubstitutionAcknowledgement
+    ),
     Required: item.required !== false,
     Role: item.role || "",
     Notes: item.notes || "",
@@ -180,6 +191,8 @@ function mapCollection(definition, products) {
       Eyebrow: definition.eyebrow,
       ShortDescription: definition.shortDescription,
       LongDescription: blocksFromText(definition.longDescription),
+      CustomerFacingRationale: definition.customerFacingRationale,
+      SubstitutionPolicyCopy: definition.substitutionPolicyCopy,
       CollectionType: definition.collectionType || "sku_backed",
       Occasion: definition.occasion || "other",
       CustomerStateFilter: definition.customerStateFilter || "all",
