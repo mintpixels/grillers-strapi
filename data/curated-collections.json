@@ -3,7 +3,7 @@
     "name": "Welcome Pack",
     "slug": "welcome-pack",
     "eyebrow": "First order",
-    "shortDescription": "A multi-category first order built to clear the decision load and land near the free-delivery threshold.",
+    "shortDescription": "A balanced first order with everyday staples, a premium cut, and enough variety to get close to free delivery.",
     "collectionType": "curation_profile",
     "occasion": "starter",
     "customerStateFilter": "guest_or_no_orders",
@@ -16,11 +16,11 @@
     "pdpMatchKeywords": ["starter", "new", "first", "chicken", "lamb", "beef", "cutlet", "brisket"],
     "strategySignals": ["7+ item first baskets retain 62.3% vs 29.6% for one-item baskets", "Multi-category first baskets retain +9.8pp", "Target AOV above the $227 retention inflection"],
     "items": [
-      { "include": ["chicken", "cutlet"], "exclude": ["institutional", "bulk"], "quantity": 1, "required": true, "role": "High-volume retention anchor" },
-      { "include": ["lamb chops"], "exclude": ["case", "bulk"], "quantity": 1, "required": true, "role": "Premium category expansion" },
+      { "include": ["chicken", "cutlet"], "exclude": ["institutional", "bulk"], "quantity": 1, "required": true, "role": "Everyday chicken staple" },
+      { "include": ["lamb chops"], "exclude": ["case", "bulk"], "quantity": 1, "required": true, "role": "Premium dinner cut" },
       { "include": ["ground beef", "85/15"], "exclude": ["case", "bulk"], "quantity": 1, "required": true, "role": "Weeknight staple" },
-      { "include": ["brisket"], "exclude": ["case", "whole", "bulk"], "quantity": 1, "required": false, "role": "Classic kosher anchor" },
-      { "includeAny": ["boerewors", "boerie", "kosherbratz"], "exclude": ["chicken"], "quantity": 1, "required": false, "role": "South African heritage marker" },
+      { "include": ["brisket"], "exclude": ["case", "whole", "bulk"], "quantity": 1, "required": false, "role": "Classic kosher roast" },
+      { "includeAny": ["boerewors", "boerie", "kosherbratz"], "exclude": ["chicken"], "quantity": 1, "required": false, "role": "South African favorite" },
       { "include": ["chicken stir fry"], "quantity": 1, "required": false, "role": "Low-prep prepared item" }
     ],
     "curationSlots": [
@@ -33,8 +33,8 @@
   {
     "name": "Chicken Lamb Veal Starter",
     "slug": "chicken-lamb-veal-starter",
-    "eyebrow": "Retention builder",
-    "shortDescription": "The three strongest first-basket category signals in one transparent collection.",
+    "eyebrow": "Starter variety",
+    "shortDescription": "A balanced starter set with chicken, lamb, veal, and ground beef for a few different meals.",
     "collectionType": "sku_backed",
     "occasion": "starter",
     "customerStateFilter": "guest_or_no_orders",
@@ -45,17 +45,17 @@
     "pdpMatchKeywords": ["chicken", "lamb", "veal", "roast", "cutlet", "starter"],
     "strategySignals": ["Veal +12.7pp, chicken +8.9pp, lamb +6.5pp vs baseline in first baskets"],
     "items": [
-      { "include": ["organic chicken", "breast"], "exclude": ["bones"], "quantity": 1, "required": true, "role": "Chicken retention signal" },
-      { "include": ["lamb chops"], "exclude": ["case"], "quantity": 1, "required": true, "role": "Lamb category signal" },
-      { "include": ["veal", "roast"], "exclude": ["case"], "quantity": 1, "required": true, "role": "Veal category signal" },
-      { "include": ["ground beef", "85/15"], "quantity": 1, "required": false, "role": "Basket utility" }
+      { "include": ["organic chicken", "breast"], "exclude": ["bones"], "quantity": 1, "required": true, "role": "Organic chicken staple" },
+      { "include": ["lamb chops"], "exclude": ["case"], "quantity": 1, "required": true, "role": "Lamb dinner cut" },
+      { "include": ["veal", "roast"], "exclude": ["case"], "quantity": 1, "required": true, "role": "Veal roast" },
+      { "include": ["ground beef", "85/15"], "quantity": 1, "required": false, "role": "Weeknight staple" }
     ]
   },
   {
     "name": "Free Delivery First Order Builder",
     "slug": "free-delivery-first-order-builder",
-    "eyebrow": "Threshold helper",
-    "shortDescription": "A practical path toward the $250 local free-delivery threshold without feeling like a random cart.",
+    "eyebrow": "Free delivery path",
+    "shortDescription": "A practical way to build a full first order around local free delivery, with dinners that make sense together.",
     "collectionType": "sku_backed",
     "occasion": "starter",
     "customerStateFilter": "guest_or_no_orders",
@@ -66,7 +66,7 @@
     "pdpMatchKeywords": ["free", "delivery", "shipping", "threshold", "cart", "starter"],
     "strategySignals": ["AOV above $227 moves retention into the stronger Q3 band", "Local free-delivery threshold is a natural merchandising goal"],
     "items": [
-      { "include": ["chicken", "8-piece"], "exclude": ["case"], "quantity": 1, "required": true, "role": "Family dinner anchor" },
+      { "include": ["chicken", "8-piece"], "exclude": ["case"], "quantity": 1, "required": true, "role": "Family dinner chicken" },
       { "include": ["ground beef", "85/15"], "quantity": 2, "required": true, "role": "Freezer staple" },
       { "include": ["beef burger patties"], "exclude": ["84x", "institutional"], "quantity": 1, "required": false, "role": "Easy weeknight add" },
       { "include": ["chicken wings"], "exclude": ["institutional", "bulk"], "quantity": 1, "required": false, "role": "Crowd-pleaser" },
@@ -74,10 +74,10 @@
     ]
   },
   {
-    "name": "First Shabbos Raw Protein Starter",
+    "name": "First Shabbos Dinner Starter",
     "slug": "first-shabbos-raw-protein-starter",
     "eyebrow": "For a real table",
-    "shortDescription": "Raw proteins for a first GP Shabbos order, with prepared food kept as support rather than the whole basket.",
+    "shortDescription": "A first GP Shabbos order with chicken, brisket, lamb, and a ready side for the table.",
     "collectionType": "sku_backed",
     "occasion": "shabbos",
     "customerStateFilter": "guest_or_no_orders",
@@ -87,17 +87,17 @@
     "pdpMatchKeywords": ["shabbos", "shabbat", "chicken", "brisket", "roast"],
     "strategySignals": ["Avoid prepared-only first baskets; steer toward raw-protein pantry behavior"],
     "items": [
-      { "include": ["chicken", "8-piece"], "exclude": ["case"], "quantity": 1, "required": true, "role": "Friday-night anchor" },
+      { "include": ["chicken", "8-piece"], "exclude": ["case"], "quantity": 1, "required": true, "role": "Friday-night chicken" },
       { "include": ["brisket"], "exclude": ["case", "whole"], "quantity": 1, "required": true, "role": "Slow roast" },
       { "include": ["lamb shoulder roast"], "quantity": 1, "required": false, "role": "Second premium entree" },
-      { "include": ["tzimmes"], "quantity": 1, "required": false, "role": "Prepared support" }
+      { "include": ["tzimmes"], "quantity": 1, "required": false, "role": "Ready side" }
     ]
   },
   {
     "name": "First-Time Premium Sampler",
     "slug": "first-time-premium-sampler",
     "eyebrow": "Try the range",
-    "shortDescription": "A higher-conviction sampler that avoids bulk churn signals and introduces the premium cuts that predict repeat behavior.",
+    "shortDescription": "A premium sampler with steakhouse cuts, organic chicken, lamb, and veal for customers who want to try the range.",
     "collectionType": "sku_backed",
     "occasion": "starter",
     "customerStateFilter": "guest_or_no_orders",
@@ -108,8 +108,8 @@
     "pdpMatchKeywords": ["premium", "sampler", "oyster", "steak", "lamb", "veal"],
     "strategySignals": ["Organic chicken breasts and oyster steak showed 85.7% first-basket retention in the available sample"],
     "items": [
-      { "include": ["oyster steak"], "quantity": 1, "required": true, "role": "Premium retention signal" },
-      { "include": ["organic chicken", "breast"], "exclude": ["bones"], "quantity": 1, "required": true, "role": "Chicken retention signal" },
+      { "include": ["oyster steak"], "quantity": 1, "required": true, "role": "Premium steak cut" },
+      { "include": ["organic chicken", "breast"], "exclude": ["bones"], "quantity": 1, "required": true, "role": "Organic chicken staple" },
       { "include": ["lamb whole rack"], "quantity": 1, "required": false, "role": "Premium lamb" },
       { "include": ["veal pot roast"], "quantity": 1, "required": false, "role": "Sunday dinner cut" }
     ]
@@ -131,7 +131,7 @@
       { "include": ["chicken", "cutlet"], "exclude": ["bulk"], "quantity": 2, "required": true, "role": "Repeatable dinner base" },
       { "include": ["ground beef", "85/15"], "quantity": 2, "required": true, "role": "Freezer staple" },
       { "include": ["chicken wings"], "exclude": ["institutional", "bulk"], "quantity": 1, "required": false, "role": "Easy add" },
-      { "include": ["lamb", "stew"], "quantity": 1, "required": false, "role": "Category expansion" }
+      { "include": ["lamb", "stew"], "quantity": 1, "required": false, "role": "Slow-cooker option" }
     ]
   },
   {
@@ -155,10 +155,10 @@
     ]
   },
   {
-    "name": "National Shipping Safe Pack",
+    "name": "National Shipping Steakhouse Pack",
     "slug": "national-shipping-safe-pack",
     "eyebrow": "Cold-chain friendly",
-    "shortDescription": "Higher-value dense proteins that make more sense for national UPS cold-chain economics.",
+    "shortDescription": "A cold-chain friendly mix of steaks, lamb, brisket, and biltong for a larger shipped order.",
     "collectionType": "sku_backed",
     "occasion": "starter",
     "customerStateFilter": "all",
@@ -169,17 +169,17 @@
     "pdpMatchKeywords": ["shipping", "ups", "national", "premium", "steak", "rack"],
     "strategySignals": ["National shipping needs denser, higher-dollar baskets to protect contribution margin"],
     "items": [
-      { "include": ["ribeye"], "exclude": ["case"], "quantity": 2, "required": true, "role": "High-dollar dense protein" },
-      { "include": ["lamb whole rack"], "quantity": 1, "required": true, "role": "Premium dense cut" },
-      { "include": ["brisket"], "exclude": ["whole", "case"], "quantity": 1, "required": false, "role": "Ship-worthy anchor" },
-      { "include": ["biltong"], "quantity": 1, "required": false, "role": "Shelf-stable-ish specialty add" }
+      { "include": ["ribeye"], "exclude": ["case"], "quantity": 2, "required": true, "role": "Steakhouse cut" },
+      { "include": ["lamb whole rack"], "quantity": 1, "required": true, "role": "Premium lamb cut" },
+      { "include": ["brisket"], "exclude": ["whole", "case"], "quantity": 1, "required": false, "role": "Slow-roast option" },
+      { "include": ["biltong"], "quantity": 1, "required": false, "role": "South African snack" }
     ]
   },
   {
-    "name": "Multi-Category Reorder Builder",
+    "name": "Chicken Beef Lamb Reorder Pack",
     "slug": "multi-category-reorder-builder",
     "eyebrow": "Next order",
-    "shortDescription": "For returning customers whose last basket was too narrow: chicken, beef, lamb, and one prepared support item.",
+    "shortDescription": "Restock across the butcher case with chicken, beef, lamb, and an easy prepared item for a fuller next order.",
     "collectionType": "sku_backed",
     "occasion": "cart_upsell",
     "customerStateFilter": "returning",
@@ -192,14 +192,14 @@
       { "include": ["chicken breast strips"], "quantity": 1, "required": true, "role": "Fast chicken add" },
       { "include": ["ground beef", "85/15"], "quantity": 1, "required": true, "role": "Beef staple" },
       { "include": ["ground lamb"], "quantity": 1, "required": false, "role": "Lamb expansion" },
-      { "include": ["teriyaki", "chicken"], "quantity": 1, "required": false, "role": "Prepared support" }
+      { "include": ["teriyaki", "chicken"], "quantity": 1, "required": false, "role": "Easy prepared dinner" }
     ]
   },
   {
     "name": "Pantry Builder: Chicken, Beef, Lamb",
     "slug": "pantry-builder-chicken-beef-lamb",
-    "eyebrow": "Core categories",
-    "shortDescription": "The simplest multi-category pantry cart: one chicken, one beef, one lamb, then practical add-ons.",
+    "eyebrow": "Core staples",
+    "shortDescription": "A simple butcher-case stock-up: chicken, beef, lamb, and a flexible extra for the freezer.",
     "collectionType": "sku_backed",
     "occasion": "stock_up",
     "customerStateFilter": "all",
@@ -269,7 +269,7 @@
     "pdpMatchKeywords": ["roast", "veal", "lamb", "sides", "shabbos"],
     "strategySignals": ["Premium raw-protein buyers behave more like pantry builders than event samplers"],
     "items": [
-      { "include": ["veal shoulder roast"], "quantity": 1, "required": true, "role": "Roast anchor" },
+      { "include": ["veal shoulder roast"], "quantity": 1, "required": true, "role": "Roast centerpiece" },
       { "include": ["lamb shoulder roast"], "quantity": 1, "required": false, "role": "Alternative roast" },
       { "include": ["sweet potato mash"], "quantity": 1, "required": false, "role": "Side" },
       { "include": ["tzimmes"], "quantity": 1, "required": false, "role": "Side" }
@@ -278,8 +278,8 @@
   {
     "name": "Shabbos Brisket Table",
     "slug": "shabbos-brisket-table",
-    "eyebrow": "Classic anchor",
-    "shortDescription": "Brisket as the anchor, with the supporting proteins and sides that turn it into a complete order.",
+    "eyebrow": "Classic brisket",
+    "shortDescription": "Brisket at the center, with chicken, sides, and dessert to turn it into a complete order.",
     "collectionType": "sku_backed",
     "occasion": "shabbos",
     "customerStateFilter": "all",
@@ -289,7 +289,7 @@
     "pdpMatchKeywords": ["brisket", "shabbos", "holiday", "roast"],
     "strategySignals": ["Brisket is a classic high-intent kosher purchase; use it to build a complete basket"],
     "items": [
-      { "include": ["brisket", "first"], "exclude": ["case", "whole"], "quantity": 1, "required": true, "role": "Brisket anchor" },
+      { "include": ["brisket", "first"], "exclude": ["case", "whole"], "quantity": 1, "required": true, "role": "Brisket centerpiece" },
       { "include": ["chicken", "cutlet"], "exclude": ["bulk"], "quantity": 1, "required": false, "role": "Second protein" },
       { "include": ["honey-glazed", "carrots"], "quantity": 1, "required": false, "role": "Side" },
       { "include": ["apple cobbler"], "quantity": 1, "required": false, "role": "Dessert" }
@@ -330,7 +330,7 @@
     "pdpMatchKeywords": ["salmon", "smoked", "deli", "turkey", "lunch"],
     "strategySignals": ["Convenience support works best when attached to a broader basket, not as a one-item sampler"],
     "items": [
-      { "include": ["smoked salmon"], "quantity": 1, "required": true, "role": "Lunch anchor" },
+      { "include": ["smoked salmon"], "quantity": 1, "required": true, "role": "Lunch centerpiece" },
       { "include": ["turkey breast"], "exclude": ["uncooked", "bone-in"], "quantity": 1, "required": false, "role": "Deli protein" },
       { "include": ["biltong"], "quantity": 1, "required": false, "role": "Snack add" },
       { "include": ["lemon cookie cake"], "quantity": 1, "required": false, "role": "Dessert" }
@@ -371,7 +371,7 @@
     "strategySignals": ["Occasion baskets naturally justify higher item count and AOV without discount framing"],
     "items": [
       { "include": ["chicken", "8-piece"], "exclude": ["case"], "quantity": 2, "required": true, "role": "Guest-table chicken" },
-      { "include": ["brisket"], "exclude": ["case", "whole"], "quantity": 1, "required": true, "role": "Beef anchor" },
+      { "include": ["brisket"], "exclude": ["case", "whole"], "quantity": 1, "required": true, "role": "Beef centerpiece" },
       { "include": ["lamb shoulder roast"], "quantity": 1, "required": false, "role": "Premium alternate" },
       { "include": ["tzimmes"], "quantity": 1, "required": false, "role": "Side" },
       { "include": ["apple cobbler"], "quantity": 1, "required": false, "role": "Dessert" }
@@ -473,7 +473,7 @@
       { "include": ["ground beef", "85/15"], "quantity": 2, "required": true, "role": "Core grind" },
       { "include": ["ground beef", "80/20"], "quantity": 1, "required": false, "role": "Juicier grind" },
       { "include": ["beef burger patties"], "exclude": ["84x", "institutional"], "quantity": 1, "required": false, "role": "Burger shortcut" },
-      { "include": ["oyster steak"], "quantity": 1, "required": false, "role": "Premium cross-sell" }
+      { "include": ["oyster steak"], "quantity": 1, "required": false, "role": "Steak dinner option" }
     ]
   },
   {
@@ -590,7 +590,7 @@
     "pdpMatchKeywords": ["comfort", "pulled beef", "short ribs", "brisket", "mash"],
     "strategySignals": ["Comfort-food intent can support higher AOV when paired with raw braising cuts"],
     "items": [
-      { "include": ["short ribs"], "exclude": ["case"], "quantity": 1, "required": true, "role": "Braise anchor" },
+      { "include": ["short ribs"], "exclude": ["case"], "quantity": 1, "required": true, "role": "Braising cut" },
       { "include": ["pulled beef"], "quantity": 1, "required": false, "role": "Prepared comfort" },
       { "include": ["brisket"], "exclude": ["case", "whole"], "quantity": 1, "required": false, "role": "Slow-cook option" },
       { "include": ["sweet potato mash"], "quantity": 1, "required": false, "role": "Side" }
@@ -600,7 +600,7 @@
     "name": "Prepared Sides Add-On",
     "slug": "prepared-sides-add-on",
     "eyebrow": "Finish the order",
-    "shortDescription": "The sides and desserts most likely to raise AOV after the customer already has proteins in cart.",
+    "shortDescription": "Round out a protein order with heat-and-serve sides and desserts for the table.",
     "collectionType": "sku_backed",
     "occasion": "cart_upsell",
     "customerStateFilter": "all",
@@ -698,7 +698,7 @@
     "name": "Premium Grill",
     "slug": "premium-grill",
     "eyebrow": "Premium",
-    "shortDescription": "High-dollar grill cuts that make sense for customers who want a smaller, better basket.",
+    "shortDescription": "Premium grill cuts for customers who want a smaller, better basket.",
     "collectionType": "sku_backed",
     "occasion": "premium",
     "customerStateFilter": "all",
@@ -865,7 +865,7 @@
     "pdpMatchKeywords": ["biltong", "boerewors", "specialty", "first"],
     "strategySignals": ["Specialty-only first baskets are too sparse to trust; cross-sell into raw proteins"],
     "items": [
-      { "include": ["biltong"], "quantity": 1, "required": true, "role": "Heritage hook" },
+      { "include": ["biltong"], "quantity": 1, "required": true, "role": "South African favorite" },
       { "includeAny": ["boerewors", "kosherbratz"], "quantity": 1, "required": false, "role": "Heritage grill" },
       { "include": ["chicken", "cutlet"], "exclude": ["bulk"], "quantity": 1, "required": true, "role": "Dinner protein" },
       { "include": ["ground beef", "85/15"], "quantity": 1, "required": false, "role": "Dinner staple" }
@@ -874,8 +874,8 @@
   {
     "name": "Premium Carnivore",
     "slug": "premium-carnivore",
-    "eyebrow": "High-margin",
-    "shortDescription": "A dense premium basket: steak, lamb rack, brisket, biltong, and a practical grill add.",
+    "eyebrow": "Premium cuts",
+    "shortDescription": "A premium meat-lover's box: steak, lamb rack, brisket, biltong, and a practical grill add.",
     "collectionType": "curation_profile",
     "occasion": "premium",
     "customerStateFilter": "all",
@@ -890,9 +890,9 @@
     "items": [
       { "include": ["ribeye"], "exclude": ["case"], "quantity": 2, "required": true, "role": "Premium steak" },
       { "include": ["lamb whole rack"], "quantity": 1, "required": true, "role": "Premium lamb" },
-      { "include": ["brisket"], "exclude": ["case", "whole"], "quantity": 1, "required": false, "role": "Braise anchor" },
+      { "include": ["brisket"], "exclude": ["case", "whole"], "quantity": 1, "required": false, "role": "Slow braise cut" },
       { "include": ["biltong"], "quantity": 1, "required": false, "role": "Specialty add" },
-      { "include": ["beef burger patties"], "exclude": ["institutional"], "quantity": 1, "required": false, "role": "Utility add" }
+      { "include": ["beef burger patties"], "exclude": ["institutional"], "quantity": 1, "required": false, "role": "Grill staple" }
     ],
     "curationSlots": [
       { "label": "Premium steak", "categoryRule": "Ribeye, strip, cowboy, filet, hanger, or skirt; avoid cases and institutional bulk.", "required": true },
@@ -944,7 +944,7 @@
     "name": "Veal Sunday Roast",
     "slug": "veal-sunday-roast",
     "eyebrow": "Veal",
-    "shortDescription": "A veal-centered Sunday or Yom Tov roast order, built from the strongest category retention signal.",
+    "shortDescription": "A veal-centered Sunday or Yom Tov roast order with braising cuts and a ready side.",
     "collectionType": "sku_backed",
     "occasion": "premium",
     "customerStateFilter": "all",
@@ -984,7 +984,7 @@
     "name": "Rosh Hashanah Table",
     "slug": "rosh-hashanah-table",
     "eyebrow": "Holiday",
-    "shortDescription": "A festive Rosh Hashanah meat order anchored in brisket, chicken, lamb, and sweet sides.",
+    "shortDescription": "A festive Rosh Hashanah meat order with brisket, chicken, lamb, and sweet sides.",
     "collectionType": "curation_profile",
     "occasion": "holiday",
     "customerStateFilter": "all",
@@ -997,7 +997,7 @@
     "pdpMatchKeywords": ["rosh", "hashanah", "holiday", "brisket", "honey", "tzimmes"],
     "strategySignals": ["September/Rosh Hashanah is a major demand peak; holiday baskets reduce planning anxiety"],
     "items": [
-      { "include": ["brisket", "first"], "exclude": ["case", "whole"], "quantity": 1, "required": true, "role": "Holiday anchor" },
+      { "include": ["brisket", "first"], "exclude": ["case", "whole"], "quantity": 1, "required": true, "role": "Holiday brisket" },
       { "include": ["whole chicken"], "exclude": ["case"], "quantity": 1, "required": true, "role": "Chicken main" },
       { "include": ["lamb shoulder roast"], "quantity": 1, "required": false, "role": "Premium holiday add" },
       { "include": ["ground beef", "85/15"], "quantity": 1, "required": false, "role": "Kreplach/meatball base" },
@@ -1024,7 +1024,7 @@
     "pdpMatchKeywords": ["passover", "pesach", "kfp", "brisket", "seder", "holiday"],
     "strategySignals": ["Passover drives the largest baskets and strongest cohort retention; early ordering prevents stockouts"],
     "items": [
-      { "include": ["brisket", "first"], "exclude": ["case", "whole"], "quantity": 1, "required": true, "role": "Seder anchor" },
+      { "include": ["brisket", "first"], "exclude": ["case", "whole"], "quantity": 1, "required": true, "role": "Seder brisket" },
       { "include": ["chicken", "8-piece"], "exclude": ["case"], "quantity": 2, "required": true, "role": "Holiday chicken" },
       { "include": ["lamb chops"], "exclude": ["case"], "quantity": 1, "required": false, "role": "Premium holiday add" },
       { "include": ["veal pot roast"], "quantity": 1, "required": false, "role": "Holiday roast" },

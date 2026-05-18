@@ -1,7 +1,7 @@
 import fs from "node:fs"
 import path from "node:path"
 
-export const CURATED_COLLECTIONS_VERSION = "curated-collections-2026-05-15-v1"
+export const CURATED_COLLECTIONS_VERSION = "curated-collections-2026-05-18-v2"
 
 const COLLECTION_UID = "api::curated-collection.curated-collection"
 const PRODUCT_UID = "api::product.product"
