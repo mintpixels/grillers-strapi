@@ -51,6 +51,12 @@
       "repeatable": false,
       "component": "pdp.product-metadata"
     },
+    "IngredientDisclosures": {
+      "displayName": "IngredientDisclosures",
+      "type": "component",
+      "repeatable": true,
+      "component": "pdp.ingredient-disclosure"
+    },
     "Recipes": {
       "type": "relation",
       "relation": "manyToMany",
