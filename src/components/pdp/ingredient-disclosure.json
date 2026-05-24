@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_pdp_ingredient_disclosures",
+  "info": {
+    "displayName": "IngredientDisclosure",
+    "description": "Reviewed PDP ingredient and allergen disclosure for a specific Medusa SKU."
+  },
+  "options": {},
+  "attributes": {
+    "Sku": {
+      "type": "string",
+      "description": "Medusa variant SKU this disclosure applies to. Leave blank only when the disclosure applies to every variant on the product."
+    },
+    "Ingredients": {
+      "type": "text",
+      "description": "Customer-facing ingredient list, reviewed against the source label."
+    },
+    "Contains": {
+      "type": "text",
+      "description": "Customer-facing allergen/contains statement, if available."
+    },
+    "Directions": {
+      "type": "text",
+      "description": "Optional heating, cooking, or handling instructions from the source label."
+    },
+    "SourceLabelFile": {
+      "type": "string",
+      "description": "Relative LabelMatrix source file used for audit/review."
+    },
+    "ReviewStatus": {
+      "type": "enumeration",
+      "enum": ["needs_review", "approved", "rejected"],
+      "default": "needs_review",
+      "description": "Only approved disclosures should render on the storefront PDP."
+    },
+    "VerifiedAt": {
+      "type": "datetime",
+      "description": "Timestamp when this disclosure was last approved for customer display."
+    }
+  }
+}
