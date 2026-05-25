@@ -544,6 +544,7 @@ export interface PdpMedusaProduct extends Struct.ComponentSchema {
     ProductId: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    QuickBooksListId: Schema.Attribute.String;
     ShortDescription: Schema.Attribute.Text &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 200;
@@ -563,6 +564,7 @@ export interface PdpMedusaVariants extends Struct.ComponentSchema {
   };
   attributes: {
     Price: Schema.Attribute.Component<'pdp.medusa-price', false>;
+    QuickBooksListId: Schema.Attribute.String;
     Sku: Schema.Attribute.String;
     Title: Schema.Attribute.String;
     VariantId: Schema.Attribute.String;

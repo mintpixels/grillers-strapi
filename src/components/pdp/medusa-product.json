@@ -11,6 +11,11 @@
       "required": true,
       "unique": true
     },
+    "QuickBooksListId": {
+      "type": "string",
+      "required": false,
+      "description": "Stable QuickBooks Desktop item ListID/item hex. Use this for QBD matching; QuickBooks SKU/name may change for operational sorting."
+    },
     "Title": {
       "type": "string"
     },

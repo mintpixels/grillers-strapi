@@ -8,6 +8,11 @@
     "VariantId": {
       "type": "string"
     },
+    "QuickBooksListId": {
+      "type": "string",
+      "required": false,
+      "description": "Stable QuickBooks Desktop item ListID/item hex for this sellable variant. Do not treat SKU as the canonical QBD key."
+    },
     "Title": {
       "type": "string"
     },
