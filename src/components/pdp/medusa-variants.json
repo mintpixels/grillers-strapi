@@ -33,6 +33,17 @@
       "type": "string",
       "required": false,
       "description": "Optional customer-safe line-item note, e.g. 'Does not count toward free delivery.'"
+    },
+    "WaitlistEnabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Variant-level override for whether the storefront may collect back-in-stock requests when this variant has zero Medusa inventory."
+    },
+    "AvailabilityLifecycle": {
+      "type": "enumeration",
+      "enum": ["active", "seasonal_inactive", "discontinued", "internal_only"],
+      "required": false,
+      "description": "Variant-level lifecycle separate from inventory quantity. Use seasonal_inactive for off-season Passover variants that should not accept waitlist requests."
     }
   }
 }

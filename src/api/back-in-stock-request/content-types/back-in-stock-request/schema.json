@@ -52,8 +52,7 @@
     "UnsubscribeToken": {
       "type": "string",
       "required": true,
-      "private": true,
-      "description": "Random, single-use token used to authenticate the unsubscribe link without exposing the request id."
+      "description": "Random token used to authenticate the unsubscribe link. This must remain filterable by the storefront server route; do not expose the back-in-stock API publicly."
     },
     "Source": {
       "type": "enumeration",

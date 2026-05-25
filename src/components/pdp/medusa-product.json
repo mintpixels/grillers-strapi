@@ -45,6 +45,17 @@
       "type": "enumeration",
       "enum": ["per_lb", "fixed_price"],
       "required": false
+    },
+    "WaitlistEnabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the storefront may collect back-in-stock requests for this product when Medusa inventory is zero. Set false for seasonal inactive, discontinued, or internal-only items."
+    },
+    "AvailabilityLifecycle": {
+      "type": "enumeration",
+      "enum": ["active", "seasonal_inactive", "discontinued", "internal_only"],
+      "required": false,
+      "description": "Customer catalog lifecycle separate from inventory quantity. Use active for normal sellable items; seasonal_inactive for off-season Passover items that should not accept waitlist requests."
     }
   }
 }
