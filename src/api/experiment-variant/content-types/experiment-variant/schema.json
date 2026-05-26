@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "experiment_variants",
+  "info": {
+    "singularName": "experiment-variant",
+    "pluralName": "experiment-variants",
+    "displayName": "Experiment Variant",
+    "description": "Editor-facing content payload for one experiment variant"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ExperimentKey": {
+      "type": "string",
+      "required": true
+    },
+    "VariantKey": {
+      "type": "string",
+      "required": true
+    },
+    "Label": {
+      "type": "string",
+      "required": true
+    },
+    "Status": {
+      "type": "enumeration",
+      "enum": ["draft", "ready", "active", "retired"],
+      "default": "draft",
+      "required": true
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Content": {
+      "type": "json"
+    },
+    "ScreenshotChecklist": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "experiment_placements",
+  "info": {
+    "singularName": "experiment-placement",
+    "pluralName": "experiment-placements",
+    "displayName": "Experiment Placement",
+    "description": "Maps content-driven experiment variants to a storefront placement"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ExperimentKey": {
+      "type": "string",
+      "required": true
+    },
+    "VariantKey": {
+      "type": "string",
+      "required": true
+    },
+    "PlacementKey": {
+      "type": "string",
+      "required": true
+    },
+    "Surface": {
+      "type": "enumeration",
+      "enum": [
+        "homepage",
+        "pdp",
+        "navigation",
+        "plp",
+        "search",
+        "recipes",
+        "learn",
+        "collections",
+        "cart",
+        "pdp_recommendations",
+        "newsletter",
+        "seo_geo",
+        "reviews"
+      ],
+      "required": true
+    },
+    "Enabled": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Content": {
+      "type": "json"
+    },
+    "Notes": {
+      "type": "text"
+    }
+  }
+}
