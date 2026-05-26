@@ -44,6 +44,44 @@
       "enum": ["active", "seasonal_inactive", "discontinued", "internal_only"],
       "required": false,
       "description": "Variant-level lifecycle separate from inventory quantity. Use seasonal_inactive for off-season Passover variants that should not accept waitlist requests."
+    },
+    "FutureOrderEligible": {
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "description": "Variant-level override for future committed demand outside the replenishment window."
+    },
+    "ReplenishmentLeadDays": {
+      "type": "integer",
+      "required": false,
+      "min": 0,
+      "description": "Variant-level replenishment lead day override. Product value wins only when this is blank."
+    },
+    "SafetyStockQuantity": {
+      "type": "integer",
+      "required": false,
+      "min": 0,
+      "description": "Variant-level quantity held back from available-to-promise calculations."
+    },
+    "UnavailableMessage": {
+      "type": "text",
+      "required": false,
+      "description": "Optional customer-facing copy for this variant when unavailable."
+    },
+    "ExpectedAvailabilityCopy": {
+      "type": "string",
+      "required": false,
+      "description": "Optional customer-facing variant availability estimate."
+    },
+    "SubstitutionGroup": {
+      "type": "string",
+      "required": false,
+      "description": "Variant-specific replacement grouping key."
+    },
+    "AlternativeVariantIds": {
+      "type": "text",
+      "required": false,
+      "description": "Optional comma- or newline-separated Medusa variant IDs to suggest as replacements for this variant."
     }
   }
 }

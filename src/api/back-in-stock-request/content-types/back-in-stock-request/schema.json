@@ -29,6 +29,21 @@
       "required": true,
       "description": "Medusa `prod_…` id of the requested product."
     },
+    "MedusaVariantId": {
+      "type": "string",
+      "required": false,
+      "description": "Medusa `variant_…` id selected by the customer, when known. New inventory allocation flows should populate this."
+    },
+    "Sku": {
+      "type": "string",
+      "required": false,
+      "description": "Customer-safe SKU subtext for the requested variant."
+    },
+    "QuickBooksListId": {
+      "type": "string",
+      "required": false,
+      "description": "Stable QBD ListID/hex for operational matching. Do not expose in customer emails."
+    },
     "ProductHandle": {
       "type": "string",
       "required": true,
@@ -38,6 +53,18 @@
       "type": "string",
       "required": true,
       "description": "Snapshot of the product title at the time of request (so the restock email can show the name the customer originally saw)."
+    },
+    "RequestedFulfillmentDate": {
+      "type": "date",
+      "required": false,
+      "description": "Optional requested date context if the waitlist was created from a date-specific allocation block."
+    },
+    "WaitlistReason": {
+      "type": "enumeration",
+      "enum": ["out_of_stock", "allocated_out", "future_unavailable"],
+      "default": "out_of_stock",
+      "required": false,
+      "description": "Why the customer joined the notification list."
     },
     "NotifiedAt": {
       "type": "datetime",

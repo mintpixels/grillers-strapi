@@ -56,6 +56,52 @@
       "enum": ["active", "seasonal_inactive", "discontinued", "internal_only"],
       "required": false,
       "description": "Customer catalog lifecycle separate from inventory quantity. Use active for normal sellable items; seasonal_inactive for off-season Passover items that should not accept waitlist requests."
+    },
+    "FutureOrderEligible": {
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "description": "Whether this product may accept future committed demand when the requested dispatch date is outside the replenishment window."
+    },
+    "ReplenishmentLeadDays": {
+      "type": "integer",
+      "required": false,
+      "min": 0,
+      "default": 14,
+      "description": "Number of days needed before an out-of-stock product may be accepted as a future commitment. Defaults to 14 days."
+    },
+    "SafetyStockQuantity": {
+      "type": "integer",
+      "required": false,
+      "min": 0,
+      "default": 0,
+      "description": "Quantity held back from customer available-to-promise calculations."
+    },
+    "UnavailableMessage": {
+      "type": "text",
+      "required": false,
+      "description": "Optional customer-facing copy for unavailable active products."
+    },
+    "ExpectedAvailabilityCopy": {
+      "type": "string",
+      "required": false,
+      "description": "Optional customer-facing estimate, e.g. 'Expected again in about 2 weeks.'"
+    },
+    "SubstitutionGroup": {
+      "type": "string",
+      "required": false,
+      "description": "Editor-managed grouping key for similar replacement products."
+    },
+    "AlternativeVariantIds": {
+      "type": "text",
+      "required": false,
+      "description": "Optional comma- or newline-separated Medusa variant IDs to suggest as replacements."
+    },
+    "AlternativeProducts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "description": "Optional curated replacement products for unavailable item flows."
     }
   }
 }
