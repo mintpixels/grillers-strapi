@@ -60,6 +60,41 @@
       "type": "integer",
       "required": true
     },
+    "Rate1To29Cents": {
+      "type": "integer",
+      "required": false,
+      "description": "SAMADMIN 7-band: home-delivery charge (cents) when the PRODUCT (inventory items) subtotal is $1.00-$29.99. Compared against the product subtotal only (excludes shipping, tax, and non-inventory line items). When blank, the storefront falls back to Rate0To49Cents."
+    },
+    "Rate30To49Cents": {
+      "type": "integer",
+      "required": false,
+      "description": "SAMADMIN 7-band: home-delivery charge (cents) when the PRODUCT subtotal is $30.00-$49.99. When blank, falls back to Rate0To49Cents."
+    },
+    "Rate50To99BandCents": {
+      "type": "integer",
+      "required": false,
+      "description": "SAMADMIN 7-band: home-delivery charge (cents) when the PRODUCT subtotal is $50.00-$99.99. When blank, falls back to legacy Rate50To99Cents."
+    },
+    "Rate100To149BandCents": {
+      "type": "integer",
+      "required": false,
+      "description": "SAMADMIN 7-band: home-delivery charge (cents) when the PRODUCT subtotal is $100.00-$149.99. When blank, falls back to legacy Rate100To149Cents."
+    },
+    "Rate150To249BandCents": {
+      "type": "integer",
+      "required": false,
+      "description": "SAMADMIN 7-band: home-delivery charge (cents) when the PRODUCT subtotal is $150.00-$249.99. When blank, falls back to legacy Rate150To249Cents."
+    },
+    "Rate250To349Cents": {
+      "type": "integer",
+      "required": false,
+      "description": "SAMADMIN 7-band: home-delivery charge (cents) when the PRODUCT subtotal is $250.00-$349.99. When blank, falls back to Rate250PlusCents."
+    },
+    "Rate350PlusCents": {
+      "type": "integer",
+      "required": false,
+      "description": "SAMADMIN 7-band: home-delivery charge (cents) when the PRODUCT subtotal is $350.00 or more. When blank, falls back to Rate250PlusCents. Note: FreeDeliveryThresholdCents (default $250) still grants free delivery above its value regardless of band; set bands consistently with the free threshold."
+    },
     "IsActive": {
       "type": "boolean",
       "required": true,
