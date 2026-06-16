@@ -7,10 +7,12 @@
   "options": {},
   "attributes": {
     "BreakpointPrice": {
-      "type": "decimal"
+      "type": "decimal",
+      "description": "Lower bound of the PRODUCT subtotal band, in dollars. The order value compared here is the inventory-item product subtotal only (excludes shipping, tax, and non-inventory line items). Enter rows in ascending order."
     },
     "ShippingRate": {
-      "type": "decimal"
+      "type": "decimal",
+      "description": "Value applied when the product subtotal falls in this band. UNIT DEPENDS ON THE CONSUMING RECORD: for UPS Ground breakpoints on the shipping-setting it is a flat shipping charge in dollars. For legacy shipping-zone rows the unit is NOT always dollars — the Medusa fulfillment code can treat the rate as a percentage of the subtotal depending on the row's configuration (e.g. a percent-marked row). Do not assume dollars on a legacy shipping-zone row; confirm the intended unit for that zone before editing."
     }
   },
   "config": {}

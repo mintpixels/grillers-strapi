@@ -34,6 +34,24 @@
     "RateFallbackAmount": {
       "type": "decimal",
       "required": false
+    },
+    "UPSInRegionFreeThreshold": {
+      "type": "decimal",
+      "required": false,
+      "default": 250,
+      "description": "Dollar PRODUCT (inventory items) subtotal at/above which UPS Ground shipping to an in-region state (GA, TN, TX, NC, FL, SC, AL), Atlanta home delivery, and Southeast pickup are free. Replaces the hard-coded $250 in the storefront's free-shipping.ts. Units: whole dollars (matches PlantPickupDiscountThreshold). Compared against product subtotal only — excludes shipping, tax, and non-inventory line items."
+    },
+    "UPSNationalFreeThreshold": {
+      "type": "decimal",
+      "required": false,
+      "default": 500,
+      "description": "Dollar PRODUCT subtotal at/above which UPS Ground shipping to an out-of-region (national) state is free. Replaces the hard-coded $500 in the storefront's free-shipping.ts. Units: whole dollars. Compared against product subtotal only."
+    },
+    "UPSGroundBreakpoints": {
+      "type": "component",
+      "component": "shared.shipping-zone-breakpoints",
+      "repeatable": true,
+      "description": "Editable UPS Ground rate breakpoint table (issue #266). Each row: BreakpointPrice (product subtotal $ threshold, ascending) -> ShippingRate ($ charge). The storefront/medusa-admin picks the row whose BreakpointPrice the PRODUCT subtotal clears. Leave empty to keep real-time carrier rates (EnableRealTimeRates)."
     }
   }
 }
