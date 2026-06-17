@@ -16,6 +16,18 @@
       "type": "decimal",
       "required": false
     },
+    "BoxCostMicro": {
+      "type": "decimal",
+      "required": false
+    },
+    "BoxCost330": {
+      "type": "decimal",
+      "required": false
+    },
+    "BoxCost345": {
+      "type": "decimal",
+      "required": false
+    },
     "MinimumDryIceAmount": {
       "type": "decimal",
       "required": false
