@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "gp_media_reviews",
+  "info": {
+    "singularName": "gp-media-review",
+    "pluralName": "gp-media-reviews",
+    "displayName": "GP Media Review",
+    "description": "Staff merchandising review state for Strapi upload files."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "content-manager": {
+      "visible": false
+    },
+    "content-type-builder": {
+      "visible": false
+    }
+  },
+  "attributes": {
+    "UploadFileId": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
+    "UploadName": {
+      "type": "string"
+    },
+    "ReviewPayload": {
+      "type": "text"
+    }
+  }
+}
