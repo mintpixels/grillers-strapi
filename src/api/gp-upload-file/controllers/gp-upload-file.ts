@@ -49,11 +49,12 @@ export default {
       return
     }
 
-    const uploadService = strapi.plugin("upload").service("upload")
-
     let updated
     try {
-      updated = await uploadService.updateFileInfo(id, { caption })
+      updated = await strapi.db.query("plugin::upload.file").update({
+        where: { id },
+        data: { caption },
+      })
     } catch (error) {
       if (error instanceof errors.NotFoundError) {
         return ctx.notFound("Upload file not found.")
