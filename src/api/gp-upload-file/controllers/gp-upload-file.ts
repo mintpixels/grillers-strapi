@@ -1,3 +1,5 @@
+import { errors } from "@strapi/utils"
+
 type CaptionUpdateBody = {
   caption?: string | null
   expectedCaption?: string | null
@@ -26,7 +28,7 @@ export default {
 
     const file = await strapi.db.query("plugin::upload.file").findOne({
       where: { id },
-      select: ["id", "documentId", "name", "caption"],
+      select: ["id", "name", "caption"],
     })
 
     if (!file) {
@@ -47,15 +49,32 @@ export default {
       return
     }
 
-    const updated = await strapi.db.query("plugin::upload.file").update({
-      where: { id },
-      data: { caption },
-      select: ["id", "documentId", "name", "caption"],
-    })
+    const uploadService = strapi.plugin("upload").service("upload")
+
+    let updated
+    try {
+      updated = await uploadService.updateFileInfo(id, { caption })
+    } catch (error) {
+      if (error instanceof errors.NotFoundError) {
+        return ctx.notFound("Upload file not found.")
+      }
+
+      strapi.log.error(
+        `[gp-upload-file] failed to update caption for upload file ${id}`,
+        error
+      )
+
+      ctx.status = 500
+      ctx.body = {
+        error: {
+          message: "Could not update Strapi upload file caption.",
+        },
+      }
+      return
+    }
 
     ctx.body = {
       id: updated.id,
-      documentId: updated.documentId,
       name: updated.name,
       caption: updated.caption || null,
     }
