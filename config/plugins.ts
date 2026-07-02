@@ -61,10 +61,13 @@ export default ({ env }) => ({
     config: {
       endpoint: "/graphql",
       shadowCRUD: true,
-      playgroundAlways: true,
+      // Playground/introspection/tracing are dev conveniences and info-disclosure
+      // surfaces in production. Token-authenticated queries (how the storefront
+      // reads Strapi) are unaffected by turning them off.
+      playgroundAlways: env("NODE_ENV") !== "production",
       apolloServer: {
-        tracing: true,
-        introspection: true,
+        tracing: env("NODE_ENV") !== "production",
+        introspection: env("NODE_ENV") !== "production",
       },
     },
   },
