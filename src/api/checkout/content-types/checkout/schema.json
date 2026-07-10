@@ -30,6 +30,12 @@
       "component": "checkout.shipping-blackout-dates",
       "repeatable": true
     },
+    "FulfillmentBlackoutDates": {
+      "type": "component",
+      "component": "checkout.fulfillment-blackout-date",
+      "repeatable": true,
+      "description": "Operator-managed plant closure, UPS pickup blackout, and UPS delivery blackout calendar. Add one row per date and select every affected operation."
+    },
     "DeliveryLeadTime": {
       "type": "integer"
     },

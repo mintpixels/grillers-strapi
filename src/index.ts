@@ -17,10 +17,6 @@ import {
   ATLANTA_DELIVERY_ZONES_VERSION,
 } from "./bootstrap/sync-atlanta-delivery-zones";
 import {
-  syncProductHechsherMetadata,
-  PRODUCT_HECHSHER_METADATA_VERSION,
-} from "./bootstrap/sync-product-hechsher-metadata";
-import {
   syncStructuredInfoPages,
   STRUCTURED_INFO_PAGES_VERSION,
 } from "./bootstrap/sync-structured-info-pages";
@@ -100,19 +96,6 @@ export default {
         } catch (err) {
           strapi.log.error(
             `[deferred] sync-atlanta-delivery-zones failed: ${
-              err instanceof Error ? err.message : String(err)
-            }`
-          );
-        }
-
-        try {
-          await syncProductHechsherMetadata({
-            strapi,
-            targetVersion: PRODUCT_HECHSHER_METADATA_VERSION,
-          });
-        } catch (err) {
-          strapi.log.error(
-            `[deferred] sync-product-hechsher-metadata failed: ${
               err instanceof Error ? err.message : String(err)
             }`
           );
