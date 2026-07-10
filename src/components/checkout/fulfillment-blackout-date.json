@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_checkout_fulfillment_blackout_dates",
+  "info": {
+    "displayName": "Fulfillment Blackout Date",
+    "description": "A dated closure rule used by checkout arrival-date eligibility and server-side revalidation."
+  },
+  "options": {},
+  "attributes": {
+    "Date": {
+      "type": "date",
+      "required": true
+    },
+    "Label": {
+      "type": "string",
+      "required": true,
+      "description": "Human-readable reason, such as Yom Kippur, plant closed, or UPS no pickup."
+    },
+    "BlocksOperations": {
+      "type": "boolean",
+      "default": false,
+      "description": "Plant is closed: blocks pack-out, plant pickup, Atlanta delivery, and Southeast route dates."
+    },
+    "BlocksUPSPickup": {
+      "type": "boolean",
+      "default": false,
+      "description": "UPS will not accept an outbound shipment on this date."
+    },
+    "BlocksUPSDelivery": {
+      "type": "boolean",
+      "default": false,
+      "description": "UPS will not deliver on this date."
+    }
+  },
+  "config": {}
+}

@@ -77,9 +77,24 @@
     "CholovYisroel": { "type": "boolean", "default": false },
 
     "ChassidishShchita": { "type": "boolean", "default": false },
+    "ChassidishRecognized": {
+      "type": "boolean",
+      "default": false,
+      "description": "Exact legacy Item Manager category: Attributes:Kosher Certification:Chassidish Recognized. Populate from stable QuickBooks ListID membership, not title text."
+    },
     "CHK": { "type": "boolean", "default": false },
     "RabbiWeissmandl": { "type": "boolean", "default": false },
     "OU": { "type": "boolean", "default": false },
+    "AgriStarLamedKLubavitchOrRabbiWeissmandl": {
+      "type": "boolean",
+      "default": false,
+      "description": "Exact legacy Item Manager category: AgriStar Lamed-K Lubavich or Rabbi Weismandl. This is intentionally one combined category and must not be split by inference."
+    },
+    "AgriStarLamedKLubavitch": {
+      "type": "boolean",
+      "default": false,
+      "description": "Exact legacy Item Manager category: AgriStar Lamed-K Lubavich. Populate from stable QuickBooks ListID membership."
+    },
     "StarK": { "type": "boolean", "default": false },
     "RabbiTeitelbaum": { "type": "boolean", "default": false },
     "CRC": { "type": "boolean", "default": false },
