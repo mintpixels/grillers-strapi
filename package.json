@@ -11,6 +11,7 @@
     "develop": "strapi develop",
     "seed:example": "node ./scripts/seed.js",
     "seed:curated-collections": "node ./scripts/seed-curated-collections.js",
+    "test:order-sms-legal-pages": "node --require esbuild-register --test src/bootstrap/sync-order-sms-legal-pages.test.js",
     "start": "strapi start",
     "strapi": "strapi",
     "upgrade": "npx @strapi/upgrade latest",

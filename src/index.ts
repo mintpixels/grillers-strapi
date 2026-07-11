@@ -28,6 +28,10 @@ import {
   syncMarketingSmsLegalPages,
   MARKETING_SMS_LEGAL_PAGES_VERSION,
 } from "./bootstrap/sync-marketing-sms-legal-pages";
+import {
+  syncOrderSmsLegalPages,
+  ORDER_SMS_LEGAL_PAGES_VERSION,
+} from "./bootstrap/sync-order-sms-legal-pages";
 import { registerAlgoliaStubCleanup } from "./bootstrap/algolia-stub-cleanup";
 
 export default {
@@ -143,6 +147,19 @@ export default {
         } catch (err) {
           strapi.log.error(
             `[deferred] sync-marketing-sms-legal-pages failed: ${
+              err instanceof Error ? err.message : String(err)
+            }`
+          );
+        }
+
+        try {
+          await syncOrderSmsLegalPages({
+            strapi,
+            targetVersion: ORDER_SMS_LEGAL_PAGES_VERSION,
+          });
+        } catch (err) {
+          strapi.log.error(
+            `[deferred] sync-order-sms-legal-pages failed: ${
               err instanceof Error ? err.message : String(err)
             }`
           );
