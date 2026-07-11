@@ -9,7 +9,7 @@
  */
 
 export const MARKETING_SMS_LEGAL_PAGES_VERSION =
-  "marketing-sms-legal-pages-2026-07-10-v1";
+  "marketing-sms-legal-pages-2026-07-11-v2";
 
 const LEGAL_PAGE_UID = "api::legal-page.legal-page";
 const STORE_KEY = "marketing-sms-legal-pages-version";
@@ -34,9 +34,14 @@ const paragraph = (text: string): RichTextBlock => ({
   children: [{ type: "text", text }],
 });
 
+const paragraphChildren = (children: RichTextBlock[]): RichTextBlock => ({
+  type: "paragraph",
+  children,
+});
+
 export const PRIVACY_SMS_PARAGRAPHS = [
   paragraph(
-    "If you affirmatively opt in to Griller's Pride Marketing Texts, we use your mobile number only to send recurring automated marketing and promotional text messages, including seasonal specials, product announcements, promotional offers, and holiday sales deadlines. Message frequency varies, up to 6 messages per month; message and data rates may apply. Consent is not a condition of purchase."
+    "For this SMS program, if you affirmatively opt in to Griller's Pride Marketing Texts, we use your mobile number to send recurring automated marketing and promotional text messages, including seasonal specials, product announcements, promotional offers, and holiday sales deadlines. Message frequency varies, up to 6 messages per month; message and data rates may apply. Consent is not a condition of purchase."
   ),
   paragraph(
     "We keep a record of your consent, including the date, enrollment source, and consent language shown to you. Reply STOP to any message to unsubscribe at any time, or HELP for help. Your mobile information, text messaging originator opt-in data, and consent will not be shared with third parties or affiliates for their marketing or promotional purposes. We may share this information with service providers only as needed to operate the messaging program and subject to confidentiality obligations. Full program details are in our SMS Program Terms."
@@ -56,13 +61,35 @@ export const MARKETING_SMS_TERMS_CONTENT: RichTextBlock[] = [
     "Message frequency varies, up to 6 messages per month. Message and data rates may apply according to your mobile plan. Carriers are not liable for delayed or undelivered messages."
   ),
   heading("Opt Out & Help"),
-  paragraph(
-    "Reply STOP to any message to unsubscribe at any time; you will receive a single confirmation message and no further marketing texts unless you opt in again. Reply HELP for help, or contact us at (770) 454-8108 or peter@grillerspride.com."
-  ),
+  paragraphChildren([
+    { type: "text", text: "Reply " },
+    { type: "text", text: "STOP", bold: true },
+    {
+      type: "text",
+      text: " to any message to unsubscribe at any time; you will receive a single confirmation message and no further marketing texts unless you opt in again. Reply ",
+    },
+    { type: "text", text: "HELP", bold: true },
+    {
+      type: "text",
+      text: " for help, or contact us at (770) 454-8108 or peter@grillerspride.com.",
+    },
+  ]),
   heading("Privacy"),
-  paragraph(
-    "Your mobile number and consent records are handled as described in our Privacy Policy. We do not sell your phone number. Your mobile information, text messaging originator opt-in data, and consent will not be shared with third parties or affiliates for their marketing or promotional purposes. We may share this information with service providers only as needed to operate the messaging program and subject to confidentiality obligations."
-  ),
+  paragraphChildren([
+    {
+      type: "text",
+      text: "Your mobile number and consent records are handled as described in our ",
+    },
+    {
+      type: "link",
+      url: "/page/privacy-policy",
+      children: [{ type: "text", text: "Privacy Policy" }],
+    },
+    {
+      type: "text",
+      text: ". We do not sell your phone number. Your mobile information, text messaging originator opt-in data, and consent will not be shared with third parties or affiliates for their marketing or promotional purposes. We may share this information with service providers only as needed to operate the messaging program and subject to confidentiality obligations.",
+    },
+  ]),
 ];
 
 export async function syncMarketingSmsLegalPages({
