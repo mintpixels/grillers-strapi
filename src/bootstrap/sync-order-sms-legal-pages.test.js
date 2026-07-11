@@ -117,7 +117,7 @@ test("privacy notice limits collection and sharing to operation of the order-upd
     "mobile number you provide",
     "evidence of your consent",
     "related cart or order identifier",
-    "minimum order and fulfillment context",
+    "minimum order and UPS fulfillment context",
     "solely to operate and secure",
     "do not use consent to this program to send marketing",
     "All the above categories exclude text messaging originator opt-in data and consent",

@@ -5,7 +5,7 @@
  */
 
 export const ORDER_SMS_LEGAL_PAGES_VERSION =
-  "order-sms-legal-pages-2026-07-11-v2";
+  "order-sms-legal-pages-2026-07-11-v3";
 
 const LEGAL_PAGE_UID = "api::legal-page.legal-page";
 const STORE_KEY = "order-sms-legal-pages-version";
@@ -93,7 +93,7 @@ export const ORDER_SMS_PRIVACY_CONTENT: RichTextBlock[] = [
   ),
   heading("Information We Collect"),
   paragraph(
-    "When you opt in, we collect the mobile number you provide and evidence of your consent, including the date and time, enrollment source, disclosure language and version, and the related cart or order identifier. We also use the minimum order and fulfillment context needed to send accurate updates, such as shipping, tracking, delivery, or actual pickup-ready status. Program records may include opt-out and help requests, message delivery status and error data, and technical details such as IP address or user agent when available."
+    "When you opt in, we collect the mobile number you provide and evidence of your consent, including the date and time, enrollment source, disclosure language and version, and the related cart or order identifier. We also use the minimum order and UPS fulfillment context needed to send accurate shipping and tracking updates. Program records may include opt-out and help requests, message delivery status and error data, and technical details such as IP address or user agent when available."
   ),
   heading("How We Use It"),
   paragraph(
