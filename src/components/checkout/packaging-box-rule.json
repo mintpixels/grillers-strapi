@@ -1,0 +1,69 @@
+{
+  "collectionName": "components_checkout_packaging_box_rules",
+  "info": {
+    "displayName": "PackagingBoxRule",
+    "description": "Editable box cost and capacity rule for continuous shipping-charge calculation"
+  },
+  "options": {},
+  "attributes": {
+    "PackagingTier": {
+      "type": "enumeration",
+      "enum": [
+        "micro",
+        "m330",
+        "l345"
+      ],
+      "required": true
+    },
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "UnitCost": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "LengthIn": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "WidthIn": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "HeightIn": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "MaxProductWeightLb": {
+      "type": "decimal",
+      "required": false,
+      "min": 0
+    },
+    "MaxTransitDays": {
+      "type": "integer",
+      "required": false,
+      "min": 1
+    },
+    "MaxTotalWeightLb": {
+      "type": "decimal",
+      "required": true,
+      "min": 1
+    },
+    "TareWeightLb": {
+      "type": "decimal",
+      "required": false,
+      "default": 0,
+      "min": 0
+    },
+    "Active": {
+      "type": "boolean",
+      "required": false,
+      "default": true
+    }
+  }
+}
