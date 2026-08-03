@@ -1,3 +1,13 @@
+function algoliaProductObjectID(record: any): string | null {
+  const value =
+    record?.medusa_product_id ||
+    record?.MedusaProduct?.ProductId ||
+    record?.documentId ||
+    record?.id
+
+  return value == null ? null : String(value)
+}
+
 export default ({ env }) => ({
   "strapi-algolia": {
     enabled: true,
@@ -32,15 +42,10 @@ export default ({ env }) => ({
           hideFields: ["Recipes"],
         },
       ],
-      // Synchronous on purpose. The strapi-algolia plugin spreads the
-      // transformer's return value directly without awaiting it (see the
-      // plugin's afterUpdateAndCreate path) — making this `async`
-      // returns a Promise, spread of which yields {} → every record
-      // becomes an objectID-only stub. This was the historical state
-      // and explains #93 stub records as well; it shipped previously
-      // because the index had been populated by other one-off paths
-      // outside this code. Keep this fn sync until/unless the plugin
-      // upstream awaits transformers.
+      // Synchronous on purpose. Older strapi-algolia builds spread the
+      // transformer's return value directly instead of awaiting it, which
+      // turned async transformers into objectID-only records. Keeping this
+      // sync works across both those builds and the current awaited path.
       transformerCallback: (_indexName, record) => {
         // Allowlist: keep null (Status field is unreliable per #114 —
         // backfill pending; storefront treats Strapi entries with a
@@ -53,7 +58,12 @@ export default ({ env }) => ({
           .map((v: any) => v?.Sku ?? "")
           .filter(Boolean);
         if (skus.some((s) => s.startsWith("RM-") || s.startsWith("Z-"))) return null;
-        return record;
+        const objectID = algoliaProductObjectID(record);
+        if (!objectID) return null;
+        return {
+          ...record,
+          objectID,
+        };
       },
     },
   },
