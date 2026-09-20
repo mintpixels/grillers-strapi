@@ -1,3 +1,5 @@
+import { shouldExcludeFromSearch } from "../src/utils/public-catalog";
+
 export default ({ env }) => ({
   "strapi-algolia": {
     enabled: true,
@@ -42,17 +44,7 @@ export default ({ env }) => ({
       // outside this code. Keep this fn sync until/unless the plugin
       // upstream awaits transformers.
       transformerCallback: (_indexName, record) => {
-        // Allowlist: keep null (Status field is unreliable per #114 —
-        // backfill pending; storefront treats Strapi entries with a
-        // linked MedusaProduct as published anyway) and explicit
-        // "published". Drop "draft", "proposed", "rejected" — all
-        // editor-managed states that shouldn't appear in search.
-        const status = record?.MedusaProduct?.Status;
-        if (status != null && status !== "published") return null;
-        const skus: string[] = (record?.MedusaProduct?.Variants ?? [])
-          .map((v: any) => v?.Sku ?? "")
-          .filter(Boolean);
-        if (skus.some((s) => s.startsWith("RM-") || s.startsWith("Z-"))) return null;
+        if (shouldExcludeFromSearch(record)) return null;
         return record;
       },
     },

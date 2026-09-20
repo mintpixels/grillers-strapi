@@ -1,3 +1,5 @@
+import { shouldExcludeFromSearch } from "../utils/public-catalog"
+
 /**
  * Cleanup hook for the strapi-algolia plugin's `null transformer →
  * objectID-only stub` bug (#115).
@@ -20,20 +22,6 @@
  */
 
 type StrapiArgs = { strapi: any }
-
-// Mirror of config/plugins.ts transformerCallback. Kept in sync manually
-// — when the transformer logic there changes, update here too.
-function shouldFilterOut(record: any): boolean {
-  const status = record?.MedusaProduct?.Status
-  // Drop anything explicitly draft / proposed / rejected; allow null +
-  // published through.
-  if (status != null && status !== "published") return true
-  const skus: string[] = (record?.MedusaProduct?.Variants ?? [])
-    .map((v: any) => v?.Sku ?? "")
-    .filter(Boolean)
-  if (skus.some((s) => s.startsWith("RM-") || s.startsWith("Z-"))) return true
-  return false
-}
 
 async function deleteAlgoliaRecord(
   appId: string,
@@ -97,13 +85,13 @@ async function cleanupIfNeeded(
       documentId: event.result?.documentId ?? event.result?.documentId,
       populate: {
         MedusaProduct: {
-          populate: { Variants: { fields: ["Sku"] } },
+          populate: { Variants: { fields: ["Sku", "AvailabilityLifecycle"] } },
         },
       },
     })
 
     if (!entry) return
-    if (!shouldFilterOut(entry)) return
+    if (!shouldExcludeFromSearch(entry)) return
 
     // Transformer would return null for this entry → plugin's stub will
     // exist or be about to exist. Delete it after a brief delay to let

@@ -21,6 +21,8 @@ jobs:
           node-version: 22
           cache: yarn
       - run: yarn install --frozen-lockfile
+      - name: Public catalog contract
+        run: node --experimental-strip-types --test scripts/public-catalog.test.mjs
       - name: TypeScript
         run: npx tsc --noEmit
       - name: Build
