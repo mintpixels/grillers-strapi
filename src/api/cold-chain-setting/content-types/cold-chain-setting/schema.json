@@ -8,7 +8,7 @@
     "description": "Cold chain shipping configuration for temperature-sensitive products"
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
@@ -68,6 +68,11 @@
       "type": "string",
       "required": false,
       "description": "Reviewed revision of the whole-unit packing policy, dimensions, ice, tare, gross limit and fit rules. Leave blank until the operating rules are approved."
+    },
+    "SeasonalPackingPolicies": {
+      "type": "component",
+      "repeatable": true,
+      "component": "checkout.seasonal-packing-policy"
     }
   }
 }

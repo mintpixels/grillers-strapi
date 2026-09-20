@@ -23,6 +23,8 @@ jobs:
       - run: yarn install --frozen-lockfile
       - name: Public catalog contract
         run: node --experimental-strip-types --test scripts/public-catalog.test.mjs
+      - name: Packing policy publication
+        run: yarn test:packing-policy
       - name: TypeScript
         run: npx tsc --noEmit
       - name: Build

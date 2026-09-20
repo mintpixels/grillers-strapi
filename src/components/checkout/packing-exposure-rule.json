@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_checkout_packing_exposure_rules",
+  "info": {
+    "displayName": "Packing exposure rule",
+    "description": "Upper bound in elapsed hours, including delay allowance. Ice quantity is MinimumDryIceAmount times the multiplier."
+  },
+  "options": {},
+  "attributes": {
+    "ThroughHours": {
+      "type": "decimal",
+      "min": 0
+    },
+    "DryIceMultiplier": {
+      "type": "decimal",
+      "min": 0
+    }
+  }
+}

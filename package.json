@@ -16,7 +16,8 @@
     "start": "strapi start",
     "strapi": "strapi",
     "upgrade": "npx @strapi/upgrade latest",
-    "upgrade:dry": "npx @strapi/upgrade latest --dry"
+    "upgrade:dry": "npx @strapi/upgrade latest --dry",
+    "test:packing-policy": "node --require esbuild-register --test src/lib/packing-publication.test.js"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.23.1",
