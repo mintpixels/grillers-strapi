@@ -79,6 +79,11 @@
       "min": 0,
       "required": false,
       "description": "Physical pounds in one dry-ice block. Keep separate from the minimum ice pounds. No default; enter the reviewed current block size before publishing."
+    },
+    "ShippingPricingPolicy": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.shipping-price-policy"
     }
   }
 }
