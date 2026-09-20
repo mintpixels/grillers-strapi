@@ -63,9 +63,11 @@
       "type": "component",
       "repeatable": true,
       "component": "checkout.packaging-box-rule"
+    },
+    "PackingPolicyVersion": {
+      "type": "string",
+      "required": false,
+      "description": "Reviewed revision of the whole-unit packing policy, dimensions, ice, tare, gross limit and fit rules. Leave blank until the operating rules are approved."
     }
   }
 }
-
-
-
