@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_checkout_calendar_cutoff_override",
+  "info": {
+    "displayName": "Plant cutoff override",
+    "description": "One row per weekday, approved with the calendar policy."
+  },
+  "options": {},
+  "attributes": {
+    "Weekday": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ]
+    },
+    "CutoffTime": {
+      "type": "string",
+      "required": true,
+      "description": "Eastern local HH:mm; overrides the plant cutoff for this weekday."
+    }
+  }
+}

@@ -47,7 +47,10 @@
     },
     "PlantPickupAvailableDays": {
       "type": "json",
-      "default": ["Tuesday", "Wednesday"]
+      "default": [
+        "Tuesday",
+        "Wednesday"
+      ]
     },
     "PlantPickupAdditionalDates": {
       "type": "component",
@@ -71,6 +74,18 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.seo"
+    },
+    "FulfillmentCalendarPolicy": {
+      "type": "component",
+      "component": "checkout.fulfillment-calendar-policy",
+      "repeatable": false,
+      "description": "Versioned server calendar operating policy. Publish only after recorded owner approval; deployment is a separate launch gate."
+    },
+    "FulfillmentTransitRules": {
+      "type": "component",
+      "component": "checkout.fulfillment-transit-rule",
+      "repeatable": true,
+      "description": "Explicitly approved, dated conservative transit rules; no implicit nationwide default."
     }
   }
 }
