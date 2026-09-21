@@ -23,6 +23,30 @@ async function child(fixture) {
     await app.load();
     assert.equal(app.plugin("graphql").config("shadowCRUD"), true);
     assert.ok(app.components["checkout.fulfillment-transit-rule"]);
+    // Exercise the real document middleware/database, not only a fake next().
+    // Disabled synthetic data does not claim approval of any operating policy.
+    const uid = "api::cold-chain-setting.cold-chain-setting";
+    const documents = app.documents(uid);
+    const populate = { SeasonalPackingPolicies: { populate: { ExposureRules: true } } };
+    const draft = await documents.create({ status: "draft", data: {
+      Enabled: false,
+      SeasonalPackingPolicies: [{ Name: "Isolated fixture", Revision: "fixture-only", Active: false,
+        ExposureRules: [{ ThroughHours: 24, DryIceMultiplier: 1 }] }],
+    } });
+    await documents.publish({ documentId: draft.documentId });
+    const before = await documents.findOne({ documentId: draft.documentId, status: "published", populate });
+    assert.equal(before.Enabled, false);
+    assert.equal(before.SeasonalPackingPolicies[0].Revision, "fixture-only");
+    assert.equal(Number(before.SeasonalPackingPolicies[0].ExposureRules[0].ThroughHours), 24);
+    assert.equal(app.components["checkout.seasonal-packing-policy"].collectionName,
+      "components_checkout_seasonal_packing_policies");
+    for (const action of ["unpublish", "delete"]) {
+      await assert.rejects(documents[action]({ documentId: draft.documentId }), {
+        name: "ValidationError", message: /Keep cold-chain settings published/,
+      });
+      assert.deepEqual(await documents.findOne({ documentId: draft.documentId, status: "published", populate }), before);
+    }
+    console.log("PACKING_DOCUMENT_GUARD_OK: disabled publication and nested components preserved after unpublish/delete rejection");
     console.log("GRAPHQL_BOOT_OK: real Strapi startup and calendar shadow CRUD completed");
   } finally {
     await app.destroy();
@@ -83,7 +107,9 @@ export default (context) => ({
       process.exitCode = 1;
     } else {
       assert.match(result.stdout, /GRAPHQL_BOOT_OK/);
+      assert.match(result.stdout, /PACKING_DOCUMENT_GUARD_OK/);
       console.log("GRAPHQL_BOOT_OK: isolated SQLite; GraphQL enabled; external integrations disabled");
+      console.log("PACKING_DOCUMENT_GUARD_OK: native publication, nested readback and rejected removal preserve the published policy");
     }
   } finally {
     fs.rmSync(fixture, { recursive: true, force: true });

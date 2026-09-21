@@ -67,6 +67,18 @@ for (const action of ["create", "update"]) test(`${action} cannot bypass review 
   assert.equal(h.state().calls, 0);
 });
 
+for (const action of ["unpublish", "delete"]) test(`${action} cannot remove the cold-chain policy or its withdrawal signal`, async () => {
+  for (const draft of [setting(), { Enabled: false }]) {
+    const h = harness(draft);
+    await assert.rejects(h.run({ action }), { name: "ValidationError", message: /Keep cold-chain settings published/ });
+    assert.equal(h.state().calls, 0);
+    assert.deepEqual(h.state().published, { previous: true });
+  }
+  const unrelated = harness();
+  await unrelated.run({ uid: "api::article.article", action });
+  assert.equal(unrelated.state().calls, 1);
+});
+
 test("draft editing and unrelated content types pass through", async () => {
   const draft = harness(); await draft.run({ action: "update", params: { status: "draft" } }); assert.equal(draft.state().reads.length, 0);
   const other = harness(); await other.run({ uid: "api::article.article" }); assert.equal(other.state().reads.length, 0);
@@ -89,4 +101,6 @@ test("draft/publish and nested component schemas are wired to the guarded single
   const schema = require("../api/cold-chain-setting/content-types/cold-chain-setting/schema.json");
   assert.equal(schema.options.draftAndPublish, true);
   assert.equal(schema.attributes.SeasonalPackingPolicies.component, "checkout.seasonal-packing-policy");
+  const policy = require("../components/checkout/seasonal-packing-policy.json");
+  assert.equal(policy.collectionName, "components_checkout_seasonal_packing_policies");
 });

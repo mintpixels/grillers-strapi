@@ -23,6 +23,11 @@ export function packingPublicationMiddleware(
   };
   return async (context: any, next: () => Promise<any>) => {
     if (context.uid !== COLD_CHAIN_UID) return next();
+    // Removing the published singleton loses the explicit Enabled=false signal
+    // and can send older consumers back to defaults. Keep a published record.
+    if (["unpublish", "delete"].includes(context.action)) {
+      throw validationError("Keep cold-chain settings published. To withdraw carrier quotes, save Enabled = false as a draft and publish it.");
+    }
     if (["create", "update"].includes(context.action) && context.params?.status === "published") {
       throw validationError("Save cold-chain settings as a draft, then publish after review.");
     }

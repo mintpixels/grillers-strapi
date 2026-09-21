@@ -1,5 +1,5 @@
 {
-  "collectionName": "components_checkout_seasonal_packing_policys",
+  "collectionName": "components_checkout_seasonal_packing_policies",
   "info": {
     "displayName": "Seasonal packing policy",
     "description": "Approved effective dates cover the full packing-to-arrival exposure, including delay allowance. No inferred weather or live defaults."
