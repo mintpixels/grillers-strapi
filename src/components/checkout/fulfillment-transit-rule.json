@@ -11,8 +11,8 @@
       "required": true,
       "enum": [
         "GROUND",
-        "3_DAY_SELECT",
-        "2ND_DAY_AIR",
+        "UPS_3_DAY_SELECT",
+        "UPS_2ND_DAY_AIR",
         "OVERNIGHT"
       ]
     },

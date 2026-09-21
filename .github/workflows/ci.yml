@@ -27,6 +27,8 @@ jobs:
         run: npx tsc --noEmit
       - name: Build
         run: yarn build
+      - name: GraphQL runtime boot
+        run: yarn test:graphql-boot
       - name: Emit ops.ci
         if: always()
         env:
