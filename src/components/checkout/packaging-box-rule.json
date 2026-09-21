@@ -64,6 +64,17 @@
       "type": "boolean",
       "required": false,
       "default": true
+    },
+    "MaxFitUnits": {
+      "type": "decimal",
+      "required": false,
+      "min": 0,
+      "description": "Reviewed capacity in the named fit rule units. This is box space, not physical pounds or carrier dimensional weight."
+    },
+    "FitRuleId": {
+      "type": "string",
+      "required": false,
+      "description": "Versioned capacity calibration shared with approved item fit allowances; changing it requires item/box compatibility review."
     }
   }
 }
