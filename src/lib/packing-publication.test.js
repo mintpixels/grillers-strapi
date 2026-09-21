@@ -8,7 +8,7 @@ const copy = value => JSON.parse(JSON.stringify(value));
 function setting() {
   return {
     Enabled: true, PackagingCostModel: "continuous_weight", PackingPolicyVersion: "fixture-v1",
-    MinimumDryIceAmount: 2, DryIcePricePerLb: 1,
+    MinimumDryIceAmount: 2, DryIceBlockWeightLb: 2, DryIcePricePerLb: 1,
     PackagingBoxes: [{ PackagingTier: "m330", Name: "Synthetic", UnitCost: 10,
       LengthIn: 10, WidthIn: 11, HeightIn: 12, MaxTotalWeightLb: 40,
       TareWeightLb: 1, MaxFitUnits: 10, FitRuleId: "fixture-fit", DryIceFitUnitsPerLb: 0.5 }],
@@ -16,7 +16,7 @@ function setting() {
       ApprovedBy: "synthetic-fixture", ApprovedAt: "2026-09-19T00:00:00Z", ApprovalReference: "test-only",
       EffectiveFrom: "2026-09-20", EffectiveThrough: "2026-12-31", DelayAllowanceHours: 4,
       MaxExposureHours: 72, MaxGrossWeightLb: 40, AllowGround: true, Allow330: true,
-      ExposureRules: [{ ThroughHours: 24, DryIceMultiplier: 1 }, { ThroughHours: 72, DryIceMultiplier: 3 }] }],
+      ExposureRules: [{ Service: "GROUND", BoxTier: "m330", ThroughHours: 24, DryIceBlocksPerBox: 1 }, { Service: "GROUND", BoxTier: "m330", ThroughHours: 72, DryIceBlocksPerBox: 3 }] }],
   };
 }
 function harness(draft = setting(), duringPublish = () => {}) {
@@ -95,6 +95,17 @@ test("publication rejects ambiguous coverage, impossible ice space and missing p
   assert.throws(() => validatePackingPublication(space), /no_box_for_policy_limit/);
   const price = setting(); price.DryIcePricePerLb = null;
   assert.throws(() => validatePackingPublication(price), /invalid_ice_inputs/);
+});
+
+test("block mass and explicit service/box quantities are required before publishing", () => {
+  for (const block of [undefined, null, 0, -1]) {
+    const draft = setting(); draft.DryIceBlockWeightLb = block;
+    assert.throws(() => validatePackingPublication(draft), /invalid_ice_inputs/);
+  }
+  const legacy = setting(); legacy.SeasonalPackingPolicies[0].ExposureRules = [{ ThroughHours: 72, DryIceMultiplier: 3 }];
+  assert.throws(() => validatePackingPublication(legacy), /invalid_exposure_rule/);
+  const impossible = setting(); impossible.DryIceBlockWeightLb = 30;
+  assert.throws(() => validatePackingPublication(impossible), /no_box_for_policy_limit/);
 });
 
 test("draft/publish and nested component schemas are wired to the guarded singleton", () => {
