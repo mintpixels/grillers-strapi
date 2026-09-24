@@ -29,6 +29,8 @@ import {
   ORDER_SMS_LEGAL_PAGES_VERSION,
 } from "./bootstrap/sync-order-sms-legal-pages";
 import { registerAlgoliaStubCleanup } from "./bootstrap/algolia-stub-cleanup";
+import { errors } from "@strapi/utils";
+import { packingPublicationMiddleware } from "./lib/packing-publication";
 
 export default {
   /**
@@ -37,7 +39,9 @@ export default {
    *
    * This gives you an opportunity to extend code.
    */
-  register(_args: { strapi: any }) {},
+  register({ strapi }: { strapi: any }) {
+    strapi.documents.use(packingPublicationMiddleware(strapi, message => new errors.ValidationError(message)));
+  },
 
   /**
    * An asynchronous bootstrap function that runs before

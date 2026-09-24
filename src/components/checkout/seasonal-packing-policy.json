@@ -1,0 +1,84 @@
+{
+  "collectionName": "components_checkout_seasonal_packing_policies",
+  "info": {
+    "displayName": "Seasonal packing policy",
+    "description": "Approved effective dates cover the full packing-to-arrival exposure, including delay allowance. No inferred weather or live defaults."
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Revision": {
+      "type": "string",
+      "required": true
+    },
+    "ApprovedBy": {
+      "type": "string",
+      "required": false
+    },
+    "ApprovalReference": {
+      "type": "string",
+      "required": false
+    },
+    "Active": {
+      "type": "boolean",
+      "default": false
+    },
+    "ApprovedAt": {
+      "type": "datetime"
+    },
+    "EffectiveFrom": {
+      "type": "date"
+    },
+    "EffectiveThrough": {
+      "type": "date"
+    },
+    "AllowGround": {
+      "type": "boolean",
+      "default": false
+    },
+    "Allow3Day": {
+      "type": "boolean",
+      "default": false
+    },
+    "Allow2Day": {
+      "type": "boolean",
+      "default": false
+    },
+    "AllowOvernight": {
+      "type": "boolean",
+      "default": false
+    },
+    "AllowMicro": {
+      "type": "boolean",
+      "default": false
+    },
+    "Allow330": {
+      "type": "boolean",
+      "default": false
+    },
+    "Allow345": {
+      "type": "boolean",
+      "default": false
+    },
+    "DelayAllowanceHours": {
+      "type": "decimal",
+      "min": 0
+    },
+    "MaxExposureHours": {
+      "type": "decimal",
+      "min": 0
+    },
+    "MaxGrossWeightLb": {
+      "type": "decimal",
+      "min": 0
+    },
+    "ExposureRules": {
+      "type": "component",
+      "repeatable": true,
+      "component": "checkout.packing-exposure-rule"
+    }
+  }
+}

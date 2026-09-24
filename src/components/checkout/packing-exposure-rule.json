@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_checkout_packing_exposure_rules",
+  "info": {
+    "displayName": "Packing exposure rule",
+    "description": "Approved service and box ice quantity through the elapsed packing-to-arrival hours, including delay allowance. Missing coverage makes that box unavailable."
+  },
+  "options": {},
+  "attributes": {
+    "ThroughHours": {
+      "type": "decimal",
+      "min": 0
+    },
+    "DryIceMultiplier": {
+      "type": "decimal",
+      "min": 0,
+      "description": "Legacy draft field retained for protected data review. Clear it after reviewing the explicit service, box and blocks-per-box values; enabled publication rejects a legacy multiplier so older seasonal consumers cannot misread the units."
+    },
+    "Service": {
+      "type": "enumeration",
+      "enum": [
+        "GROUND",
+        "UPS_3_DAY_SELECT",
+        "UPS_2ND_DAY_AIR",
+        "OVERNIGHT"
+      ]
+    },
+    "BoxTier": {
+      "type": "enumeration",
+      "enum": [
+        "micro",
+        "m330",
+        "l345"
+      ]
+    },
+    "DryIceBlocksPerBox": {
+      "type": "decimal",
+      "min": 0,
+      "description": "Approved number of blocks in one physical box. Fractions require explicit operating approval. Ice pounds are block count times block weight, subject to the separate minimum."
+    }
+  }
+}

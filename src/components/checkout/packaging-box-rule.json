@@ -69,12 +69,18 @@
       "type": "decimal",
       "required": false,
       "min": 0,
-      "description": "Reviewed capacity in the named fit rule units. This is box space, not physical pounds or carrier dimensional weight."
+      "description": "Total reviewed usable box space for food plus dry ice, in the named fit rule units. Not physical pounds or carrier dimensional weight."
     },
     "FitRuleId": {
       "type": "string",
       "required": false,
       "description": "Versioned capacity calibration shared with approved item fit allowances; changing it requires item/box compatibility review."
+    },
+    "DryIceFitUnitsPerLb": {
+      "type": "decimal",
+      "required": false,
+      "min": 0,
+      "description": "Reviewed box space consumed per physical pound of dry ice, in this box FitRuleId calibration. Required before publication; never infer from a food-weight proxy."
     }
   }
 }
