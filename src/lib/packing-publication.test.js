@@ -7,6 +7,7 @@ const copy = value => JSON.parse(JSON.stringify(value));
 // Synthetic inputs only; none are approved operating values.
 function setting() {
   return {
+    ShippingPricingPolicy: { version:1,revision:"fixture-price",approvedBy:"synthetic-only",approvedAt:"2026-01-01T00:00:00Z",approvalReference:"Not an operating approval",effectiveFrom:"2026-01-01T00:00:00Z",effectiveThrough:"2099-01-01T00:00:00Z",currency:"usd",maxCustomerShipping:250,cmsFallbackBasis:"freight_only",finalShipping:"retain_accepted" },
     Enabled: true, PackagingCostModel: "continuous_weight", PackingPolicyVersion: "fixture-v1",
     MinimumDryIceAmount: 2, DryIceBlockWeightLb: 2, DryIcePricePerLb: 1,
     PackagingBoxes: [{ PackagingTier: "m330", Name: "Synthetic", UnitCost: 10,
@@ -114,4 +115,16 @@ test("draft/publish and nested component schemas are wired to the guarded single
   assert.equal(schema.attributes.SeasonalPackingPolicies.component, "checkout.seasonal-packing-policy");
   const policy = require("../components/checkout/seasonal-packing-policy.json");
   assert.equal(policy.collectionName, "components_checkout_seasonal_packing_policies");
+});
+
+test("price policy is populated and invalid pricing blocks publication before and after insertion",async()=>{
+  const missing=setting(); delete missing.ShippingPricingPolicy;
+  const pre=harness(missing);await assert.rejects(pre.run(),/Customer shipping pricing/);assert.equal(pre.state().calls,0);
+  const post=harness(setting(),p=>p.ShippingPricingPolicy.maxCustomerShipping=0);
+  await assert.rejects(post.run(),/Customer shipping pricing/);assert.deepEqual(post.state().published,{previous:true});
+  const valid=harness();await valid.run();assert.ok(valid.state().reads.every(r=>r.populate.ShippingPricingPolicy===true));
+});
+test("price policy schema requires an explicit tariff basis, cap and final-charge rule",()=>{
+  const schema=require("../components/shared/shipping-price-policy.json");
+  for(const key of ["maxCustomerShipping","cmsFallbackBasis","finalShipping","approvedBy","approvalReference"]){assert.equal(schema.attributes[key].required,true);assert.equal(schema.attributes[key].default,undefined);}
 });

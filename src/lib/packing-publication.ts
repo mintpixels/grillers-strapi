@@ -1,8 +1,10 @@
+import { validateShippingPricePolicy, ShippingPricePolicyError } from "./shipping-price-policy";
 import { validatePackingPublication, PackingPolicyError } from "./seasonal-packing-policy";
 
 export const COLD_CHAIN_UID = "api::cold-chain-setting.cold-chain-setting";
 const populate = {
   PackagingBoxes: true,
+  ShippingPricingPolicy: true,
   SeasonalPackingPolicies: { populate: { ExposureRules: true } },
 };
 
@@ -15,9 +17,12 @@ export function packingPublicationMiddleware(
   validationError: (message: string) => Error,
 ) {
   const validate = (entry: unknown) => {
-    try { validatePackingPublication(entry); }
+    try {
+      validatePackingPublication(entry);
+      if ((entry as any)?.Enabled === true) validateShippingPricePolicy((entry as any).ShippingPricingPolicy, new Date(), false);
+    }
     catch (error) {
-      if (error instanceof PackingPolicyError) throw validationError(error.message);
+      if (error instanceof PackingPolicyError || error instanceof ShippingPricePolicyError) throw validationError(error.message);
       throw error;
     }
   };

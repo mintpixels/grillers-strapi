@@ -1,0 +1,68 @@
+{
+  "collectionName": "components_shared_shipping_price_policies",
+  "info": {
+    "displayName": "Customer shipping price policy",
+    "description": "Approved carrier pricing. Costs and customer prices remain separate. No numeric defaults are operating approval."
+  },
+  "options": {},
+  "attributes": {
+    "version": {
+      "type": "integer",
+      "required": true,
+      "default": 1,
+      "min": 1,
+      "max": 1
+    },
+    "revision": {
+      "type": "string",
+      "required": true
+    },
+    "approvedBy": {
+      "type": "string",
+      "required": true
+    },
+    "approvedAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "approvalReference": {
+      "type": "text",
+      "required": true
+    },
+    "effectiveFrom": {
+      "type": "datetime",
+      "required": true
+    },
+    "effectiveThrough": {
+      "type": "datetime",
+      "required": true
+    },
+    "currency": {
+      "type": "enumeration",
+      "enum": [
+        "usd"
+      ],
+      "required": true
+    },
+    "maxCustomerShipping": {
+      "type": "decimal",
+      "min": 0.01,
+      "required": true
+    },
+    "cmsFallbackBasis": {
+      "type": "enumeration",
+      "enum": [
+        "freight_only",
+        "inclusive_customer_tariff"
+      ],
+      "required": true
+    },
+    "finalShipping": {
+      "type": "enumeration",
+      "enum": [
+        "retain_accepted"
+      ],
+      "required": true
+    }
+  }
+}
