@@ -19,7 +19,15 @@
     },
     "DeliveryDay": {
       "type": "enumeration",
-      "enum": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "enum": [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
       "required": true
     },
     "Weekdays": {
@@ -107,6 +115,36 @@
     },
     "Notes": {
       "type": "text",
+      "required": false
+    },
+    "CalendarPreparationDays": {
+      "type": "integer",
+      "required": false,
+      "description": "Operating preparation days before route dispatch.",
+      "min": 0,
+      "max": 14
+    },
+    "CalendarCutoffDays": {
+      "type": "integer",
+      "required": false,
+      "description": "Order cutoff in calendar days before the route date.",
+      "min": 0,
+      "max": 30
+    },
+    "CalendarCutoffTime": {
+      "type": "string",
+      "required": false,
+      "description": "Eastern HH:mm cutoff on the specified day before the route."
+    },
+    "CalendarPackTime": {
+      "type": "string",
+      "required": false,
+      "description": "Eastern HH:mm at which preparation completes and cold exposure begins."
+    },
+    "CalendarWindows": {
+      "type": "component",
+      "component": "checkout.calendar-window",
+      "repeatable": true,
       "required": false
     }
   }

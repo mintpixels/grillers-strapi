@@ -1,0 +1,58 @@
+{
+  "collectionName": "components_checkout_fulfillment_transit_rule",
+  "info": {
+    "displayName": "Approved transit fallback",
+    "description": "Used only when no fresh, matching carrier result exists. Existing hardcoded ZIP tables do not imply approval."
+  },
+  "options": {},
+  "attributes": {
+    "Service": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "GROUND",
+        "UPS_3_DAY_SELECT",
+        "UPS_2ND_DAY_AIR",
+        "OVERNIGHT"
+      ]
+    },
+    "OriginPostalCode": {
+      "type": "string",
+      "required": true,
+      "description": "Five-digit carrier origin ZIP."
+    },
+    "DestinationZipPrefix": {
+      "type": "string",
+      "required": true,
+      "description": "One to five ZIP digits. Longest matching prefix wins; duplicate specificity is rejected."
+    },
+    "BusinessDays": {
+      "type": "integer",
+      "required": true,
+      "description": "Approved conservative carrier business-day estimate, distinct from packed elapsed hours.",
+      "min": 1,
+      "max": 14
+    },
+    "Revision": {
+      "type": "string",
+      "required": true
+    },
+    "ApprovalReference": {
+      "type": "string",
+      "required": true,
+      "description": "Specific approval of this conservative fallback and its source."
+    },
+    "ApprovedAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "ValidFrom": {
+      "type": "date",
+      "required": true
+    },
+    "ValidThrough": {
+      "type": "date",
+      "required": true
+    }
+  }
+}

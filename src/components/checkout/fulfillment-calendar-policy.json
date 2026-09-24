@@ -1,0 +1,146 @@
+{
+  "collectionName": "components_checkout_fulfillment_calendar_policy",
+  "info": {
+    "displayName": "Fulfillment calendar policy",
+    "description": "Approve before activating server calendar acceptance. Uses existing closure and route records. Empty or expired policy cannot book dates."
+  },
+  "options": {},
+  "attributes": {
+    "Revision": {
+      "type": "string",
+      "required": true,
+      "description": "Operator revision; changing any consumed schedule or closure also changes its server hash."
+    },
+    "ApprovalReference": {
+      "type": "string",
+      "required": true,
+      "description": "Link/reference to Peter or the operating owner approval covering this complete calendar."
+    },
+    "ApprovedAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "ValidFrom": {
+      "type": "date",
+      "required": true
+    },
+    "ValidThrough": {
+      "type": "date",
+      "required": true
+    },
+    "Timezone": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "America/New_York"
+      ]
+    },
+    "OriginPostalCode": {
+      "type": "string",
+      "required": true,
+      "description": "Five-digit carrier origin ZIP; must match the configured carrier account origin."
+    },
+    "LookAheadDays": {
+      "type": "integer",
+      "required": true,
+      "min": 1,
+      "max": 60
+    },
+    "QuoteTtlSeconds": {
+      "type": "integer",
+      "required": true,
+      "description": "Time before customer selection must be refreshed. Also capped by its ordering cutoff.",
+      "min": 30,
+      "max": 1800
+    },
+    "OperationsWeekdays": {
+      "type": "json",
+      "required": true,
+      "description": "Recurring plant preparation weekdays; array of full weekday names."
+    },
+    "UPSDispatchWeekdays": {
+      "type": "json",
+      "required": true,
+      "description": "UPS handoff weekdays; array of full weekday names."
+    },
+    "UPSArrivalWeekdays": {
+      "type": "json",
+      "required": true,
+      "description": "Allowed customer arrival weekdays; array of full weekday names."
+    },
+    "UPSCarrierWeekdays": {
+      "type": "json",
+      "required": true,
+      "description": "Days counted toward carrier business transit; array of full weekday names."
+    },
+    "UPSPreparationDays": {
+      "type": "integer",
+      "required": true,
+      "description": "Plant preparation days before carrier handoff.",
+      "min": 0,
+      "max": 14
+    },
+    "UPSOrderCutoffTime": {
+      "type": "string",
+      "required": true,
+      "description": "Eastern HH:mm on the planned preparation date."
+    },
+    "UPSPackTime": {
+      "type": "string",
+      "required": true,
+      "description": "Eastern HH:mm at which cold-chain exposure begins on the preparation date."
+    },
+    "UPSArrivalByTime": {
+      "type": "string",
+      "required": true,
+      "description": "Conservative Eastern HH:mm for the end of the arrival-date estimate; not a carrier guarantee."
+    },
+    "UPSMaxElapsedHours": {
+      "type": "integer",
+      "required": true,
+      "description": "Maximum approved packed-to-arrival exposure, including weekends and holidays.",
+      "min": 1,
+      "max": 336
+    },
+    "UPSAllowNonDeliveryDayHold": {
+      "type": "boolean",
+      "required": true,
+      "description": "Explicit operating approval to allow time spanning non-delivery days. False retains the no-hold rule."
+    },
+    "CalendarPreparationDays": {
+      "type": "integer",
+      "required": true,
+      "description": "Plant pickup preparation operating days before pickup.",
+      "min": 0,
+      "max": 14
+    },
+    "CalendarCutoffDays": {
+      "type": "integer",
+      "required": true,
+      "description": "Plant pickup order cutoff, calendar days before pickup.",
+      "min": 0,
+      "max": 30
+    },
+    "CalendarCutoffTime": {
+      "type": "string",
+      "required": true,
+      "description": "Plant pickup Eastern order cutoff HH:mm."
+    },
+    "CalendarPackTime": {
+      "type": "string",
+      "required": true,
+      "description": "Plant pickup Eastern pack-ready time HH:mm."
+    },
+    "PlantWindows": {
+      "type": "component",
+      "component": "checkout.calendar-window",
+      "repeatable": true,
+      "required": true
+    },
+    "PlantCutoffOverrides": {
+      "type": "component",
+      "component": "checkout.calendar-cutoff-override",
+      "repeatable": true
+    }
+  }
+}

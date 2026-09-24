@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_checkout_calendar_window",
+  "info": {
+    "displayName": "Calendar window",
+    "description": "Published customer window; no default time is invented."
+  },
+  "options": {},
+  "attributes": {
+    "Key": {
+      "type": "string",
+      "required": true,
+      "description": "Stable unique key; preserve existing keys when labels change."
+    },
+    "Label": {
+      "type": "string",
+      "required": true,
+      "description": "Customer-facing time window; must describe an approved operating promise."
+    },
+    "StartTime": {
+      "type": "string",
+      "required": true,
+      "description": "Eastern local HH:mm."
+    },
+    "EndTime": {
+      "type": "string",
+      "required": true,
+      "description": "Eastern local HH:mm, later than start on the same date."
+    }
+  }
+}

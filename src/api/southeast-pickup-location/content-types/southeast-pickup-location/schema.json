@@ -18,7 +18,56 @@
     },
     "State": {
       "type": "enumeration",
-      "enum": ["AL", "AR", "AZ", "CA", "CO", "CT", "DE", "FL", "GA", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY"],
+      "enum": [
+        "AL",
+        "AR",
+        "AZ",
+        "CA",
+        "CO",
+        "CT",
+        "DE",
+        "FL",
+        "GA",
+        "IA",
+        "ID",
+        "IL",
+        "IN",
+        "KS",
+        "KY",
+        "LA",
+        "MA",
+        "MD",
+        "ME",
+        "MI",
+        "MN",
+        "MO",
+        "MS",
+        "MT",
+        "NC",
+        "ND",
+        "NE",
+        "NH",
+        "NJ",
+        "NM",
+        "NV",
+        "NY",
+        "OH",
+        "OK",
+        "OR",
+        "PA",
+        "RI",
+        "SC",
+        "SD",
+        "TN",
+        "TX",
+        "UT",
+        "VA",
+        "VT",
+        "WA",
+        "WI",
+        "WV",
+        "WY"
+      ],
       "required": true
     },
     "Address": {
@@ -42,6 +91,36 @@
     },
     "Description": {
       "type": "text"
+    },
+    "CalendarPreparationDays": {
+      "type": "integer",
+      "required": false,
+      "description": "Operating preparation days before route dispatch.",
+      "min": 0,
+      "max": 14
+    },
+    "CalendarCutoffDays": {
+      "type": "integer",
+      "required": false,
+      "description": "Order cutoff in calendar days before the route date.",
+      "min": 0,
+      "max": 30
+    },
+    "CalendarCutoffTime": {
+      "type": "string",
+      "required": false,
+      "description": "Eastern HH:mm cutoff on the specified day before the route."
+    },
+    "CalendarPackTime": {
+      "type": "string",
+      "required": false,
+      "description": "Eastern HH:mm at which preparation completes and cold exposure begins."
+    },
+    "CalendarWindows": {
+      "type": "component",
+      "component": "checkout.calendar-window",
+      "repeatable": true,
+      "required": false
     }
   }
 }
